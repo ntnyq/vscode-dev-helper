@@ -2,7 +2,8 @@
   "publisher": "ntnyq",
   "name": "vscode-dev-helper",
   "displayName": "VSCode Dev Helper",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "private": true,
   "packageManager": "pnpm@8.2.0",
   "preview": true,
   "description": "",
@@ -13,9 +14,12 @@
     "email": "ntnyq13@gmail.com"
   },
   "homepage": "https://github.com/ntnyq/vscode-dev-helper",
-  "repository": "ntnyq/vscode-dev-helper",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/ntnyq/vscode-dev-helper.git"
+  },
   "main": "./dist/index.js",
-  "icon": "https://ntnyq.com/static/icons/icon-96x96.png",
+  "icon": "./res/icon.png",
   "files": [
     "dist"
   ],
