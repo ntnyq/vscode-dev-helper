@@ -1,0 +1,17 @@
+.DS_Store
+node_modules
+*.log*
+*.local
+dist
+coverage
+.eslintcache
+*.tsbuildinfo
+*.vsix
+
+# Editor
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

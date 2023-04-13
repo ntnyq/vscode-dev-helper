@@ -1,0 +1,84 @@
+{
+  "publisher": "ntnyq",
+  "name": "vscode-dev-helper",
+  "displayName": "VSCode Dev Helper",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.2.0",
+  "preview": true,
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "ntnyq",
+    "email": "ntnyq13@gmail.com"
+  },
+  "homepage": "https://github.com/ntnyq/vscode-dev-helper",
+  "repository": "ntnyq/vscode-dev-helper",
+  "main": "./dist/index.js",
+  "icon": "https://ntnyq.com/static/icons/icon-96x96.png",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production tsup",
+    "dev": "NODE_ENV=development tsup --watch",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint -c eslint.config.mjs --max-warnings 0 .",
+    "pack": "vsce package --no-dependencies",
+    "prepare": "husky install",
+    "publish": "vsce publish --no-dependencies",
+    "release": "bumpp && pnpm publish",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "vscode:prepublish": "pnpm run build"
+  },
+  "dependencies": {
+    "ofetch": "^1.0.1"
+  },
+  "devDependencies": {
+    "@ntnyq/eslint-config": "2.0.0-beta.5",
+    "@ntnyq/prettier-config": "^1.6.1",
+    "@types/node": "^18.15.11",
+    "@types/vscode": "^1.77.0",
+    "@vscode/vsce": "^2.19.0",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.38.0",
+    "eslint-define-config": "^1.17.0",
+    "husky": "^8.0.3",
+    "nano-staged": "^0.8.0",
+    "prettier": "^2.8.7",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.1"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "jsonValidation": [
+      {
+        "fileMatch": "package.json",
+        "url": "./schemas/pnpm.schema.json"
+      }
+    ],
+    "commands": [],
+    "configuration": {},
+    "menus": {
+      "editor/context": [],
+      "explorer/context": []
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/ntnyq/vscode-dev-helper/issues/new"
+  },
+  "categories": [
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "prettier": "@ntnyq/prettier-config",
+  "nano-staged": {
+    "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "pnpm run lint --fix"
+  }
+}
