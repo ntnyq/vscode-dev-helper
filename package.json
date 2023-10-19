@@ -2,7 +2,7 @@
   "publisher": "ntnyq",
   "name": "vscode-dev-helper",
   "displayName": "VSCode Dev Helper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "packageManager": "pnpm@8.9.2",
   "preview": true,
@@ -30,7 +30,7 @@
     "pack": "vsce package --no-dependencies",
     "prepare": "husky install",
     "publish": "vsce publish --no-dependencies",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp && pnpm run publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "vscode:prepublish": "pnpm run build"
