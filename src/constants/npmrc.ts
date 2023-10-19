@@ -1,5 +1,10 @@
 import { BOOL_COMPLETION_ITEMS } from './shared'
 
+/**
+ * Npmrc configuration completion items
+ *
+ * @see {@link https://pnpm.io/npmrc}
+ */
 export const NPMRC_COMPLETION_ITEMS = {
   // Registry
   registry: [
@@ -19,6 +24,13 @@ export const NPMRC_COMPLETION_ITEMS = {
   'public-hoist-pattern': [''],
   'shamefully-hoist': BOOL_COMPLETION_ITEMS,
 
+  // Node Modules Settings
+  'node-linker': ['isolated', 'hoisted', 'pnp'],
+
+  // Nodejs Settings
+  'use-node-version': [''],
+  'node-version': [''],
+
   // Peer Dependency Settings
   'auto-install-peers': BOOL_COMPLETION_ITEMS,
   'dedupe-peer-dependents': BOOL_COMPLETION_ITEMS,
@@ -32,14 +44,17 @@ export const NPMRC_COMPLETION_ITEMS = {
   'include-workspace-root': BOOL_COMPLETION_ITEMS,
   'ignore-workspace-cycles': BOOL_COMPLETION_ITEMS,
   'ignore-workspace-root-check': BOOL_COMPLETION_ITEMS,
+  'disallow-workspace-cycles': BOOL_COMPLETION_ITEMS,
 
   // Cli Settings
   'recursive-install': BOOL_COMPLETION_ITEMS,
   'engine-strict': BOOL_COMPLETION_ITEMS,
   'shell-emulator': BOOL_COMPLETION_ITEMS,
+  'no-color': ['auto', 'always', 'never'],
 
   // Other settings
   'dedupe-direct-deps': BOOL_COMPLETION_ITEMS,
+  'save-prefix': ['^', '~', ''],
 }
 
 export type NPMRCKeyUnion = keyof typeof NPMRC_COMPLETION_ITEMS
