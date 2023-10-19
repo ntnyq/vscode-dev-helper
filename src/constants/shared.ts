@@ -2,9 +2,9 @@
  * @file Shared constants
  */
 
-export const BOOL_COMPLETION_ITEMS = <const>['true', 'false']
+export const BOOL_COMPLETION_ITEMS = ['true', 'false'] as const
 
-export const FEATURE_STATUS_ITEMS = <const>['enable', 'disable']
+export const FEATURE_STATUS_ITEMS = ['enable', 'disable'] as const
 
 export type FeatureStatusType = (typeof FEATURE_STATUS_ITEMS)[number]
 

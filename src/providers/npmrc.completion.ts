@@ -51,7 +51,7 @@ export class NpmRcValueCompletionProvider implements CompletionItemProvider {
     const line = document.lineAt(position)
     const lineText = `${line.text.slice(0, Math.max(0, position.character))}`
     const comletionValueList =
-      NPMRC_COMPLETION_ITEMS[<NPMRCKeyUnion>lineText.replace('=', '')] ?? []
+      NPMRC_COMPLETION_ITEMS[lineText.replace('=', '') as NPMRCKeyUnion] ?? []
 
     const comletionList = comletionValueList.map(
       item =>

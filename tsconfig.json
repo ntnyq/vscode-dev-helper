@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "CommonJS",
     "lib": ["ESnext"],
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "strict": true,
-    "esModuleInterop": true,
-    "strictNullChecks": true,
+    "types": ["node"],
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "types": ["node"]
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true
   }
 }
