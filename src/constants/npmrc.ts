@@ -55,6 +55,7 @@ export const NPMRC_COMPLETION_ITEMS = {
   // Other settings
   'dedupe-direct-deps': BOOL_COMPLETION_ITEMS,
   'save-prefix': ['^', '~', ''],
+  'package-manager-strict': BOOL_COMPLETION_ITEMS,
 }
 
 export type NPMRCKeyUnion = keyof typeof NPMRC_COMPLETION_ITEMS
