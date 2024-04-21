@@ -78,7 +78,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.83.1"
+    "vscode": "^1.88.0"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
