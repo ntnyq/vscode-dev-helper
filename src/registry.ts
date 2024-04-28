@@ -6,7 +6,7 @@ import { languages } from 'vscode'
 import {
   NpmRcKeyCompletionProvider,
   NpmRcValueCompletionProvider,
-} from './providers/npmrc.completion'
+} from './providers/completions/npmrc'
 import type { ExtensionContext } from 'vscode'
 
 export class ExtensionRegistry {

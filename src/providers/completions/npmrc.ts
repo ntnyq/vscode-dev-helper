@@ -1,5 +1,5 @@
 import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode'
-import { NPMRC_COMPLETION_ITEMS, NPMRC_COMPLETION_KEYS } from '../constants/npmrc'
+import { NPMRC_COMPLETION_ITEMS, NPMRC_COMPLETION_KEYS } from '../../constants/npmrc'
 import type {
   CompletionItemProvider,
   DocumentSelector,
@@ -7,7 +7,7 @@ import type {
   ProviderResult,
   TextDocument,
 } from 'vscode'
-import type { NPMRCKeyUnion } from '../constants/npmrc'
+import type { NPMRCKeyUnion } from '../../constants/npmrc'
 
 export class NpmRcKeyCompletionProvider implements CompletionItemProvider {
   public static selector: DocumentSelector = {
