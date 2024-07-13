@@ -166,6 +166,33 @@
           "items": {
             "type": "string"
           }
+        },
+        "supportedArchitectures": {
+          "type": "object",
+          "markdownDescription": "You can specify architectures for which you'd like to install optional dependencies, even if they don't match the architecture of the system running the install.\n\n[pnpm.supportedArchitectures](https://pnpm.io/package_json#pnpmsupportedarchitectures)",
+          "properties": {
+            "os": {
+              "type": "array",
+              "markdownDescription": "Supported OS",
+              "items": {
+                "type": "string"
+              }
+            },
+            "cpu": {
+              "type": "array",
+              "markdownDescription": "Supported CPU",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ignoredOptionalDependencies": {
+          "type": "array",
+          "markdownDescription": "If an optional dependency has its name included in this array, it will be skipped.\n\n[pnpm.ignoredOptionalDependencies](https://pnpm.io/package_json#pnpmignoredoptionaldependencies)",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }
