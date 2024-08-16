@@ -9,7 +9,7 @@ import type {
 } from 'vscode'
 import type { NPMRCKeyUnion } from '../../constants/npmrc'
 
-export class NpmRcKeyCompletionProvider implements CompletionItemProvider {
+export class NPMRCKeyCompletionProvider implements CompletionItemProvider {
   public static selector: DocumentSelector = {
     pattern: '/**/.npmrc',
     scheme: 'file',
@@ -36,7 +36,7 @@ export class NpmRcKeyCompletionProvider implements CompletionItemProvider {
   }
 }
 
-export class NpmRcValueCompletionProvider implements CompletionItemProvider {
+export class NPMRCValueCompletionProvider implements CompletionItemProvider {
   public static selector: DocumentSelector = {
     pattern: '/**/.npmrc',
     scheme: 'file',

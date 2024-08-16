@@ -1,23 +1,11 @@
-import { ExtensionRegistry } from './registry'
-import { Utils } from './utils'
-import type { ExtensionContext } from 'vscode'
+import { defineExtension } from 'reactive-vscode'
+import { logger } from './utils'
+import { useCompletions } from './providers/completions'
 
-export async function activate(context: ExtensionContext) {
-  Utils.Logger.success('activated')
+const { activate, deactivate } = defineExtension(async () => {
+  logger.info('activated')
 
-  // --- COMMAND START ---
-  ExtensionRegistry.registerUiCommand(context)
-  ExtensionRegistry.registerConfigureCommand(context)
-  // --- COMMAND END ---
+  useCompletions()
+})
 
-  // --- PROVIDER START ---
-  ExtensionRegistry.registerHoverProviders(context)
-  ExtensionRegistry.registerCodelensProviders(context)
-  ExtensionRegistry.registerCompletionProviders(context)
-  ExtensionRegistry.registerDefinitionProviders(context)
-  // --- PROVIDER END ---
-}
-
-export async function deactivate() {
-  Utils.Logger.success('deactivated')
-}
+export { activate, deactivate }

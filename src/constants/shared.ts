@@ -13,7 +13,7 @@ export const BUILTIN_COMMANDS = Object.freeze({
   RELOAD_WINDOW: 'workbench.action.reloadWindow',
 })
 
-export const STATUS_BAR_ITEM_ICONS = Object.freeze({
+export const ICONS = Object.freeze({
   spin: '$(loading~spin)',
   watch: '$(eye-watch)',
 })

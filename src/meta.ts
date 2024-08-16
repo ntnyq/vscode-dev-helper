@@ -2,10 +2,10 @@
 // @see https://github.com/antfu/vscode-ext-gen
 
 // Meta info
-export const publisher = "ntnyq"
-export const name = "vscode-dev-helper"
-export const version = "0.0.4"
-export const displayName = "VSCode Dev Helper"
+export const publisher = 'ntnyq'
+export const name = 'vscode-dev-helper'
+export const version = '0.0.4'
+export const displayName = 'VSCode Dev Helper'
 export const description = undefined
 export const extensionId = `${publisher}.${name}`
 
@@ -17,38 +17,30 @@ export type CommandKey = never
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
  */
-export const commands = {
-} satisfies Record<string, CommandKey>
+export const commands = {} satisfies Record<string, CommandKey>
 
 /**
  * Type union of all configs
  */
 export type ConfigKey = never
 
-export interface ConfigKeyTypeMap {
-}
+export interface ConfigKeyTypeMap {}
 
-export interface ConfigShorthandMap {
-}
+export interface ConfigShorthandMap {}
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
-  key: T,
-  default: ConfigKeyTypeMap[T],
+  key: T
+  default: ConfigKeyTypeMap[T]
 }
-
 
 /**
  * Configs map registed by `ntnyq.vscode-dev-helper`
  */
-export const configs = {
-}
+export const configs = {}
 
-export interface ScopedConfigKeyTypeMap {
-}
+export interface ScopedConfigKeyTypeMap {}
 
 export const scopedConfigs = {
-  scope: "vscode-dev-helper",
-  defaults: {
-  } satisfies ScopedConfigKeyTypeMap,
+  scope: 'vscode-dev-helper',
+  defaults: {} satisfies ScopedConfigKeyTypeMap,
 }
-
