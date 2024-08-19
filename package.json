@@ -43,7 +43,7 @@
   "devDependencies": {
     "@ntnyq/eslint-config": "^2.8.2",
     "@ntnyq/prettier-config": "^1.21.2",
-    "@types/node": "^22.3.0",
+    "@types/node": "^22.4.1",
     "@types/vscode": "^1.92.0",
     "@vscode/vsce": "^3.0.0",
     "bumpp": "^9.5.1",
@@ -55,7 +55,7 @@
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
     "vitest": "^2.0.5",
-    "vscode-ext-gen": "^0.3.6"
+    "vscode-ext-gen": "^0.3.7"
   },
   "activationEvents": [
     "onStartupFinished"
