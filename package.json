@@ -43,11 +43,11 @@
   "devDependencies": {
     "@ntnyq/eslint-config": "^2.8.2",
     "@ntnyq/prettier-config": "^1.21.2",
-    "@types/node": "^22.5.2",
-    "@types/vscode": "^1.92.0",
-    "@vscode/vsce": "^3.0.0",
+    "@types/node": "^22.5.4",
+    "@types/vscode": "^1.93.0",
+    "@vscode/vsce": "^3.1.0",
     "bumpp": "^9.5.2",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "husky": "^9.1.5",
     "nano-staged": "^0.8.0",
     "prettier": "^3.3.3",
@@ -81,7 +81,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.92.2"
+    "vscode": "^1.93.0"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
