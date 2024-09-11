@@ -118,6 +118,10 @@
             "type": "string"
           }
         },
+        "onlyBuiltDependenciesFile": {
+          "type": "string",
+          "markdownDescription": "This configuration option allows users to specify a JSON file that lists the only packages permitted to run installation scripts during the pnpm install process. By using this, you can enhance security or ensure that only specific dependencies execute scripts during installation.\n\n[pnpm.onlyBuiltDependenciesFile](https://pnpm.io/package_json#pnpmonlybuiltdependenciesfile)"
+        },
         "allowedDeprecatedVersions": {
           "$ref": "#/definitions/dependency",
           "markdownDescription": "This setting allows muting deprecation warnings of specific packages.\n\n[pnpm.allowedDeprecatedVersions](https://pnpm.io/package_json#pnpmalloweddeprecatedversions)"
@@ -157,6 +161,13 @@
               "items": {
                 "type": "string"
               }
+            },
+            "ignoreGhsas": {
+              "type": "array",
+              "markdownDescription": "A list of GHSA Codes that will be ignored by the [pnpm audit](https://pnpm.io/cli/audit) command\n\n[pnpm.auditConfig.ignoreGhsas](https://pnpm.io/package_json#pnpmauditconfigignoreghsas)",
+              "items": {
+                "type": "string"
+              }
             }
           }
         },
@@ -193,6 +204,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "resolutions": {
+          "$ref": "#/definitions/dependency",
+          "markdownDescription": "Functionally identical to [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides), this field is intended to make it easier to migrate from Yarn.\n\nresolutions and pnpm.overrides get merged before package resolution (with pnpm.overrides taking precedence), which can be useful when you're migrating from Yarn and need to tweak a few packages just for pnpm.\n\n[pnpm.resolutions](https://pnpm.io/package_json#resolutions)"
         }
       }
     }

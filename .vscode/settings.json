@@ -6,6 +6,7 @@
     "vue",
     "yaml",
     "html",
+    "toml",
     "json",
     "jsonc",
     "json5",
@@ -15,5 +16,5 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.words": ["bumpp", "changelogithub", "Cves", "NPMRC", "ofetch", "tsup"]
+  "cSpell.words": ["bumpp", "changelogithub", "Cves", "GHSA", "Ghsas", "NPMRC", "ofetch", "tsup"]
 }
