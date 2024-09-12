@@ -1,9 +1,10 @@
 import { defineExtension } from 'reactive-vscode'
-import { logger } from './utils'
+import { version } from '../package.json'
 import { useCompletions } from './providers/completions'
+import { logger } from './utils'
 
 const { activate, deactivate } = defineExtension(async () => {
-  logger.info('activated')
+  logger.info(`✅ Activated, v${version}`)
 
   useCompletions()
 })

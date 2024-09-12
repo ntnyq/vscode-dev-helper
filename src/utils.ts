@@ -1,5 +1,5 @@
 import { useLogger } from 'reactive-vscode'
-import { Uri, env } from 'vscode'
+import { env, Uri } from 'vscode'
 import * as Meta from './meta'
 
 /**

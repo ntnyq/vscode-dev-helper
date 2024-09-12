@@ -13,4 +13,5 @@ export default defineConfig({
     NODE_ENV: process.env.NODE_ENV || 'production',
   },
   external: ['vscode'],
+  noExternal: ['reactive-vscode'],
 })
