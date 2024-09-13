@@ -11,6 +11,28 @@
 - pnpm config jsonschema in `package.json`
 - `.npmrc` completion
 
+## Commands
+
+<!-- commands -->
+
+| Command                              | Title                                      |
+| ------------------------------------ | ------------------------------------------ |
+| `vscode-dev-helper.enable-codelens`  | VSCode Dev Helper: Enable CodeLens         |
+| `vscode-dev-helper.disable-codelens` | VSCode Dev Helper: Disable CodeLens        |
+| `vscode-dev-helper.codelens-action`  | VSCode Dev Helper: Trigger CodeLens Action |
+
+<!-- commands -->
+
+## Configs
+
+<!-- configs -->
+
+| Key                                | Description     | Type      | Default |
+| ---------------------------------- | --------------- | --------- | ------- |
+| `vscode-dev-helper.enableCodeLens` | Enable CodeLens | `boolean` | `true`  |
+
+<!-- configs -->
+
 ## License
 
 [MIT](./LICENSE) License © 2023-PRESENT [ntnyq](https://github.com/ntnyq)

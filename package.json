@@ -64,11 +64,32 @@
         "url": "./schemas/pnpm.schema.json"
       }
     ],
-    "commands": [],
-    "configuration": {},
-    "menus": {
-      "editor/context": [],
-      "explorer/context": []
+    "commands": [
+      {
+        "command": "vscode-dev-helper.enable-codelens",
+        "category": "VSCode Dev Helper",
+        "title": "Enable CodeLens"
+      },
+      {
+        "command": "vscode-dev-helper.disable-codelens",
+        "category": "VSCode Dev Helper",
+        "title": "Disable CodeLens"
+      },
+      {
+        "command": "vscode-dev-helper.codelens-action",
+        "category": "VSCode Dev Helper",
+        "title": "Trigger CodeLens Action"
+      }
+    ],
+    "configuration": {
+      "title": "VSCode Dev Helper",
+      "properties": {
+        "vscode-dev-helper.enableCodeLens": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable CodeLens"
+        }
+      }
     }
   },
   "bugs": {

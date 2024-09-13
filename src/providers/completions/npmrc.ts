@@ -7,7 +7,7 @@ import type {
   ProviderResult,
   TextDocument,
 } from 'vscode'
-import type { NPMRCKeyUnion } from '../../constants/npmrc'
+import type { NPMRCCompletionKeyUnion } from '../../constants/npmrc'
 
 export class NPMRCKeyCompletionProvider implements CompletionItemProvider {
   public static selector: DocumentSelector = {
@@ -51,7 +51,7 @@ export class NPMRCValueCompletionProvider implements CompletionItemProvider {
     const line = document.lineAt(position)
     const lineText = `${line.text.slice(0, Math.max(0, position.character))}`
     const comletionValueList =
-      NPMRC_COMPLETION_ITEMS[lineText.replace('=', '') as NPMRCKeyUnion] ?? []
+      NPMRC_COMPLETION_ITEMS[lineText.replace('=', '') as NPMRCCompletionKeyUnion] ?? []
 
     const comletionList = comletionValueList.map(
       item =>

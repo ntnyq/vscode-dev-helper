@@ -2,45 +2,86 @@
 // @see https://github.com/antfu/vscode-ext-gen
 
 // Meta info
-export const publisher = 'ntnyq'
-export const name = 'vscode-dev-helper'
-export const version = '0.0.4'
-export const displayName = 'VSCode Dev Helper'
-export const description = undefined
+export const publisher = "ntnyq"
+export const name = "vscode-dev-helper"
+export const version = "0.0.5"
+export const displayName = "VSCode Dev Helper"
+export const description = "Personal dev helper built on top of VSCode"
 export const extensionId = `${publisher}.${name}`
 
 /**
  * Type union of all commands
  */
-export type CommandKey = never
+export type CommandKey = 
+  | "vscode-dev-helper.enable-codelens"
+  | "vscode-dev-helper.disable-codelens"
+  | "vscode-dev-helper.codelens-action"
 
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
  */
-export const commands = {} satisfies Record<string, CommandKey>
+export const commands = {
+  /**
+   * Enable CodeLens
+   * @value `vscode-dev-helper.enable-codelens`
+   */
+  enableCodelens: "vscode-dev-helper.enable-codelens",
+  /**
+   * Disable CodeLens
+   * @value `vscode-dev-helper.disable-codelens`
+   */
+  disableCodelens: "vscode-dev-helper.disable-codelens",
+  /**
+   * Trigger CodeLens Action
+   * @value `vscode-dev-helper.codelens-action`
+   */
+  codelensAction: "vscode-dev-helper.codelens-action",
+} satisfies Record<string, CommandKey>
 
 /**
  * Type union of all configs
  */
-export type ConfigKey = never
+export type ConfigKey = 
+  | "vscode-dev-helper.enableCodeLens"
 
-export interface ConfigKeyTypeMap {}
+export interface ConfigKeyTypeMap {
+  "vscode-dev-helper.enableCodeLens": boolean,
+}
 
-export interface ConfigShorthandMap {}
+export interface ConfigShorthandMap {
+  enableCodeLens: "vscode-dev-helper.enableCodeLens",
+}
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
-  key: T
-  default: ConfigKeyTypeMap[T]
+  key: T,
+  default: ConfigKeyTypeMap[T],
 }
+
 
 /**
  * Configs map registed by `ntnyq.vscode-dev-helper`
  */
-export const configs = {}
+export const configs = {
+  /**
+   * Enable CodeLens
+   * @key `vscode-dev-helper.enableCodeLens`
+   * @default `true`
+   * @type `boolean`
+   */
+  enableCodeLens: {
+    key: "vscode-dev-helper.enableCodeLens",
+    default: true,
+  } as ConfigItem<"vscode-dev-helper.enableCodeLens">,
+}
 
-export interface ScopedConfigKeyTypeMap {}
+export interface ScopedConfigKeyTypeMap {
+  "enableCodeLens": boolean,
+}
 
 export const scopedConfigs = {
-  scope: 'vscode-dev-helper',
-  defaults: {} satisfies ScopedConfigKeyTypeMap,
+  scope: "vscode-dev-helper",
+  defaults: {
+    "enableCodeLens": true,
+  } satisfies ScopedConfigKeyTypeMap,
 }
+
