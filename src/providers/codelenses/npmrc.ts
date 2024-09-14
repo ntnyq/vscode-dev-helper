@@ -2,7 +2,7 @@ import { useActiveTextEditor, useDocumentText } from 'reactive-vscode'
 import { CodeLens, EventEmitter, workspace } from 'vscode'
 import { config } from '../../config'
 import { NPMRC_CODELENS_ITEMS, NPMRC_CODELENS_KEYS } from '../../constants/npmrc'
-import * as Meta from '../../meta'
+import { commands } from '../../meta'
 import { logger } from '../../utils'
 import type {
   CodeLensProvider,
@@ -60,7 +60,7 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
         const codelens = new CodeLens(range, {
           title: 'viewDocs',
           tooltip: codelensItem.description,
-          command: Meta.commands.codelensAction,
+          command: commands.codelensAction,
           arguments: [codelensItem.url || ''],
         })
 
