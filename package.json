@@ -99,7 +99,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.93.0"
+    "vscode": "^1.93.1"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
