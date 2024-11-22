@@ -9,17 +9,19 @@
 ## Features
 
 - pnpm config jsonschema in `package.json`
-- `.npmrc` completion
+- `.npmrc` completion, codelenses
+- Generate GitHub alert in markdown
 
 ## Commands
 
 <!-- commands -->
 
-| Command                              | Title                                      |
-| ------------------------------------ | ------------------------------------------ |
-| `vscode-dev-helper.enable-codelens`  | VSCode Dev Helper: Enable CodeLens         |
-| `vscode-dev-helper.disable-codelens` | VSCode Dev Helper: Disable CodeLens        |
-| `vscode-dev-helper.codelens-action`  | VSCode Dev Helper: Trigger CodeLens Action |
+| Command                                 | Title                                      |
+| --------------------------------------- | ------------------------------------------ |
+| `vscode-dev-helper.enable-codelens`     | VSCode Dev Helper: Enable CodeLens         |
+| `vscode-dev-helper.disable-codelens`    | VSCode Dev Helper: Disable CodeLens        |
+| `vscode-dev-helper.codelens-action`     | VSCode Dev Helper: Trigger CodeLens Action |
+| `vscode-dev-helper.create-github-alert` | VSCode Dev Helper: Create GitHub Alert     |
 
 <!-- commands -->
 

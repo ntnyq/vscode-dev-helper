@@ -26,7 +26,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "NODE_ENV=development tsup",
-    "generate:type": "vscode-ext-gen --output=src/meta.ts",
+    "generate:meta": "vscode-ext-gen --output=src/meta.ts",
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
@@ -37,6 +37,7 @@
     "vscode:prepublish": "pnpm run build"
   },
   "dependencies": {
+    "@ntnyq/utils": "^0.3.1",
     "ofetch": "^1.4.1",
     "reactive-vscode": "^0.2.8"
   },
@@ -53,7 +54,7 @@
     "prettier": "^3.3.3",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "vitest": "^2.1.5",
     "vscode-ext-gen": "^0.5.0"
   },
@@ -82,6 +83,11 @@
         "command": "vscode-dev-helper.codelens-action",
         "category": "VSCode Dev Helper",
         "title": "Trigger CodeLens Action"
+      },
+      {
+        "command": "vscode-dev-helper.create-github-alert",
+        "category": "VSCode Dev Helper",
+        "title": "Create GitHub Alert"
       }
     ],
     "configuration": {
@@ -99,7 +105,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.95.3"
+    "vscode": "^1.95.0"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {

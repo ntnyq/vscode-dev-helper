@@ -16,6 +16,7 @@ export type CommandKey =
   | "vscode-dev-helper.enable-codelens"
   | "vscode-dev-helper.disable-codelens"
   | "vscode-dev-helper.codelens-action"
+  | "vscode-dev-helper.create-github-alert"
 
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
@@ -36,6 +37,11 @@ export const commands = {
    * @value `vscode-dev-helper.codelens-action`
    */
   codelensAction: "vscode-dev-helper.codelens-action",
+  /**
+   * Create GitHub Alert
+   * @value `vscode-dev-helper.create-github-alert`
+   */
+  createGithubAlert: "vscode-dev-helper.create-github-alert",
 } satisfies Record<string, CommandKey>
 
 /**
@@ -59,7 +65,7 @@ export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
 
 
 /**
- * Configs map registed by `ntnyq.vscode-dev-helper`
+ * Configs map registered by `ntnyq.vscode-dev-helper`
  */
 export const configs = {
   /**
@@ -83,5 +89,15 @@ export const scopedConfigs = {
   defaults: {
     "enableCodeLens": true,
   } satisfies ScopedConfigKeyTypeMap,
+}
+
+export interface NestedConfigs {
+  "vscode-dev-helper": {
+    "enableCodeLens": boolean,
+  },
+}
+
+export interface NestedScopedConfigs {
+  "enableCodeLens": boolean,
 }
 

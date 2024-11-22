@@ -16,5 +16,14 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.words": ["bumpp", "changelogithub", "Cves", "GHSA", "Ghsas", "NPMRC", "ofetch", "tsup"]
+  "cSpell.words": ["bumpp", "changelogithub", "Cves", "GHSA", "Ghsas", "NPMRC", "ofetch", "tsup"],
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "package.json",
+        "cmd": "pnpm run generate:meta",
+        "isAsync": true
+      }
+    ]
+  }
 }
