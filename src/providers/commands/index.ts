@@ -1,12 +1,20 @@
-import { computed, useActiveTextEditor, useCommand } from 'reactive-vscode'
+import { upperFirst } from '@ntnyq/utils'
+import { computed, useActiveTextEditor, useCommand, useTextEditorSelection } from 'reactive-vscode'
 import { SnippetString, window } from 'vscode'
 import { config } from '../../config'
+import {
+  ALERT_DEFAULT_SYNTAX,
+  ALERT_DEFAULT_UPPERCASE_TYPE,
+  ALERT_PRESET_CUSTOM,
+  markdownAlertPresets,
+} from '../../constants/alert'
 import { commands } from '../../meta'
 import { openExternalURL } from '../../utils'
-import { createGitHubAlert } from '../../utils/markdown'
+import { createAlert } from '../../utils/markdown'
 
 export function useCommands() {
   const activeTextEditor = useActiveTextEditor()
+  const selection = useTextEditorSelection(activeTextEditor)
   const language = computed(() => activeTextEditor.value?.document.languageId)
 
   useCommand(commands.enableCodelens, () => {
@@ -22,25 +30,48 @@ export function useCommands() {
     openExternalURL(url)
   })
 
-  useCommand(commands.createGithubAlert, async () => {
+  useCommand(commands.createAlert, async () => {
+    if (!activeTextEditor.value) return
+
     if (!language.value || !['markdown', 'mdx'].includes(language.value)) {
-      return window.showWarningMessage('Only markdown is supported')
+      return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
-    const choice = await window.showQuickPick(['Note', 'Tip', 'Important', 'Warning', 'Caution'], {
+    const useCustomPreset = config.alertPreset === ALERT_PRESET_CUSTOM
+
+    const alertPreset = markdownAlertPresets.find(preset => preset.name === config.alertPreset)
+
+    const alertTypes = useCustomPreset ? config.alertTypes : alertPreset?.types
+
+    if (!alertTypes?.length) {
+      if (useCustomPreset) {
+        window.showWarningMessage('Please add alert types in settings')
+      }
+      return
+    }
+
+    const type = await window.showQuickPick(alertTypes.map(upperFirst), {
       canPickMany: false,
-      title: 'Select github alert type',
-      placeHolder: 'Select github alert type',
+      title: 'Select alert type',
+      placeHolder: 'Select alert type',
     })
 
-    if (!choice) {
-      return window.showWarningMessage('Canceled')
-    }
+    if (!type) return
 
-    const alertText = createGitHubAlert(choice)
+    const content = activeTextEditor.value.document.getText(selection.value)
 
-    await activeTextEditor.value?.insertSnippet(new SnippetString(alertText))
+    const alertText = createAlert({
+      type,
+      content,
+      marker: config.alertMarker,
+      syntax: (useCustomPreset ? config.alertSyntax : alertPreset?.syntax) || ALERT_DEFAULT_SYNTAX,
+      uppercaseType:
+        (useCustomPreset ? config.alertUppercaseType : alertPreset?.uppercaseType) ||
+        ALERT_DEFAULT_UPPERCASE_TYPE,
+    })
 
-    return window.showInformationMessage('Created')
+    await activeTextEditor.value.insertSnippet(new SnippetString(alertText))
+
+    return window.showInformationMessage(`${type.toUpperCase()} Created`)
   })
 }

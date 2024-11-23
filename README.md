@@ -10,18 +10,18 @@
 
 - pnpm config jsonschema in `package.json`
 - `.npmrc` completion, codelenses
-- Generate GitHub alert in markdown
+- create Alert in markdown, default [GitHub](https://github.com/orgs/community/discussions/16925) style
 
 ## Commands
 
 <!-- commands -->
 
-| Command                                 | Title                                      |
-| --------------------------------------- | ------------------------------------------ |
-| `vscode-dev-helper.enable-codelens`     | VSCode Dev Helper: Enable CodeLens         |
-| `vscode-dev-helper.disable-codelens`    | VSCode Dev Helper: Disable CodeLens        |
-| `vscode-dev-helper.codelens-action`     | VSCode Dev Helper: Trigger CodeLens Action |
-| `vscode-dev-helper.create-github-alert` | VSCode Dev Helper: Create GitHub Alert     |
+| Command                              | Title                                      |
+| ------------------------------------ | ------------------------------------------ |
+| `vscode-dev-helper.enable-codelens`  | VSCode Dev Helper: Enable CodeLens         |
+| `vscode-dev-helper.disable-codelens` | VSCode Dev Helper: Disable CodeLens        |
+| `vscode-dev-helper.codelens-action`  | VSCode Dev Helper: Trigger CodeLens Action |
+| `vscode-dev-helper.create-alert`     | VSCode Dev Helper: Create Alert            |
 
 <!-- commands -->
 
@@ -29,9 +29,14 @@
 
 <!-- configs -->
 
-| Key                                | Description     | Type      | Default |
-| ---------------------------------- | --------------- | --------- | ------- |
-| `vscode-dev-helper.enableCodeLens` | Enable CodeLens | `boolean` | `true`  |
+| Key                                    | Description                         | Type      | Default                                       |
+| -------------------------------------- | ----------------------------------- | --------- | --------------------------------------------- |
+| `vscode-dev-helper.enableCodeLens`     | Enable CodeLens                     | `boolean` | `true`                                        |
+| `vscode-dev-helper.alertPreset`        | Preset of Alert                     | `string`  | `"github"`                                    |
+| `vscode-dev-helper.alertTypes`         | Types for Custom Alert              | `array`   | `["info","tip","success","warning","danger"]` |
+| `vscode-dev-helper.alertMarker`        | Marker for Custom Alert             | `string`  | `"!"`                                         |
+| `vscode-dev-helper.alertSyntax`        | Markdown Syntax for Custom Alert    | `string`  | `"container"`                                 |
+| `vscode-dev-helper.alertUppercaseType` | Use Uppercase Type for Custom Alert | `boolean` | `false`                                       |
 
 <!-- configs -->
 

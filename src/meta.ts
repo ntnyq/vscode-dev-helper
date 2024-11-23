@@ -16,7 +16,7 @@ export type CommandKey =
   | "vscode-dev-helper.enable-codelens"
   | "vscode-dev-helper.disable-codelens"
   | "vscode-dev-helper.codelens-action"
-  | "vscode-dev-helper.create-github-alert"
+  | "vscode-dev-helper.create-alert"
 
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
@@ -38,10 +38,10 @@ export const commands = {
    */
   codelensAction: "vscode-dev-helper.codelens-action",
   /**
-   * Create GitHub Alert
-   * @value `vscode-dev-helper.create-github-alert`
+   * Create Alert
+   * @value `vscode-dev-helper.create-alert`
    */
-  createGithubAlert: "vscode-dev-helper.create-github-alert",
+  createAlert: "vscode-dev-helper.create-alert",
 } satisfies Record<string, CommandKey>
 
 /**
@@ -49,13 +49,28 @@ export const commands = {
  */
 export type ConfigKey = 
   | "vscode-dev-helper.enableCodeLens"
+  | "vscode-dev-helper.alertPreset"
+  | "vscode-dev-helper.alertTypes"
+  | "vscode-dev-helper.alertMarker"
+  | "vscode-dev-helper.alertSyntax"
+  | "vscode-dev-helper.alertUppercaseType"
 
 export interface ConfigKeyTypeMap {
   "vscode-dev-helper.enableCodeLens": boolean,
+  "vscode-dev-helper.alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
+  "vscode-dev-helper.alertTypes": string[],
+  "vscode-dev-helper.alertMarker": string,
+  "vscode-dev-helper.alertSyntax": ("blockquote" | "container"),
+  "vscode-dev-helper.alertUppercaseType": boolean,
 }
 
 export interface ConfigShorthandMap {
   enableCodeLens: "vscode-dev-helper.enableCodeLens",
+  alertPreset: "vscode-dev-helper.alertPreset",
+  alertTypes: "vscode-dev-helper.alertTypes",
+  alertMarker: "vscode-dev-helper.alertMarker",
+  alertSyntax: "vscode-dev-helper.alertSyntax",
+  alertUppercaseType: "vscode-dev-helper.alertUppercaseType",
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -78,26 +93,96 @@ export const configs = {
     key: "vscode-dev-helper.enableCodeLens",
     default: true,
   } as ConfigItem<"vscode-dev-helper.enableCodeLens">,
+  /**
+   * Preset of Alert
+   * @key `vscode-dev-helper.alertPreset`
+   * @default `"github"`
+   * @type `string`
+   */
+  alertPreset: {
+    key: "vscode-dev-helper.alertPreset",
+    default: "github",
+  } as ConfigItem<"vscode-dev-helper.alertPreset">,
+  /**
+   * Types for Custom Alert
+   * @key `vscode-dev-helper.alertTypes`
+   * @default `["info","tip","success","warning","danger"]`
+   * @type `array`
+   */
+  alertTypes: {
+    key: "vscode-dev-helper.alertTypes",
+    default: ["info","tip","success","warning","danger"],
+  } as ConfigItem<"vscode-dev-helper.alertTypes">,
+  /**
+   * Marker for Custom Alert
+   * @key `vscode-dev-helper.alertMarker`
+   * @default `"!"`
+   * @type `string`
+   */
+  alertMarker: {
+    key: "vscode-dev-helper.alertMarker",
+    default: "!",
+  } as ConfigItem<"vscode-dev-helper.alertMarker">,
+  /**
+   * Markdown Syntax for Custom Alert
+   * @key `vscode-dev-helper.alertSyntax`
+   * @default `"container"`
+   * @type `string`
+   */
+  alertSyntax: {
+    key: "vscode-dev-helper.alertSyntax",
+    default: "container",
+  } as ConfigItem<"vscode-dev-helper.alertSyntax">,
+  /**
+   * Use Uppercase Type for Custom Alert
+   * @key `vscode-dev-helper.alertUppercaseType`
+   * @default `false`
+   * @type `boolean`
+   */
+  alertUppercaseType: {
+    key: "vscode-dev-helper.alertUppercaseType",
+    default: false,
+  } as ConfigItem<"vscode-dev-helper.alertUppercaseType">,
 }
 
 export interface ScopedConfigKeyTypeMap {
   "enableCodeLens": boolean,
+  "alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
+  "alertTypes": string[],
+  "alertMarker": string,
+  "alertSyntax": ("blockquote" | "container"),
+  "alertUppercaseType": boolean,
 }
 
 export const scopedConfigs = {
   scope: "vscode-dev-helper",
   defaults: {
     "enableCodeLens": true,
+    "alertPreset": "github",
+    "alertTypes": ["info","tip","success","warning","danger"],
+    "alertMarker": "!",
+    "alertSyntax": "container",
+    "alertUppercaseType": false,
   } satisfies ScopedConfigKeyTypeMap,
 }
 
 export interface NestedConfigs {
   "vscode-dev-helper": {
     "enableCodeLens": boolean,
+    "alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
+    "alertTypes": string[],
+    "alertMarker": string,
+    "alertSyntax": ("blockquote" | "container"),
+    "alertUppercaseType": boolean,
   },
 }
 
 export interface NestedScopedConfigs {
   "enableCodeLens": boolean,
+  "alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
+  "alertTypes": string[],
+  "alertMarker": string,
+  "alertSyntax": ("blockquote" | "container"),
+  "alertUppercaseType": boolean,
 }
 

@@ -44,7 +44,7 @@
   "devDependencies": {
     "@ntnyq/eslint-config": "^3.3.0",
     "@ntnyq/prettier-config": "^1.22.0",
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.9.3",
     "@types/vscode": "^1.95.0",
     "@vscode/vsce": "^3.2.1",
     "bumpp": "^9.8.1",
@@ -85,11 +85,20 @@
         "title": "Trigger CodeLens Action"
       },
       {
-        "command": "vscode-dev-helper.create-github-alert",
+        "command": "vscode-dev-helper.create-alert",
         "category": "VSCode Dev Helper",
-        "title": "Create GitHub Alert"
+        "title": "Create Alert"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorLangId == markdown || editorLangId == mdx",
+          "command": "vscode-dev-helper.create-alert",
+          "group": "z_commands"
+        }
+      ]
+    },
     "configuration": {
       "title": "VSCode Dev Helper",
       "properties": {
@@ -97,6 +106,51 @@
           "type": "boolean",
           "default": true,
           "description": "Enable CodeLens"
+        },
+        "vscode-dev-helper.alertPreset": {
+          "type": "string",
+          "enum": [
+            "github",
+            "obsidian",
+            "vitepress",
+            "custom"
+          ],
+          "default": "github",
+          "description": "Preset of Alert"
+        },
+        "vscode-dev-helper.alertTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true,
+          "default": [
+            "info",
+            "tip",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "description": "Types for Custom Alert"
+        },
+        "vscode-dev-helper.alertMarker": {
+          "type": "string",
+          "default": "!",
+          "description": "Marker for Custom Alert"
+        },
+        "vscode-dev-helper.alertSyntax": {
+          "type": "string",
+          "enum": [
+            "blockquote",
+            "container"
+          ],
+          "default": "container",
+          "description": "Markdown Syntax for Custom Alert"
+        },
+        "vscode-dev-helper.alertUppercaseType": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use Uppercase Type for Custom Alert"
         }
       }
     }
