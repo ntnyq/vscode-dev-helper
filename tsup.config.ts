@@ -2,8 +2,6 @@ import process from 'node:process'
 import { defineConfig } from 'tsup'
 import pkg from './package.json'
 
-console.log([...Object.keys(pkg.dependencies || {})])
-
 export default defineConfig({
   entry: ['src/index.ts'],
   format: ['cjs'],

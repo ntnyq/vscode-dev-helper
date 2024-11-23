@@ -25,7 +25,6 @@
   "icon": "./res/icon.png",
   "files": [
     "LICENSE",
-    "README.md",
     "dist/*",
     "res/*",
     "schemas/*"
@@ -37,11 +36,13 @@
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
-    "publish": "vsce publish --no-dependencies",
-    "release": "bumpp && pnpm run publish",
+    "release": "run-s release:check release:build release:version release:publish",
+    "release:build": "run-s generate:meta build",
+    "release:check": "run-s lint typecheck",
+    "release:publish": "vsce publish --no-dependencies",
+    "release:version": "bumpp --all",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "vscode:prepublish": "run-s generate:meta build"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@ntnyq/utils": "^0.3.1",
