@@ -96,9 +96,21 @@
         "command": "vscode-dev-helper.create-alert",
         "category": "VSCode Dev Helper",
         "title": "Create Alert"
+      },
+      {
+        "command": "vscode-dev-helper.generate-node-version",
+        "category": "VSCode Dev Helper",
+        "title": "Generate .node-version"
       }
     ],
     "menus": {
+      "explorer/context": [
+        {
+          "command": "vscode-dev-helper.generate-node-version",
+          "when": "explorerResourceIsFolder",
+          "group": "VSCodeDevHelper@1"
+        }
+      ],
       "editor/context": [
         {
           "when": "editorLangId == markdown || editorLangId == mdx",
@@ -159,6 +171,11 @@
           "type": "boolean",
           "default": false,
           "description": "Use Uppercase Type for Custom Alert"
+        },
+        "vscode-dev-helper.nodeVersion": {
+          "type": "string",
+          "default": "lts-latest",
+          "description": "Default version for .node-version"
         }
       }
     }

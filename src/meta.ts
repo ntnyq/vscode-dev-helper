@@ -17,6 +17,7 @@ export type CommandKey =
   | "vscode-dev-helper.disable-codelens"
   | "vscode-dev-helper.codelens-action"
   | "vscode-dev-helper.create-alert"
+  | "vscode-dev-helper.generate-node-version"
 
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
@@ -42,6 +43,11 @@ export const commands = {
    * @value `vscode-dev-helper.create-alert`
    */
   createAlert: "vscode-dev-helper.create-alert",
+  /**
+   * Generate .node-version
+   * @value `vscode-dev-helper.generate-node-version`
+   */
+  generateNodeVersion: "vscode-dev-helper.generate-node-version",
 } satisfies Record<string, CommandKey>
 
 /**
@@ -54,6 +60,7 @@ export type ConfigKey =
   | "vscode-dev-helper.alertMarker"
   | "vscode-dev-helper.alertSyntax"
   | "vscode-dev-helper.alertUppercaseType"
+  | "vscode-dev-helper.nodeVersion"
 
 export interface ConfigKeyTypeMap {
   "vscode-dev-helper.enableCodeLens": boolean,
@@ -62,6 +69,7 @@ export interface ConfigKeyTypeMap {
   "vscode-dev-helper.alertMarker": string,
   "vscode-dev-helper.alertSyntax": ("blockquote" | "container"),
   "vscode-dev-helper.alertUppercaseType": boolean,
+  "vscode-dev-helper.nodeVersion": string,
 }
 
 export interface ConfigShorthandMap {
@@ -71,6 +79,7 @@ export interface ConfigShorthandMap {
   alertMarker: "vscode-dev-helper.alertMarker",
   alertSyntax: "vscode-dev-helper.alertSyntax",
   alertUppercaseType: "vscode-dev-helper.alertUppercaseType",
+  nodeVersion: "vscode-dev-helper.nodeVersion",
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -143,6 +152,16 @@ export const configs = {
     key: "vscode-dev-helper.alertUppercaseType",
     default: false,
   } as ConfigItem<"vscode-dev-helper.alertUppercaseType">,
+  /**
+   * Default version for .node-version
+   * @key `vscode-dev-helper.nodeVersion`
+   * @default `"lts-latest"`
+   * @type `string`
+   */
+  nodeVersion: {
+    key: "vscode-dev-helper.nodeVersion",
+    default: "lts-latest",
+  } as ConfigItem<"vscode-dev-helper.nodeVersion">,
 }
 
 export interface ScopedConfigKeyTypeMap {
@@ -152,6 +171,7 @@ export interface ScopedConfigKeyTypeMap {
   "alertMarker": string,
   "alertSyntax": ("blockquote" | "container"),
   "alertUppercaseType": boolean,
+  "nodeVersion": string,
 }
 
 export const scopedConfigs = {
@@ -163,6 +183,7 @@ export const scopedConfigs = {
     "alertMarker": "!",
     "alertSyntax": "container",
     "alertUppercaseType": false,
+    "nodeVersion": "lts-latest",
   } satisfies ScopedConfigKeyTypeMap,
 }
 
@@ -174,6 +195,7 @@ export interface NestedConfigs {
     "alertMarker": string,
     "alertSyntax": ("blockquote" | "container"),
     "alertUppercaseType": boolean,
+    "nodeVersion": string,
   },
 }
 
@@ -184,5 +206,6 @@ export interface NestedScopedConfigs {
   "alertMarker": string,
   "alertSyntax": ("blockquote" | "container"),
   "alertUppercaseType": boolean,
+  "nodeVersion": string,
 }
 

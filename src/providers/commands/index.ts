@@ -11,6 +11,7 @@ import {
 import { commands } from '../../meta'
 import { openExternalURL } from '../../utils'
 import { createAlert } from '../../utils/markdown'
+import { generateNodeVersion } from './generateNodeVersion'
 
 export function useCommands() {
   const activeTextEditor = useActiveTextEditor()
@@ -28,6 +29,11 @@ export function useCommands() {
   useCommand(commands.codelensAction, (url: string) => {
     if (!url.length) return
     openExternalURL(url)
+  })
+
+  useCommand(commands.generateNodeVersion, async () => {
+    await generateNodeVersion()
+    window.showInformationMessage('File .node-version Generated')
   })
 
   useCommand(commands.createAlert, async () => {

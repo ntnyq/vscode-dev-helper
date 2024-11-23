@@ -10,18 +10,20 @@
 
 - pnpm config jsonschema in `package.json`
 - `.npmrc` completion, codelenses
+- generate `.node-version` file
 - create Alert in markdown, default [GitHub](https://github.com/orgs/community/discussions/16925) style
 
 ## Commands
 
 <!-- commands -->
 
-| Command                              | Title                                      |
-| ------------------------------------ | ------------------------------------------ |
-| `vscode-dev-helper.enable-codelens`  | VSCode Dev Helper: Enable CodeLens         |
-| `vscode-dev-helper.disable-codelens` | VSCode Dev Helper: Disable CodeLens        |
-| `vscode-dev-helper.codelens-action`  | VSCode Dev Helper: Trigger CodeLens Action |
-| `vscode-dev-helper.create-alert`     | VSCode Dev Helper: Create Alert            |
+| Command                                   | Title                                      |
+| ----------------------------------------- | ------------------------------------------ |
+| `vscode-dev-helper.enable-codelens`       | VSCode Dev Helper: Enable CodeLens         |
+| `vscode-dev-helper.disable-codelens`      | VSCode Dev Helper: Disable CodeLens        |
+| `vscode-dev-helper.codelens-action`       | VSCode Dev Helper: Trigger CodeLens Action |
+| `vscode-dev-helper.create-alert`          | VSCode Dev Helper: Create Alert            |
+| `vscode-dev-helper.generate-node-version` | VSCode Dev Helper: Generate .node-version  |
 
 <!-- commands -->
 
@@ -37,6 +39,7 @@
 | `vscode-dev-helper.alertMarker`        | Marker for Custom Alert             | `string`  | `"!"`                                         |
 | `vscode-dev-helper.alertSyntax`        | Markdown Syntax for Custom Alert    | `string`  | `"container"`                                 |
 | `vscode-dev-helper.alertUppercaseType` | Use Uppercase Type for Custom Alert | `boolean` | `false`                                       |
+| `vscode-dev-helper.nodeVersion`        | Default version for .node-version   | `string`  | `"lts-latest"`                                |
 
 <!-- configs -->
 
