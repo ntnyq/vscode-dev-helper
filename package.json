@@ -23,6 +23,13 @@
   },
   "main": "./dist/index.js",
   "icon": "./res/icon.png",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/*",
+    "res/*",
+    "schemas/*"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "NODE_ENV=development tsup",
@@ -34,7 +41,7 @@
     "release": "bumpp && pnpm run publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "vscode:prepublish": "pnpm run build"
+    "vscode:prepublish": "run-s generate:meta build"
   },
   "dependencies": {
     "@ntnyq/utils": "^0.3.1",
@@ -51,6 +58,7 @@
     "eslint": "^9.15.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
+    "npm-run-all2": "^7.0.1",
     "prettier": "^3.3.3",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
