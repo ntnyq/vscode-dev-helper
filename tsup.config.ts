@@ -1,5 +1,8 @@
 import process from 'node:process'
 import { defineConfig } from 'tsup'
+import pkg from './package.json'
+
+console.log([...Object.keys(pkg.dependencies || {})])
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -13,5 +16,8 @@ export default defineConfig({
     NODE_ENV: process.env.NODE_ENV || 'production',
   },
   external: ['vscode'],
-  noExternal: ['reactive-vscode'],
+  noExternal: [
+    // Bundle all dependencies
+    ...Object.keys(pkg.dependencies || {}),
+  ],
 })
