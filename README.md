@@ -24,6 +24,7 @@
 | `vscode-dev-helper.codelens-action`       | VSCode Dev Helper: Trigger CodeLens Action |
 | `vscode-dev-helper.create-alert`          | VSCode Dev Helper: Create Alert            |
 | `vscode-dev-helper.generate-node-version` | VSCode Dev Helper: Generate .node-version  |
+| `vscode-dev-helper.insert-inline-code`    | VSCode Dev Helper: Insert Inline Code      |
 
 <!-- commands -->
 

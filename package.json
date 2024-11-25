@@ -15,8 +15,8 @@
   },
   "homepage": "https://github.com/ntnyq/vscode-dev-helper",
   "repository": {
-    "type": "github",
-    "url": "https://github.com/ntnyq/vscode-dev-helper.git"
+    "type": "git",
+    "url": "git+https://github.com/ntnyq/vscode-dev-helper.git"
   },
   "bugs": {
     "url": "https://github.com/ntnyq/vscode-dev-helper/issues/new"
@@ -47,10 +47,10 @@
   "dependencies": {
     "@ntnyq/utils": "^0.3.1",
     "ofetch": "^1.4.1",
-    "reactive-vscode": "^0.2.8"
+    "reactive-vscode": "^0.2.9"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.3.1",
+    "@ntnyq/eslint-config": "^3.4.0",
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.9.3",
     "@types/vscode": "^1.95.0",
@@ -71,55 +71,6 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "jsonValidation": [
-      {
-        "fileMatch": "package.json",
-        "url": "./schemas/pnpm.schema.json"
-      }
-    ],
-    "commands": [
-      {
-        "command": "vscode-dev-helper.enable-codelens",
-        "category": "VSCode Dev Helper",
-        "title": "Enable CodeLens"
-      },
-      {
-        "command": "vscode-dev-helper.disable-codelens",
-        "category": "VSCode Dev Helper",
-        "title": "Disable CodeLens"
-      },
-      {
-        "command": "vscode-dev-helper.codelens-action",
-        "category": "VSCode Dev Helper",
-        "title": "Trigger CodeLens Action"
-      },
-      {
-        "command": "vscode-dev-helper.create-alert",
-        "category": "VSCode Dev Helper",
-        "title": "Create Alert"
-      },
-      {
-        "command": "vscode-dev-helper.generate-node-version",
-        "category": "VSCode Dev Helper",
-        "title": "Generate .node-version"
-      }
-    ],
-    "menus": {
-      "explorer/context": [
-        {
-          "command": "vscode-dev-helper.generate-node-version",
-          "when": "explorerResourceIsFolder",
-          "group": "VSCodeDevHelper@1"
-        }
-      ],
-      "editor/context": [
-        {
-          "when": "editorLangId == markdown || editorLangId == mdx",
-          "command": "vscode-dev-helper.create-alert",
-          "group": "z_commands"
-        }
-      ]
-    },
     "configuration": {
       "title": "VSCode Dev Helper",
       "properties": {
@@ -179,7 +130,83 @@
           "description": "Default version for .node-version"
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "vscode-dev-helper.enable-codelens",
+        "category": "VSCode Dev Helper",
+        "title": "Enable CodeLens"
+      },
+      {
+        "command": "vscode-dev-helper.disable-codelens",
+        "category": "VSCode Dev Helper",
+        "title": "Disable CodeLens"
+      },
+      {
+        "command": "vscode-dev-helper.codelens-action",
+        "category": "VSCode Dev Helper",
+        "title": "Trigger CodeLens Action"
+      },
+      {
+        "command": "vscode-dev-helper.create-alert",
+        "category": "VSCode Dev Helper",
+        "title": "Create Alert"
+      },
+      {
+        "command": "vscode-dev-helper.generate-node-version",
+        "category": "VSCode Dev Helper",
+        "title": "Generate .node-version"
+      },
+      {
+        "command": "vscode-dev-helper.insert-inline-code",
+        "category": "VSCode Dev Helper",
+        "title": "Insert Inline Code"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "package.json",
+        "url": "./schemas/pnpm.schema.json"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "vscode-dev-helper.explorer-context"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "vscode-dev-helper.editor-context"
+        }
+      ],
+      "vscode-dev-helper.editor-context": [
+        {
+          "command": "vscode-dev-helper.insert-inline-code",
+          "when": "editorTextFocus && editorHasSelection"
+        },
+        {
+          "when": "editorLangId == markdown || editorLangId == mdx",
+          "command": "vscode-dev-helper.create-alert"
+        }
+      ],
+      "vscode-dev-helper.explorer-context": [
+        {
+          "command": "vscode-dev-helper.generate-node-version",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "vscode-dev-helper.editor-context",
+        "label": "Dev Helper"
+      },
+      {
+        "id": "vscode-dev-helper.explorer-context",
+        "label": "Dev Helper"
+      }
+    ]
   },
   "categories": [
     "Other"

@@ -18,6 +18,7 @@ export type CommandKey =
   | "vscode-dev-helper.codelens-action"
   | "vscode-dev-helper.create-alert"
   | "vscode-dev-helper.generate-node-version"
+  | "vscode-dev-helper.insert-inline-code"
 
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
@@ -48,6 +49,11 @@ export const commands = {
    * @value `vscode-dev-helper.generate-node-version`
    */
   generateNodeVersion: "vscode-dev-helper.generate-node-version",
+  /**
+   * Insert Inline Code
+   * @value `vscode-dev-helper.insert-inline-code`
+   */
+  insertInlineCode: "vscode-dev-helper.insert-inline-code",
 } satisfies Record<string, CommandKey>
 
 /**

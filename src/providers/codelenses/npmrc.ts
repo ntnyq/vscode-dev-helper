@@ -58,7 +58,7 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
 
         const range = line.range
         const codelens = new CodeLens(range, {
-          title: 'viewDocs',
+          title: 'view docs',
           command: commands.codelensAction,
           arguments: [codelensItem.url || ''],
         })

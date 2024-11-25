@@ -15,6 +15,7 @@ export const NPMRC_COMPLETION_ITEMS = {
 
   // Lockfile Settings
   lockfile: BOOL_COMPLETION_ITEMS,
+  'package-lock': BOOL_COMPLETION_ITEMS,
   'prefer-frozen-lockfile': BOOL_COMPLETION_ITEMS,
   'lockfile-include-tarball-url': BOOL_COMPLETION_ITEMS,
 
@@ -26,6 +27,7 @@ export const NPMRC_COMPLETION_ITEMS = {
 
   // Node Modules Settings
   'node-linker': ['isolated', 'hoisted', 'pnp'],
+  'install-links': BOOL_COMPLETION_ITEMS,
 
   // Nodejs Settings
   'use-node-version': [''],
@@ -56,6 +58,7 @@ export const NPMRC_COMPLETION_ITEMS = {
   'dedupe-direct-deps': BOOL_COMPLETION_ITEMS,
   'save-prefix': ['^', '~', ''],
   'package-manager-strict': BOOL_COMPLETION_ITEMS,
+  'package-manager-strict-version': BOOL_COMPLETION_ITEMS,
 }
 
 export type NPMRCCompletionKeyUnion = keyof typeof NPMRC_COMPLETION_ITEMS
@@ -125,10 +128,31 @@ export const NPMRC_CODELENS_ITEMS = {
       'When set to true, pnpm will not check if the workspace root is in the workspace. This is useful when you have a workspace that is not in the workspace root.',
     url: 'https://pnpm.io/npmrc#ignore-workspace-root-check',
   },
+  lockfile: {
+    description: `When set to \`false\`, pnpm won't read or generate a \`pnpm-lock.yaml\` file.`,
+    url: 'https://pnpm.io/npmrc#lockfile',
+  },
   'auto-install-peers': {
     description:
-      'When set to true, pnpm will automatically install peer dependencies for you. This is useful when you have a package that has peer dependencies that are not installed.',
+      'When set to `true`, pnpm will automatically install peer dependencies for you. This is useful when you have a package that has peer dependencies that are not installed.',
     url: 'https://pnpm.io/npmrc#auto-install-peers',
+  },
+  'strict-peer-dependencies': {
+    description:
+      'If this is enabled, commands will fail if there is a missing or invalid peer dependency in the tree.',
+    url: 'https://pnpm.io/npmrc#strict-peer-dependencies',
+  },
+  'package-manager-strict': {
+    description: `If this setting is disabled, pnpm will not fail if a different package manager is specified in the \`packageManager\` field of \`package.json\`. When enabled, only the package name is checked (since pnpm v9.2.0), so you can still run any version of pnpm regardless of the version specified in the \`packageManager\` field.\n\nAlternatively, you can disable this setting by setting the \`COREPACK_ENABLE_STRICT\` environment variable to 0.`,
+    url: 'https://pnpm.io/npmrc#package-manager-strict',
+  },
+  'engine-strict': {
+    description: `If this is enabled, pnpm will not install any package that claims to not be compatible with the current Node version.\n\nRegardless of this configuration, installation will always fail if a project (not a dependency) specifies an incompatible version in its \`engines\` field.`,
+    url: 'https://pnpm.io/npmrc#engine-strict',
+  },
+  'package-manager-strict-version': {
+    description: `When enabled, pnpm will fail if its version doesn't exactly match the version specified in the \`packageManager\` field of \`package.json\`.`,
+    url: 'https://pnpm.io/npmrc#package-manager-strict-version',
   },
 }
 

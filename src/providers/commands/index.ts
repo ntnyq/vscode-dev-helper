@@ -9,7 +9,7 @@ import {
   markdownAlertPresets,
 } from '../../constants/alert'
 import { commands } from '../../meta'
-import { openExternalURL } from '../../utils'
+import { logger, openExternalURL } from '../../utils'
 import { createAlert } from '../../utils/markdown'
 import { generateNodeVersion } from './generateNodeVersion'
 
@@ -34,6 +34,20 @@ export function useCommands() {
   useCommand(commands.generateNodeVersion, async () => {
     await generateNodeVersion()
     window.showInformationMessage('File .node-version Generated')
+  })
+
+  useCommand(commands.insertInlineCode, async () => {
+    if (!activeTextEditor.value) return
+
+    logger.info('🟩 Insert Inline Code')
+
+    const content = activeTextEditor.value.document.getText(selection.value)
+
+    if (!content.length) return
+
+    activeTextEditor.value.edit(editBuilder => {
+      editBuilder.replace(selection.value, `\\\`${content}\\\``)
+    })
   })
 
   useCommand(commands.createAlert, async () => {
