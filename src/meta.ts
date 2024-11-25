@@ -60,31 +60,31 @@ export const commands = {
  * Type union of all configs
  */
 export type ConfigKey = 
-  | "vscode-dev-helper.enableCodeLens"
-  | "vscode-dev-helper.alertPreset"
-  | "vscode-dev-helper.alertTypes"
   | "vscode-dev-helper.alertMarker"
+  | "vscode-dev-helper.alertPreset"
   | "vscode-dev-helper.alertSyntax"
+  | "vscode-dev-helper.alertTypes"
   | "vscode-dev-helper.alertUppercaseType"
+  | "vscode-dev-helper.enableCodeLens"
   | "vscode-dev-helper.nodeVersion"
 
 export interface ConfigKeyTypeMap {
-  "vscode-dev-helper.enableCodeLens": boolean,
-  "vscode-dev-helper.alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
-  "vscode-dev-helper.alertTypes": string[],
   "vscode-dev-helper.alertMarker": string,
+  "vscode-dev-helper.alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
   "vscode-dev-helper.alertSyntax": ("blockquote" | "container"),
+  "vscode-dev-helper.alertTypes": string[],
   "vscode-dev-helper.alertUppercaseType": boolean,
+  "vscode-dev-helper.enableCodeLens": boolean,
   "vscode-dev-helper.nodeVersion": string,
 }
 
 export interface ConfigShorthandMap {
-  enableCodeLens: "vscode-dev-helper.enableCodeLens",
-  alertPreset: "vscode-dev-helper.alertPreset",
-  alertTypes: "vscode-dev-helper.alertTypes",
   alertMarker: "vscode-dev-helper.alertMarker",
+  alertPreset: "vscode-dev-helper.alertPreset",
   alertSyntax: "vscode-dev-helper.alertSyntax",
+  alertTypes: "vscode-dev-helper.alertTypes",
   alertUppercaseType: "vscode-dev-helper.alertUppercaseType",
+  enableCodeLens: "vscode-dev-helper.enableCodeLens",
   nodeVersion: "vscode-dev-helper.nodeVersion",
 }
 
@@ -99,15 +99,15 @@ export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
  */
 export const configs = {
   /**
-   * Enable CodeLens
-   * @key `vscode-dev-helper.enableCodeLens`
-   * @default `true`
-   * @type `boolean`
+   * Marker for Custom Alert
+   * @key `vscode-dev-helper.alertMarker`
+   * @default `"!"`
+   * @type `string`
    */
-  enableCodeLens: {
-    key: "vscode-dev-helper.enableCodeLens",
-    default: true,
-  } as ConfigItem<"vscode-dev-helper.enableCodeLens">,
+  alertMarker: {
+    key: "vscode-dev-helper.alertMarker",
+    default: "!",
+  } as ConfigItem<"vscode-dev-helper.alertMarker">,
   /**
    * Preset of Alert
    * @key `vscode-dev-helper.alertPreset`
@@ -119,26 +119,6 @@ export const configs = {
     default: "github",
   } as ConfigItem<"vscode-dev-helper.alertPreset">,
   /**
-   * Types for Custom Alert
-   * @key `vscode-dev-helper.alertTypes`
-   * @default `["info","tip","success","warning","danger"]`
-   * @type `array`
-   */
-  alertTypes: {
-    key: "vscode-dev-helper.alertTypes",
-    default: ["info","tip","success","warning","danger"],
-  } as ConfigItem<"vscode-dev-helper.alertTypes">,
-  /**
-   * Marker for Custom Alert
-   * @key `vscode-dev-helper.alertMarker`
-   * @default `"!"`
-   * @type `string`
-   */
-  alertMarker: {
-    key: "vscode-dev-helper.alertMarker",
-    default: "!",
-  } as ConfigItem<"vscode-dev-helper.alertMarker">,
-  /**
    * Markdown Syntax for Custom Alert
    * @key `vscode-dev-helper.alertSyntax`
    * @default `"container"`
@@ -149,6 +129,16 @@ export const configs = {
     default: "container",
   } as ConfigItem<"vscode-dev-helper.alertSyntax">,
   /**
+   * Types for Custom Alert
+   * @key `vscode-dev-helper.alertTypes`
+   * @default `["danger","info","success","tip","warning"]`
+   * @type `array`
+   */
+  alertTypes: {
+    key: "vscode-dev-helper.alertTypes",
+    default: ["danger","info","success","tip","warning"],
+  } as ConfigItem<"vscode-dev-helper.alertTypes">,
+  /**
    * Use Uppercase Type for Custom Alert
    * @key `vscode-dev-helper.alertUppercaseType`
    * @default `false`
@@ -158,6 +148,16 @@ export const configs = {
     key: "vscode-dev-helper.alertUppercaseType",
     default: false,
   } as ConfigItem<"vscode-dev-helper.alertUppercaseType">,
+  /**
+   * Enable CodeLens
+   * @key `vscode-dev-helper.enableCodeLens`
+   * @default `true`
+   * @type `boolean`
+   */
+  enableCodeLens: {
+    key: "vscode-dev-helper.enableCodeLens",
+    default: true,
+  } as ConfigItem<"vscode-dev-helper.enableCodeLens">,
   /**
    * Default version for .node-version
    * @key `vscode-dev-helper.nodeVersion`
@@ -171,47 +171,47 @@ export const configs = {
 }
 
 export interface ScopedConfigKeyTypeMap {
-  "enableCodeLens": boolean,
-  "alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
-  "alertTypes": string[],
   "alertMarker": string,
+  "alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
   "alertSyntax": ("blockquote" | "container"),
+  "alertTypes": string[],
   "alertUppercaseType": boolean,
+  "enableCodeLens": boolean,
   "nodeVersion": string,
 }
 
 export const scopedConfigs = {
   scope: "vscode-dev-helper",
   defaults: {
-    "enableCodeLens": true,
-    "alertPreset": "github",
-    "alertTypes": ["info","tip","success","warning","danger"],
     "alertMarker": "!",
+    "alertPreset": "github",
     "alertSyntax": "container",
+    "alertTypes": ["danger","info","success","tip","warning"],
     "alertUppercaseType": false,
+    "enableCodeLens": true,
     "nodeVersion": "lts-latest",
   } satisfies ScopedConfigKeyTypeMap,
 }
 
 export interface NestedConfigs {
   "vscode-dev-helper": {
-    "enableCodeLens": boolean,
-    "alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
-    "alertTypes": string[],
     "alertMarker": string,
+    "alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
     "alertSyntax": ("blockquote" | "container"),
+    "alertTypes": string[],
     "alertUppercaseType": boolean,
+    "enableCodeLens": boolean,
     "nodeVersion": string,
   },
 }
 
 export interface NestedScopedConfigs {
-  "enableCodeLens": boolean,
-  "alertPreset": ("github" | "obsidian" | "vitepress" | "custom"),
-  "alertTypes": string[],
   "alertMarker": string,
+  "alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
   "alertSyntax": ("blockquote" | "container"),
+  "alertTypes": string[],
   "alertUppercaseType": boolean,
+  "enableCodeLens": boolean,
   "nodeVersion": string,
 }
 

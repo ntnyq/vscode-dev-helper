@@ -34,12 +34,12 @@
 
 | Key                                    | Description                         | Type      | Default                                       |
 | -------------------------------------- | ----------------------------------- | --------- | --------------------------------------------- |
-| `vscode-dev-helper.enableCodeLens`     | Enable CodeLens                     | `boolean` | `true`                                        |
-| `vscode-dev-helper.alertPreset`        | Preset of Alert                     | `string`  | `"github"`                                    |
-| `vscode-dev-helper.alertTypes`         | Types for Custom Alert              | `array`   | `["info","tip","success","warning","danger"]` |
 | `vscode-dev-helper.alertMarker`        | Marker for Custom Alert             | `string`  | `"!"`                                         |
+| `vscode-dev-helper.alertPreset`        | Preset of Alert                     | `string`  | `"github"`                                    |
 | `vscode-dev-helper.alertSyntax`        | Markdown Syntax for Custom Alert    | `string`  | `"container"`                                 |
+| `vscode-dev-helper.alertTypes`         | Types for Custom Alert              | `array`   | `["danger","info","success","tip","warning"]` |
 | `vscode-dev-helper.alertUppercaseType` | Use Uppercase Type for Custom Alert | `boolean` | `false`                                       |
+| `vscode-dev-helper.enableCodeLens`     | Enable CodeLens                     | `boolean` | `true`                                        |
 | `vscode-dev-helper.nodeVersion`        | Default version for .node-version   | `string`  | `"lts-latest"`                                |
 
 <!-- configs -->
