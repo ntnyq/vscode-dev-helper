@@ -50,7 +50,7 @@
     "reactive-vscode": "^0.2.8"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.3.0",
+    "@ntnyq/eslint-config": "^3.3.1",
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.9.3",
     "@types/vscode": "^1.95.0",
@@ -185,7 +185,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.95.3"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
