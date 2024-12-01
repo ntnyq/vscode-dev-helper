@@ -10,7 +10,7 @@ import {
 } from '../../constants/alert'
 import { commands } from '../../meta'
 import { logger, openExternalURL } from '../../utils'
-import { createAlert } from '../../utils/markdown'
+import { createAlert, createTable } from '../../utils/markdown'
 import { generateNodeVersion } from './generateNodeVersion'
 
 export function useCommands() {
@@ -93,5 +93,40 @@ export function useCommands() {
     await activeTextEditor.value.insertSnippet(new SnippetString(alertText))
 
     return window.showInformationMessage(`${type.toUpperCase()} Created`)
+  })
+
+  useCommand(commands.createTable, async () => {
+    if (!activeTextEditor.value) return
+
+    if (!language.value || !['markdown', 'mdx'].includes(language.value)) {
+      return window.showWarningMessage('Only markdown and mdx is supported')
+    }
+
+    const input = await window.showInputBox({
+      title: 'Create Table',
+      prompt: 'Input table size, e.g. 4x3',
+      value: '4x3',
+      validateInput(size) {
+        if (!size) return 'Please input table size'
+        if (!/\d+x\d+/.test(size)) return 'Please use format like [4x3]'
+        const [rowCount, columnCount] = size.split('x').map(Number)
+        if (rowCount <= 0 || columnCount <= 0) return 'Please use format like [4x3]'
+        return null
+      },
+    })
+    const trimedInput = input?.trim()
+
+    if (!trimedInput) return
+
+    const [rowCount, columnCount] = trimedInput.split('x').map(v => Number.parseInt(v, 10))
+
+    const alertText = createTable({
+      rowCount,
+      columnCount,
+    })
+
+    await activeTextEditor.value.insertSnippet(new SnippetString(alertText))
+
+    return window.showInformationMessage(`Table ${rowCount}x${columnCount} Created`)
   })
 }

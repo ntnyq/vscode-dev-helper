@@ -3,7 +3,8 @@
  */
 
 import { ALERT_DEFAULT_MARKER } from '../constants/alert'
-import type { CreateMarkdownAlertOptions } from '../types/markdown'
+import { WHITESPACE } from '../constants/common'
+import type { CreateMarkdownAlertOptions, CreateTableOptions } from '../types/markdown'
 
 type ResolvedOptions = Omit<CreateMarkdownAlertOptions, 'content' | 'syntax'>
 
@@ -42,4 +43,23 @@ export function createAlert(options: CreateMarkdownAlertOptions) {
   }
 
   return ''
+}
+
+const separatorMap = {
+  left: ':---',
+  center: ':---:',
+  right: '---:',
+} as const
+
+export function createTable(options: CreateTableOptions) {
+  const { columnCount, rowCount, align = 'center' } = options
+
+  if (columnCount < 1 || rowCount < 1) return ''
+
+  const header = `|${Array.from({ length: columnCount }).fill(WHITESPACE.repeat(5)).join('|')}|`
+  const separator = `|${Array.from({ length: columnCount })
+    .fill(separatorMap[align as keyof typeof separatorMap])
+    .join('|')}|`
+  const body = Array.from({ length: rowCount }).fill(header).join('\n')
+  return [header, separator, body].join('\n')
 }

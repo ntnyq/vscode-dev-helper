@@ -17,6 +17,7 @@ export type CommandKey =
   | "vscode-dev-helper.disable-codelens"
   | "vscode-dev-helper.codelens-action"
   | "vscode-dev-helper.create-alert"
+  | "vscode-dev-helper.create-table"
   | "vscode-dev-helper.generate-node-version"
   | "vscode-dev-helper.insert-inline-code"
 
@@ -44,6 +45,11 @@ export const commands = {
    * @value `vscode-dev-helper.create-alert`
    */
   createAlert: "vscode-dev-helper.create-alert",
+  /**
+   * Create Table
+   * @value `vscode-dev-helper.create-table`
+   */
+  createTable: "vscode-dev-helper.create-table",
   /**
    * Generate .node-version
    * @value `vscode-dev-helper.generate-node-version`

@@ -90,7 +90,14 @@
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.create-alert",
-        "title": "Create Alert"
+        "title": "Create Alert",
+        "when": "editorLangId == markdown || editorLangId == mdx"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.create-table",
+        "title": "Create Table",
+        "when": "editorLangId == markdown || editorLangId == mdx"
       },
       {
         "category": "VSCode Dev Helper",

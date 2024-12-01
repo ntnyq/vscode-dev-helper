@@ -42,3 +42,15 @@ export type CreateMarkdownAlertOptions = Pick<
    */
   type: string
 }
+
+/**
+ * Options for `createTable`
+ */
+export interface CreateTableOptions {
+  rowCount: number
+  columnCount: number
+  /**
+   * @default `center`
+   */
+  align?: 'center' | 'left' | 'right'
+}
