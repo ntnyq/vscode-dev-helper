@@ -5,7 +5,7 @@ export interface MarkdownAlertPreset {
   /**
    * Preset name, 'custom' for use custom preset
    */
-  name: 'github' | 'obsidian' | 'vitepress' | 'custom'
+  name: 'custom' | 'github' | 'obsidian' | 'vitepress'
   /**
    * Supported alert types
    */
@@ -31,14 +31,14 @@ export interface MarkdownAlertPreset {
  */
 export type CreateMarkdownAlertOptions = Pick<
   MarkdownAlertPreset,
-  'syntax' | 'marker' | 'uppercaseType'
+  'marker' | 'syntax' | 'uppercaseType'
 > & {
-  /**
-   * Alert type
-   */
-  type: string
   /**
    * Alert content
    */
   content?: string
+  /**
+   * Alert type
+   */
+  type: string
 }

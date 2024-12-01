@@ -13,11 +13,11 @@ export const markdownAlertPresets: MarkdownAlertPreset[] = [
    * @see https://github.com/orgs/community/discussions/16925
    */
   {
-    name: 'github',
     marker: '!',
+    name: 'github',
     syntax: 'blockquote',
-    uppercaseType: true,
     types: ['note', 'tip', 'important', 'warning', 'caution'],
+    uppercaseType: true,
   },
   /**
    * @see https://vitepress.dev/guide/markdown#custom-containers
@@ -25,17 +25,16 @@ export const markdownAlertPresets: MarkdownAlertPreset[] = [
   {
     name: 'vitepress',
     syntax: 'container',
-    uppercaseType: false,
     types: ['info', 'tip', 'warning', 'danger', 'detail'],
+    uppercaseType: false,
   },
   /**
    * @see https://help.obsidian.md/Editing+and+formatting/Callouts
    */
   {
-    name: 'obsidian',
     marker: '!',
+    name: 'obsidian',
     syntax: 'blockquote',
-    uppercaseType: false,
     types: [
       'note',
       'abstract',
@@ -65,5 +64,6 @@ export const markdownAlertPresets: MarkdownAlertPreset[] = [
       'quote',
       'cite',
     ],
+    uppercaseType: false,
   },
 ]

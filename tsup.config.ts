@@ -3,19 +3,19 @@ import { defineConfig } from 'tsup'
 import pkg from './package.json'
 
 export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['cjs'],
-  dts: false,
   clean: true,
-  minify: true,
-  watch: process.env.NODE_ENV === 'development',
-  sourcemap: process.env.NODE_ENV === 'development',
+  dts: false,
+  entry: ['src/index.ts'],
   env: {
     NODE_ENV: process.env.NODE_ENV || 'production',
   },
   external: ['vscode'],
+  format: ['cjs'],
+  minify: true,
   noExternal: [
     // Bundle all dependencies
     ...Object.keys(pkg.dependencies || {}),
   ],
+  sourcemap: process.env.NODE_ENV === 'development',
+  watch: process.env.NODE_ENV === 'development',
 })

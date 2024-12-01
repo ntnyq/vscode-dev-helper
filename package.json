@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.8",
   "private": true,
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.14.4",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [],
   "license": "MIT",
@@ -50,21 +50,21 @@
     "reactive-vscode": "^0.2.9"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.5.0",
+    "@ntnyq/eslint-config": "^3.7.1",
     "@ntnyq/prettier-config": "^1.22.0",
-    "@types/node": "^22.9.3",
+    "@types/node": "^22.10.1",
     "@types/vscode": "^1.95.0",
     "@vscode/vsce": "^3.2.1",
     "bumpp": "^9.8.1",
-    "eslint": "^9.15.0",
+    "eslint": "^9.16.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.1",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.1",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.5",
+    "vitest": "^2.1.6",
     "vscode-ext-gen": "^0.5.0"
   },
   "activationEvents": [
@@ -212,7 +212,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.95.3"
+    "vscode": "^1.95.0"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
