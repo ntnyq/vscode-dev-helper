@@ -46,11 +46,13 @@
   },
   "dependencies": {
     "@ntnyq/utils": "^0.3.1",
+    "color": "^4.2.3",
     "ofetch": "^1.4.1",
-    "reactive-vscode": "^0.2.9"
+    "reactive-vscode": "^0.2.9",
+    "ts-blank-space": "^0.4.4"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.7.1",
+    "@ntnyq/eslint-config": "^3.7.2",
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.10.1",
     "@types/vscode": "^1.95.0",
@@ -64,7 +66,7 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.6",
+    "vitest": "^2.1.8",
     "vscode-ext-gen": "^0.5.0"
   },
   "activationEvents": [
@@ -108,6 +110,12 @@
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.insert-inline-code",
         "title": "Insert Inline Code"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.stripe-types",
+        "title": "Stripe Types",
+        "when": "editorLangId == ts || editorLangId == tsx"
       }
     ],
     "configuration": {
@@ -219,7 +227,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.95.3"
+    "vscode": "^1.95.0"
   },
   "prettier": "@ntnyq/prettier-config",
   "nano-staged": {

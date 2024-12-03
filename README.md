@@ -10,8 +10,12 @@
 
 - pnpm config jsonschema in `package.json`
 - `.npmrc` completion, codelenses
-- generate `.node-version` file
-- create Alert in markdown, default [GitHub](https://github.com/orgs/community/discussions/16925) style
+- stripe types from ts?(x) files via [ts-blank-space](https://github.com/bloomberg/ts-blank-space)
+- generate files
+  - `.node-version`
+- markdown helpers
+  - create alert, default [GitHub](https://github.com/orgs/community/discussions/16925) style
+  - create table
 
 ## Commands
 
@@ -26,6 +30,7 @@
 | `vscode-dev-helper.create-table`          | VSCode Dev Helper: Create Table            |
 | `vscode-dev-helper.generate-node-version` | VSCode Dev Helper: Generate .node-version  |
 | `vscode-dev-helper.insert-inline-code`    | VSCode Dev Helper: Insert Inline Code      |
+| `vscode-dev-helper.stripe-types`          | VSCode Dev Helper: Stripe Types            |
 
 <!-- commands -->
 

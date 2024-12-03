@@ -1,17 +1,20 @@
 import { upperFirst } from '@ntnyq/utils'
 import { computed, useActiveTextEditor, useCommand, useTextEditorSelection } from 'reactive-vscode'
 import { SnippetString, window } from 'vscode'
-import { config } from '../../config'
+import { config } from '../config'
 import {
   ALERT_DEFAULT_SYNTAX,
   ALERT_DEFAULT_UPPERCASE_TYPE,
   ALERT_PRESET_CUSTOM,
   markdownAlertPresets,
-} from '../../constants/alert'
-import { commands } from '../../meta'
-import { logger, openExternalURL } from '../../utils'
-import { createAlert, createTable } from '../../utils/markdown'
-import { generateNodeVersion } from './generateNodeVersion'
+} from '../constants/alert'
+import { BUILTIN_COMMANDS } from '../constants/shared'
+import { commands } from '../meta'
+import { logger, openExternalURL } from '../utils'
+import { createAlert, createTable } from '../utils/markdown'
+import { executeCommand } from '../utils/vscode'
+import { generateNodeVersion } from './generator/nodeVersion'
+import { stripeTypes } from './helper/stripeTypes'
 
 export function useCommands() {
   const activeTextEditor = useActiveTextEditor()
@@ -31,9 +34,20 @@ export function useCommands() {
     openExternalURL(url)
   })
 
+  useCommand(commands.stripeTypes, async () => {
+    if (!activeTextEditor.value) return
+
+    logger.info('🟩 Stripe types')
+
+    await stripeTypes(activeTextEditor.value)
+    await executeCommand(BUILTIN_COMMANDS.formatDocument)
+
+    return window.showInformationMessage('Types striped')
+  })
+
   useCommand(commands.generateNodeVersion, async () => {
     await generateNodeVersion()
-    window.showInformationMessage('File .node-version Generated')
+    return window.showInformationMessage('File .node-version Generated')
   })
 
   useCommand(commands.insertInlineCode, async () => {
@@ -126,6 +140,8 @@ export function useCommands() {
     })
 
     await activeTextEditor.value.insertSnippet(new SnippetString(alertText))
+
+    await executeCommand(BUILTIN_COMMANDS.formatDocument)
 
     return window.showInformationMessage(`Table ${rowCount}x${columnCount} Created`)
   })

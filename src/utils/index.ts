@@ -1,3 +1,3 @@
 export * from './logger'
-export * from './createSpace'
-export * from './openExternalURL'
+export * from './vscode'
+export * from './shared'

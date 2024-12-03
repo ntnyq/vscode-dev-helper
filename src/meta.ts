@@ -20,6 +20,7 @@ export type CommandKey =
   | "vscode-dev-helper.create-table"
   | "vscode-dev-helper.generate-node-version"
   | "vscode-dev-helper.insert-inline-code"
+  | "vscode-dev-helper.stripe-types"
 
 /**
  * Commands map registed by `ntnyq.vscode-dev-helper`
@@ -60,6 +61,11 @@ export const commands = {
    * @value `vscode-dev-helper.insert-inline-code`
    */
   insertInlineCode: "vscode-dev-helper.insert-inline-code",
+  /**
+   * Stripe Types
+   * @value `vscode-dev-helper.stripe-types`
+   */
+  stripeTypes: "vscode-dev-helper.stripe-types",
 } satisfies Record<string, CommandKey>
 
 /**
