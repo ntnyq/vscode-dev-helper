@@ -56,10 +56,9 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
 
         if (!codelensItem) return
 
-        const range = line.range
-        const codelens = new CodeLens(range, {
+        const codelens = new CodeLens(line.range, {
           title: 'view docs',
-          command: commands.codelensAction,
+          command: commands.openExternalUrl,
           arguments: [codelensItem.url || ''],
         })
 

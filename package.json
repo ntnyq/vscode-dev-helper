@@ -86,8 +86,8 @@
       },
       {
         "category": "VSCode Dev Helper",
-        "command": "vscode-dev-helper.codelens-action",
-        "title": "Trigger CodeLens Action"
+        "command": "vscode-dev-helper.open-external-url",
+        "title": "Open External URL"
       },
       {
         "category": "VSCode Dev Helper",
@@ -105,6 +105,16 @@
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.generate-node-version",
         "title": "Generate .node-version"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-gitignore",
+        "title": "Generate .gitignore"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-gitattributes",
+        "title": "Generate .gitattributes"
       },
       {
         "category": "VSCode Dev Helper",
@@ -206,6 +216,14 @@
         }
       ],
       "vscode-dev-helper.explorer-context": [
+        {
+          "command": "vscode-dev-helper.generate-gitattributes",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-gitignore",
+          "when": "explorerResourceIsFolder"
+        },
         {
           "command": "vscode-dev-helper.generate-node-version",
           "when": "explorerResourceIsFolder"

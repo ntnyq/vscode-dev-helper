@@ -12,6 +12,8 @@
 - `.npmrc` completion, codelenses
 - stripe types from ts?(x) files via [ts-blank-space](https://github.com/bloomberg/ts-blank-space)
 - generate files
+  - `.gitattributes`
+  - `.gitignore`
   - `.node-version`
 - markdown helpers
   - create alert, default [GitHub](https://github.com/orgs/community/discussions/16925) style
@@ -21,16 +23,18 @@
 
 <!-- commands -->
 
-| Command                                   | Title                                      |
-| ----------------------------------------- | ------------------------------------------ |
-| `vscode-dev-helper.enable-codelens`       | VSCode Dev Helper: Enable CodeLens         |
-| `vscode-dev-helper.disable-codelens`      | VSCode Dev Helper: Disable CodeLens        |
-| `vscode-dev-helper.codelens-action`       | VSCode Dev Helper: Trigger CodeLens Action |
-| `vscode-dev-helper.create-alert`          | VSCode Dev Helper: Create Alert            |
-| `vscode-dev-helper.create-table`          | VSCode Dev Helper: Create Table            |
-| `vscode-dev-helper.generate-node-version` | VSCode Dev Helper: Generate .node-version  |
-| `vscode-dev-helper.insert-inline-code`    | VSCode Dev Helper: Insert Inline Code      |
-| `vscode-dev-helper.stripe-types`          | VSCode Dev Helper: Stripe Types            |
+| Command                                    | Title                                      |
+| ------------------------------------------ | ------------------------------------------ |
+| `vscode-dev-helper.enable-codelens`        | VSCode Dev Helper: Enable CodeLens         |
+| `vscode-dev-helper.disable-codelens`       | VSCode Dev Helper: Disable CodeLens        |
+| `vscode-dev-helper.open-external-url`      | VSCode Dev Helper: Open External URL       |
+| `vscode-dev-helper.create-alert`           | VSCode Dev Helper: Create Alert            |
+| `vscode-dev-helper.create-table`           | VSCode Dev Helper: Create Table            |
+| `vscode-dev-helper.generate-node-version`  | VSCode Dev Helper: Generate .node-version  |
+| `vscode-dev-helper.generate-gitignore`     | VSCode Dev Helper: Generate .gitignore     |
+| `vscode-dev-helper.generate-gitattributes` | VSCode Dev Helper: Generate .gitattributes |
+| `vscode-dev-helper.insert-inline-code`     | VSCode Dev Helper: Insert Inline Code      |
+| `vscode-dev-helper.stripe-types`           | VSCode Dev Helper: Stripe Types            |
 
 <!-- commands -->
 

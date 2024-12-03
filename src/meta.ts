@@ -15,10 +15,12 @@ export const extensionId = `${publisher}.${name}`
 export type CommandKey = 
   | "vscode-dev-helper.enable-codelens"
   | "vscode-dev-helper.disable-codelens"
-  | "vscode-dev-helper.codelens-action"
+  | "vscode-dev-helper.open-external-url"
   | "vscode-dev-helper.create-alert"
   | "vscode-dev-helper.create-table"
   | "vscode-dev-helper.generate-node-version"
+  | "vscode-dev-helper.generate-gitignore"
+  | "vscode-dev-helper.generate-gitattributes"
   | "vscode-dev-helper.insert-inline-code"
   | "vscode-dev-helper.stripe-types"
 
@@ -37,10 +39,10 @@ export const commands = {
    */
   disableCodelens: "vscode-dev-helper.disable-codelens",
   /**
-   * Trigger CodeLens Action
-   * @value `vscode-dev-helper.codelens-action`
+   * Open External URL
+   * @value `vscode-dev-helper.open-external-url`
    */
-  codelensAction: "vscode-dev-helper.codelens-action",
+  openExternalUrl: "vscode-dev-helper.open-external-url",
   /**
    * Create Alert
    * @value `vscode-dev-helper.create-alert`
@@ -56,6 +58,16 @@ export const commands = {
    * @value `vscode-dev-helper.generate-node-version`
    */
   generateNodeVersion: "vscode-dev-helper.generate-node-version",
+  /**
+   * Generate .gitignore
+   * @value `vscode-dev-helper.generate-gitignore`
+   */
+  generateGitignore: "vscode-dev-helper.generate-gitignore",
+  /**
+   * Generate .gitattributes
+   * @value `vscode-dev-helper.generate-gitattributes`
+   */
+  generateGitattributes: "vscode-dev-helper.generate-gitattributes",
   /**
    * Insert Inline Code
    * @value `vscode-dev-helper.insert-inline-code`

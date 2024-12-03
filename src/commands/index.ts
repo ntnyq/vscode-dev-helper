@@ -13,7 +13,7 @@ import { commands } from '../meta'
 import { logger, openExternalURL } from '../utils'
 import { createAlert, createTable } from '../utils/markdown'
 import { executeCommand } from '../utils/vscode'
-import { generateNodeVersion } from './generator/nodeVersion'
+import { generateGitAttributes, generateGitIgnore, generateNodeVersion } from './generators'
 import { stripeTypes } from './helper/stripeTypes'
 
 export function useCommands() {
@@ -29,7 +29,7 @@ export function useCommands() {
     config.$update('enableCodeLens', false)
   })
 
-  useCommand(commands.codelensAction, (url: string) => {
+  useCommand(commands.openExternalUrl, (url: string) => {
     if (!url.length) return
     openExternalURL(url)
   })
@@ -48,6 +48,16 @@ export function useCommands() {
   useCommand(commands.generateNodeVersion, async () => {
     await generateNodeVersion()
     return window.showInformationMessage('File .node-version Generated')
+  })
+
+  useCommand(commands.generateGitattributes, async () => {
+    await generateGitAttributes()
+    return window.showInformationMessage('File.gitattributes Generated')
+  })
+
+  useCommand(commands.generateGitignore, async () => {
+    await generateGitIgnore()
+    return window.showInformationMessage('File .gitignore Generated')
   })
 
   useCommand(commands.insertInlineCode, async () => {
