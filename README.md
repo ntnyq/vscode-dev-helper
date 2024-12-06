@@ -18,6 +18,7 @@
   - `eslint.config.mjs`
   - `prettier.config.mjs`
   - `.prettierignore`
+  - `package.json`
 - markdown helpers
   - create alert, default [GitHub](https://github.com/orgs/community/discussions/16925) style
   - create table
@@ -39,6 +40,7 @@
 | `vscode-dev-helper.generate-eslint-config`   | VSCode Dev Helper: Generate eslint.config.mjs   |
 | `vscode-dev-helper.generate-prettier-config` | VSCode Dev Helper: Generate prettier.config.mjs |
 | `vscode-dev-helper.generate-prettier-ignore` | VSCode Dev Helper: Generate .prettierignore     |
+| `vscode-dev-helper.generate-package-json`    | VSCode Dev Helper: Generate package.json        |
 | `vscode-dev-helper.insert-inline-code`       | VSCode Dev Helper: Insert Inline Code           |
 | `vscode-dev-helper.stripe-types`             | VSCode Dev Helper: Stripe Types                 |
 

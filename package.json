@@ -135,6 +135,11 @@
       },
       {
         "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-package-json",
+        "title": "Generate package.json"
+      },
+      {
+        "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.insert-inline-code",
         "title": "Insert Inline Code"
       },
@@ -260,6 +265,10 @@
         {
           "command": "vscode-dev-helper.generate-prettier-ignore",
           "group": "prettier",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-package-json",
           "when": "explorerResourceIsFolder"
         }
       ]

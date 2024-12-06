@@ -24,6 +24,7 @@ export type CommandKey =
   | "vscode-dev-helper.generate-eslint-config"
   | "vscode-dev-helper.generate-prettier-config"
   | "vscode-dev-helper.generate-prettier-ignore"
+  | "vscode-dev-helper.generate-package-json"
   | "vscode-dev-helper.insert-inline-code"
   | "vscode-dev-helper.stripe-types"
 
@@ -86,6 +87,11 @@ export const commands = {
    * @value `vscode-dev-helper.generate-prettier-ignore`
    */
   generatePrettierIgnore: "vscode-dev-helper.generate-prettier-ignore",
+  /**
+   * Generate package.json
+   * @value `vscode-dev-helper.generate-package-json`
+   */
+  generatePackageJson: "vscode-dev-helper.generate-package-json",
   /**
    * Insert Inline Code
    * @value `vscode-dev-helper.insert-inline-code`

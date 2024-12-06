@@ -6,6 +6,7 @@ import {
   prettierConfigTemplate,
   prettierIgnoreTemplate,
 } from '../templates'
+import { packageJsonTemplate } from '../templates/packageJson'
 import { generateFileInWorkspace } from '../utils'
 
 export async function generateGitIgnore() {
@@ -30,4 +31,8 @@ export async function generatePrettierConfig() {
 
 export async function generatePrettierIgnore() {
   await generateFileInWorkspace('.prettierignore', prettierIgnoreTemplate)
+}
+
+export async function generatePackageJson() {
+  await generateFileInWorkspace('package.json', packageJsonTemplate)
 }

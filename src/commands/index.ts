@@ -18,15 +18,15 @@ import {
   generateGitAttributes,
   generateGitIgnore,
   generateNodeVersion,
+  generatePackageJson,
   generatePrettierConfig,
   generatePrettierIgnore,
 } from './generators'
-import { stripeTypes } from './helper/stripeTypes'
 
 export function useCommands() {
-  const activeTextEditor = useActiveTextEditor()
-  const selection = useTextEditorSelection(activeTextEditor)
-  const language = computed(() => activeTextEditor.value?.document.languageId)
+  const editor = useActiveTextEditor()
+  const selection = useTextEditorSelection(editor)
+  const languageId = computed(() => editor.value?.document.languageId)
 
   useCommand(commands.enableCodelens, () => {
     config.$update('enableCodeLens', true)
@@ -42,11 +42,13 @@ export function useCommands() {
   })
 
   useCommand(commands.stripeTypes, async () => {
-    if (!activeTextEditor.value) return
+    if (!editor.value) return
 
     logger.info('🟩 Stripe types')
 
-    await stripeTypes(activeTextEditor.value)
+    const { stripeTypes } = await import('./helper/stripeTypes')
+
+    await stripeTypes(editor.value)
     await executeCommand(BUILTIN_COMMANDS.formatDocument)
 
     return window.showInformationMessage('Types striped')
@@ -82,24 +84,29 @@ export function useCommands() {
     return window.showInformationMessage('File.prettierignore Generated')
   })
 
+  useCommand(commands.generatePackageJson, async () => {
+    await generatePackageJson()
+    return window.showInformationMessage('File package.json Generated')
+  })
+
   useCommand(commands.insertInlineCode, async () => {
-    if (!activeTextEditor.value) return
+    if (!editor.value) return
 
     logger.info('🟩 Insert Inline Code')
 
-    const content = activeTextEditor.value.document.getText(selection.value)
+    const content = editor.value.document.getText(selection.value)
 
     if (!content.length) return
 
-    activeTextEditor.value.edit(editBuilder => {
+    editor.value.edit(editBuilder => {
       editBuilder.replace(selection.value, `\\\`${content}\\\``)
     })
   })
 
   useCommand(commands.createAlert, async () => {
-    if (!activeTextEditor.value) return
+    if (!editor.value) return
 
-    if (!language.value || !['markdown', 'mdx'].includes(language.value)) {
+    if (!languageId.value || !['markdown', 'mdx'].includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
@@ -124,7 +131,7 @@ export function useCommands() {
 
     if (!type) return
 
-    const content = activeTextEditor.value.document.getText(selection.value)
+    const content = editor.value.document.getText(selection.value)
 
     const alertText = createAlert({
       type,
@@ -136,15 +143,15 @@ export function useCommands() {
         ALERT_DEFAULT_UPPERCASE_TYPE,
     })
 
-    await activeTextEditor.value.insertSnippet(new SnippetString(alertText))
+    await editor.value.insertSnippet(new SnippetString(alertText))
 
     return window.showInformationMessage(`${type.toUpperCase()} Created`)
   })
 
   useCommand(commands.createTable, async () => {
-    if (!activeTextEditor.value) return
+    if (!editor.value) return
 
-    if (!language.value || !['markdown', 'mdx'].includes(language.value)) {
+    if (!languageId.value || !['markdown', 'mdx'].includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
@@ -171,7 +178,7 @@ export function useCommands() {
       columnCount,
     })
 
-    await activeTextEditor.value.insertSnippet(new SnippetString(alertText))
+    await editor.value.insertSnippet(new SnippetString(alertText))
 
     await executeCommand(BUILTIN_COMMANDS.formatDocument)
 

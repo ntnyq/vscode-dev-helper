@@ -17,5 +17,6 @@ export default defineConfig({
     ...Object.keys(pkg.dependencies || {}),
   ],
   sourcemap: process.env.NODE_ENV === 'development',
+  splitting: true,
   watch: process.env.NODE_ENV === 'development',
 })
