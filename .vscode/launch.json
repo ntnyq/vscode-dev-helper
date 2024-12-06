@@ -6,7 +6,11 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/playground"],
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "${workspaceFolder}/playground",
+        "${workspaceFolder}/test-workspace"
+      ],
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "skipFiles": [
         "<node_internals>/**",
@@ -19,7 +23,21 @@
       "env": {
         "VSCODE_DEBUG_MODE": "true"
       },
-      "preLaunchTask": "npm: dev"
+      "preLaunchTask": "${defaultBuildTask}"
+    },
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/dist/tests"
+      ],
+      "testConfiguration": "${workspaceFolder}/.vscode-test.mjs",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "${defaultBuildTask}"
     }
   ]
 }

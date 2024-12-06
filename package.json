@@ -33,17 +33,19 @@
   ],
   "scripts": {
     "build": "tsup",
+    "clean": "rimraf dist",
     "dev": "NODE_ENV=development tsup",
     "generate:meta": "vscode-ext-gen --output=src/meta.ts",
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
+    "pretest": "tsc -b ./tests/tsconfig.json",
     "release": "run-s release:check release:version release:publish",
     "release:build": "run-s generate:meta build",
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
-    "test": "vitest",
+    "test": "vscode-test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -58,6 +60,8 @@
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.10.1",
     "@types/vscode": "^1.95.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
     "@vscode/vsce": "^3.2.1",
     "bumpp": "^9.8.1",
     "eslint": "^9.16.0",
@@ -65,10 +69,10 @@
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.1",
     "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8",
     "vscode-ext-gen": "^0.5.0"
   },
   "activationEvents": [
