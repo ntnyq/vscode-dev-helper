@@ -118,6 +118,16 @@
       },
       {
         "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-eslint-config",
+        "title": "Generate eslint.config.mjs"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-prettier-config",
+        "title": "Generate prettier.config.mjs"
+      },
+      {
+        "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.insert-inline-code",
         "title": "Insert Inline Code"
       },
@@ -226,6 +236,14 @@
         },
         {
           "command": "vscode-dev-helper.generate-node-version",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-eslint-config",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-prettier-config",
           "when": "explorerResourceIsFolder"
         }
       ]

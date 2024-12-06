@@ -13,7 +13,13 @@ import { commands } from '../meta'
 import { logger, openExternalURL } from '../utils'
 import { createAlert, createTable } from '../utils/markdown'
 import { executeCommand } from '../utils/vscode'
-import { generateGitAttributes, generateGitIgnore, generateNodeVersion } from './generators'
+import {
+  generateESLintConfig,
+  generateGitAttributes,
+  generateGitIgnore,
+  generateNodeVersion,
+  generatePrettierConfig,
+} from './generators'
 import { stripeTypes } from './helper/stripeTypes'
 
 export function useCommands() {
@@ -58,6 +64,16 @@ export function useCommands() {
   useCommand(commands.generateGitignore, async () => {
     await generateGitIgnore()
     return window.showInformationMessage('File .gitignore Generated')
+  })
+
+  useCommand(commands.generateEslintConfig, async () => {
+    await generateESLintConfig()
+    return window.showInformationMessage('File eslint.config.mjs Generated')
+  })
+
+  useCommand(commands.generatePrettierConfig, async () => {
+    await generatePrettierConfig()
+    return window.showInformationMessage('File prettier.config.mjs Generated')
   })
 
   useCommand(commands.insertInlineCode, async () => {

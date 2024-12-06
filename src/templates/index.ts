@@ -1,2 +1,3 @@
-export { default as gitignoreTemplate } from './gitignore'
-export { default as gitattributesTemplate } from './gitattributes'
+export * from './git'
+export * from './eslint'
+export * from './prettier'

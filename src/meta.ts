@@ -21,6 +21,8 @@ export type CommandKey =
   | "vscode-dev-helper.generate-node-version"
   | "vscode-dev-helper.generate-gitignore"
   | "vscode-dev-helper.generate-gitattributes"
+  | "vscode-dev-helper.generate-eslint-config"
+  | "vscode-dev-helper.generate-prettier-config"
   | "vscode-dev-helper.insert-inline-code"
   | "vscode-dev-helper.stripe-types"
 
@@ -68,6 +70,16 @@ export const commands = {
    * @value `vscode-dev-helper.generate-gitattributes`
    */
   generateGitattributes: "vscode-dev-helper.generate-gitattributes",
+  /**
+   * Generate eslint.config.mjs
+   * @value `vscode-dev-helper.generate-eslint-config`
+   */
+  generateEslintConfig: "vscode-dev-helper.generate-eslint-config",
+  /**
+   * Generate prettier.config.mjs
+   * @value `vscode-dev-helper.generate-prettier-config`
+   */
+  generatePrettierConfig: "vscode-dev-helper.generate-prettier-config",
   /**
    * Insert Inline Code
    * @value `vscode-dev-helper.insert-inline-code`
