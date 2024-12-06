@@ -47,8 +47,8 @@ export type CreateMarkdownAlertOptions = Pick<
  * Options for `createTable`
  */
 export interface CreateTableOptions {
-  rowCount: number
   columnCount: number
+  rowCount: number
   /**
    * @default `center`
    */
