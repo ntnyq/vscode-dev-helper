@@ -38,11 +38,11 @@
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
-    "release": "run-s release:check release:build release:version release:publish",
+    "release": "run-s release:check release:version release:publish",
     "release:build": "run-s generate:meta build",
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
-    "release:version": "bumpp --all",
+    "release:version": "bumpp --all --execute='pnpm release:build'",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
