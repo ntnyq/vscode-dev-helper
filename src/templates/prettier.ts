@@ -9,3 +9,14 @@ export const prettierConfigTemplate = $`
   
   export default defineConfig(config)
 `
+
+export const prettierIgnoreTemplate = $`
+  node_modules
+  *.min.*
+  public
+  
+  dist
+  coverage
+  
+  pnpm-lock.yaml
+`

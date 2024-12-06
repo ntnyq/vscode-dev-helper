@@ -130,6 +130,11 @@
       },
       {
         "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-prettier-ignore",
+        "title": "Generate .prettierignore"
+      },
+      {
+        "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.insert-inline-code",
         "title": "Insert Inline Code"
       },
@@ -230,14 +235,17 @@
       "vscode-dev-helper.explorer-context": [
         {
           "command": "vscode-dev-helper.generate-gitattributes",
+          "group": "dotfile",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "vscode-dev-helper.generate-gitignore",
+          "group": "dotfile",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "vscode-dev-helper.generate-node-version",
+          "group": "dotfile",
           "when": "explorerResourceIsFolder"
         },
         {
@@ -246,6 +254,12 @@
         },
         {
           "command": "vscode-dev-helper.generate-prettier-config",
+          "group": "prettier",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-prettier-ignore",
+          "group": "prettier",
           "when": "explorerResourceIsFolder"
         }
       ]

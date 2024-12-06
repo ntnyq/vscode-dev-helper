@@ -4,6 +4,7 @@ import {
   gitAttributesTemplate,
   gitIgnoreTemplate,
   prettierConfigTemplate,
+  prettierIgnoreTemplate,
 } from '../templates'
 import { generateFileInWorkspace } from '../utils'
 
@@ -25,4 +26,8 @@ export async function generateESLintConfig() {
 
 export async function generatePrettierConfig() {
   await generateFileInWorkspace('prettier.config.mjs', prettierConfigTemplate)
+}
+
+export async function generatePrettierIgnore() {
+  await generateFileInWorkspace('.prettierignore', prettierIgnoreTemplate)
 }

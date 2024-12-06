@@ -19,6 +19,7 @@ import {
   generateGitIgnore,
   generateNodeVersion,
   generatePrettierConfig,
+  generatePrettierIgnore,
 } from './generators'
 import { stripeTypes } from './helper/stripeTypes'
 
@@ -74,6 +75,11 @@ export function useCommands() {
   useCommand(commands.generatePrettierConfig, async () => {
     await generatePrettierConfig()
     return window.showInformationMessage('File prettier.config.mjs Generated')
+  })
+
+  useCommand(commands.generatePrettierIgnore, async () => {
+    await generatePrettierIgnore()
+    return window.showInformationMessage('File.prettierignore Generated')
   })
 
   useCommand(commands.insertInlineCode, async () => {
