@@ -1,8 +1,0 @@
-{
-  "pnpm": {
-    "overrides": {},
-    "peerDependencyRules": {
-      "ignoreMissing": []
-    }
-  }
-}
