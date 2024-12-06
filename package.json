@@ -5,9 +5,11 @@
   "preview": true,
   "version": "0.0.10",
   "private": true,
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "description": "Personal dev helper built on top of VSCode",
-  "keywords": [],
+  "keywords": [
+    "dev-helper"
+  ],
   "license": "MIT",
   "author": {
     "name": "ntnyq",
@@ -45,14 +47,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.4.0",
+    "@ntnyq/utils": "^0.4.1",
     "color": "^4.2.3",
     "ofetch": "^1.4.1",
     "reactive-vscode": "^0.2.9",
     "ts-blank-space": "^0.4.4"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.8.1",
+    "@ntnyq/eslint-config": "^3.9.0",
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.10.1",
     "@types/vscode": "^1.95.0",
