@@ -58,7 +58,7 @@
   "devDependencies": {
     "@ntnyq/eslint-config": "^3.9.1",
     "@ntnyq/prettier-config": "^1.22.0",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@types/vscode": "^1.95.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
@@ -292,7 +292,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.95.3"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "eslint --fix"
