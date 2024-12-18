@@ -6,17 +6,17 @@ export default defineConfig({
   clean: true,
   dts: false,
   entry: ['src/index.ts'],
-  env: {
-    NODE_ENV: process.env.NODE_ENV || 'production',
-  },
   external: ['vscode'],
   format: ['cjs'],
   minify: true,
+  sourcemap: process.env.NODE_ENV === 'development',
+  splitting: true,
+  watch: process.env.NODE_ENV === 'development',
+  env: {
+    NODE_ENV: process.env.NODE_ENV || 'production',
+  },
   noExternal: [
     // Bundle all dependencies
     ...Object.keys(pkg.dependencies || {}),
   ],
-  sourcemap: process.env.NODE_ENV === 'development',
-  splitting: true,
-  watch: process.env.NODE_ENV === 'development',
 })

@@ -5,6 +5,8 @@
 import { unindent as $ } from '@ntnyq/utils'
 
 export const prettierConfigTemplate = $`
+  // @ts-check
+  
   import { config, defineConfig } from '@ntnyq/prettier-config'
   
   export default defineConfig(config)
