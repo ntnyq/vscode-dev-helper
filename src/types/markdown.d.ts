@@ -1,3 +1,8 @@
+export interface CreateSummaryDetailOptions {
+  content?: string
+  title?: string
+}
+
 /**
  * Markdown alert preset
  */

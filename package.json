@@ -96,14 +96,17 @@
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.create-alert",
-        "title": "Create Alert",
-        "when": "editorLangId == markdown || editorLangId == mdx"
+        "title": "Create Alert"
       },
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.create-table",
-        "title": "Create Table",
-        "when": "editorLangId == markdown || editorLangId == mdx"
+        "title": "Create Table"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.create-summary-detail",
+        "title": "Create Summary Detail"
       },
       {
         "category": "VSCode Dev Helper",
@@ -148,8 +151,7 @@
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.stripe-types",
-        "title": "Stripe Types",
-        "when": "editorLangId == ts || editorLangId == tsx"
+        "title": "Stripe Types"
       }
     ],
     "configuration": {
@@ -236,6 +238,10 @@
         },
         {
           "command": "vscode-dev-helper.create-alert",
+          "when": "editorLangId == markdown || editorLangId == mdx"
+        },
+        {
+          "command": "vscode-dev-helper.create-summary-detail",
           "when": "editorLangId == markdown || editorLangId == mdx"
         }
       ],

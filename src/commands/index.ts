@@ -8,10 +8,11 @@ import {
   ALERT_PRESET_CUSTOM,
   markdownAlertPresets,
 } from '../constants/alert'
+import { LANGUAGES_MARKDOWN } from '../constants/language'
 import { BUILTIN_COMMANDS } from '../constants/shared'
 import { commands } from '../meta'
 import { logger, openExternalURL } from '../utils'
-import { createAlert, createTable } from '../utils/markdown'
+import { createAlert, createSummaryDetail, createTable } from '../utils/markdown'
 import { executeCommand } from '../utils/vscode'
 import {
   generateESLintConfig,
@@ -106,7 +107,7 @@ export function useCommands() {
   useCommand(commands.createAlert, async () => {
     if (!editor.value) return
 
-    if (!languageId.value || !['markdown', 'mdx'].includes(languageId.value)) {
+    if (!languageId.value || !LANGUAGES_MARKDOWN.includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
@@ -151,7 +152,7 @@ export function useCommands() {
   useCommand(commands.createTable, async () => {
     if (!editor.value) return
 
-    if (!languageId.value || !['markdown', 'mdx'].includes(languageId.value)) {
+    if (!languageId.value || !LANGUAGES_MARKDOWN.includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
@@ -183,5 +184,21 @@ export function useCommands() {
     await executeCommand(BUILTIN_COMMANDS.formatDocument)
 
     return window.showInformationMessage(`Table ${rowCount}x${columnCount} Created`)
+  })
+
+  useCommand(commands.createSummaryDetail, async () => {
+    if (!editor.value) return
+
+    if (!languageId.value || !LANGUAGES_MARKDOWN.includes(languageId.value)) {
+      return window.showWarningMessage('Only markdown and mdx is supported')
+    }
+
+    const content = createSummaryDetail()
+
+    await editor.value.insertSnippet(new SnippetString(content))
+
+    await executeCommand(BUILTIN_COMMANDS.formatDocument)
+
+    return window.showInformationMessage(`Summary detail Created`)
   })
 }

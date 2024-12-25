@@ -18,6 +18,7 @@ export type CommandKey =
   | "vscode-dev-helper.open-external-url"
   | "vscode-dev-helper.create-alert"
   | "vscode-dev-helper.create-table"
+  | "vscode-dev-helper.create-summary-detail"
   | "vscode-dev-helper.generate-node-version"
   | "vscode-dev-helper.generate-gitignore"
   | "vscode-dev-helper.generate-gitattributes"
@@ -57,6 +58,11 @@ export const commands = {
    * @value `vscode-dev-helper.create-table`
    */
   createTable: "vscode-dev-helper.create-table",
+  /**
+   * Create Summary Detail
+   * @value `vscode-dev-helper.create-summary-detail`
+   */
+  createSummaryDetail: "vscode-dev-helper.create-summary-detail",
   /**
    * Generate .node-version
    * @value `vscode-dev-helper.generate-node-version`

@@ -1,10 +1,10 @@
-/**
- * Create markdown alert
- */
-
 import { ALERT_DEFAULT_MARKER } from '../constants/alert'
 import { WHITESPACE } from '../constants/common'
-import type { CreateMarkdownAlertOptions, CreateTableOptions } from '../types/markdown'
+import type {
+  CreateMarkdownAlertOptions,
+  CreateSummaryDetailOptions,
+  CreateTableOptions,
+} from '../types/markdown'
 
 type ResolvedOptions = Omit<CreateMarkdownAlertOptions, 'content' | 'syntax'>
 
@@ -30,6 +30,9 @@ ${
 `.trimStart()
 }
 
+/**
+ * create markdown alert
+ */
 export function createAlert(options: CreateMarkdownAlertOptions) {
   const isWhitespace = options.content?.trim()?.length === 0
   const lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
@@ -51,6 +54,9 @@ const separatorMap = {
   right: '---:',
 } as const
 
+/**
+ * create table
+ */
 export function createTable(options: CreateTableOptions) {
   const { columnCount, rowCount, align = 'center' } = options
 
@@ -62,4 +68,20 @@ export function createTable(options: CreateTableOptions) {
     .join('|')}|`
   const body = Array.from({ length: rowCount }).fill(header).join('\n')
   return [header, separator, body].join('\n')
+}
+
+/**
+ * create summary detail
+ */
+export function createSummaryDetail(options: CreateSummaryDetailOptions = {}) {
+  const { title = 'This is title', content = 'This is content' } = options
+  return `
+<details>
+<summary>${title}</summary>
+
+<br>
+
+${content}
+</details>
+  `.trim()
 }
