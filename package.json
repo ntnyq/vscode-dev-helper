@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.11",
   "private": true,
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@9.15.1",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -33,7 +33,6 @@
   ],
   "scripts": {
     "build": "tsup",
-    "clean": "rimraf dist",
     "dev": "NODE_ENV=development tsup",
     "generate:meta": "vscode-ext-gen --output=src/meta.ts",
     "lint": "eslint .",
@@ -49,31 +48,30 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.4.1",
+    "@ntnyq/utils": "^0.4.2",
     "color": "^4.2.3",
     "ofetch": "^1.4.1",
     "reactive-vscode": "^0.2.9",
     "ts-blank-space": "^0.4.4"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.9.3",
+    "@ntnyq/eslint-config": "^3.10.2",
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.10.2",
     "@types/vscode": "^1.96.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "@vscode/vsce": "^3.2.1",
-    "bumpp": "^9.9.1",
+    "bumpp": "^9.9.2",
     "eslint": "^9.17.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.4.2",
-    "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vscode-ext-gen": "^0.5.3"
+    "vscode-ext-gen": "^0.5.5"
   },
   "activationEvents": [
     "onStartupFinished"

@@ -136,6 +136,16 @@ export interface ConfigShorthandMap {
   nodeVersion: "vscode-dev-helper.nodeVersion",
 }
 
+export interface ConfigShorthandTypeMap {
+  alertMarker: string,
+  alertPreset: ("custom" | "github" | "obsidian" | "vitepress"),
+  alertSyntax: ("blockquote" | "container"),
+  alertTypes: string[],
+  alertUppercaseType: boolean,
+  enableCodeLens: boolean,
+  nodeVersion: string,
+}
+
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
   key: T,
   default: ConfigKeyTypeMap[T],
