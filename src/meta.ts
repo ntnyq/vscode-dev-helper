@@ -121,6 +121,7 @@ export type ConfigKey =
   | "vscode-dev-helper.alertUppercaseType"
   | "vscode-dev-helper.enableCodeLens"
   | "vscode-dev-helper.nodeVersion"
+  | "vscode-dev-helper.stripeTypes"
 
 export interface ConfigKeyTypeMap {
   "vscode-dev-helper.alertMarker": string,
@@ -130,6 +131,7 @@ export interface ConfigKeyTypeMap {
   "vscode-dev-helper.alertUppercaseType": boolean,
   "vscode-dev-helper.enableCodeLens": boolean,
   "vscode-dev-helper.nodeVersion": string,
+  "vscode-dev-helper.stripeTypes": ("@swc/wasm-typescript" | "ts-blank-space"),
 }
 
 export interface ConfigShorthandMap {
@@ -140,6 +142,7 @@ export interface ConfigShorthandMap {
   alertUppercaseType: "vscode-dev-helper.alertUppercaseType",
   enableCodeLens: "vscode-dev-helper.enableCodeLens",
   nodeVersion: "vscode-dev-helper.nodeVersion",
+  stripeTypes: "vscode-dev-helper.stripeTypes",
 }
 
 export interface ConfigShorthandTypeMap {
@@ -150,6 +153,7 @@ export interface ConfigShorthandTypeMap {
   alertUppercaseType: boolean,
   enableCodeLens: boolean,
   nodeVersion: string,
+  stripeTypes: ("@swc/wasm-typescript" | "ts-blank-space"),
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -232,6 +236,16 @@ export const configs = {
     key: "vscode-dev-helper.nodeVersion",
     default: "lts-latest",
   } as ConfigItem<"vscode-dev-helper.nodeVersion">,
+  /**
+   * Package to use for types stripe
+   * @key `vscode-dev-helper.stripeTypes`
+   * @default `"ts-blank-space"`
+   * @type `string`
+   */
+  stripeTypes: {
+    key: "vscode-dev-helper.stripeTypes",
+    default: "ts-blank-space",
+  } as ConfigItem<"vscode-dev-helper.stripeTypes">,
 }
 
 export interface ScopedConfigKeyTypeMap {
@@ -242,6 +256,7 @@ export interface ScopedConfigKeyTypeMap {
   "alertUppercaseType": boolean,
   "enableCodeLens": boolean,
   "nodeVersion": string,
+  "stripeTypes": ("@swc/wasm-typescript" | "ts-blank-space"),
 }
 
 export const scopedConfigs = {
@@ -254,6 +269,7 @@ export const scopedConfigs = {
     "alertUppercaseType": false,
     "enableCodeLens": true,
     "nodeVersion": "lts-latest",
+    "stripeTypes": "ts-blank-space",
   } satisfies ScopedConfigKeyTypeMap,
 }
 
@@ -266,6 +282,7 @@ export interface NestedConfigs {
     "alertUppercaseType": boolean,
     "enableCodeLens": boolean,
     "nodeVersion": string,
+    "stripeTypes": ("@swc/wasm-typescript" | "ts-blank-space"),
   },
 }
 
@@ -277,5 +294,6 @@ export interface NestedScopedConfigs {
   "alertUppercaseType": boolean,
   "enableCodeLens": boolean,
   "nodeVersion": string,
+  "stripeTypes": ("@swc/wasm-typescript" | "ts-blank-space"),
 }
 

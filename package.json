@@ -49,13 +49,14 @@
   },
   "dependencies": {
     "@ntnyq/utils": "^0.4.2",
+    "@swc/wasm-typescript": "^1.10.3",
     "color": "^4.2.3",
     "ofetch": "^1.4.1",
     "reactive-vscode": "^0.2.9",
-    "ts-blank-space": "^0.4.4"
+    "ts-blank-space-lite": "^0.0.3"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.10.2",
+    "@ntnyq/eslint-config": "^3.10.3",
     "@ntnyq/prettier-config": "^1.22.0",
     "@types/node": "^22.10.2",
     "@types/vscode": "^1.96.0",
@@ -210,6 +211,15 @@
           "default": "lts-latest",
           "description": "Default version for .node-version",
           "type": "string"
+        },
+        "vscode-dev-helper.stripeTypes": {
+          "default": "ts-blank-space",
+          "description": "Package to use for types stripe",
+          "enum": [
+            "@swc/wasm-typescript",
+            "ts-blank-space"
+          ],
+          "type": "string"
         }
       },
       "title": "VSCode Dev Helper"
@@ -296,7 +306,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.96.2"
+    "vscode": "^1.96.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "eslint --fix"

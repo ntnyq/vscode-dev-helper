@@ -60,6 +60,7 @@
 | `vscode-dev-helper.alertUppercaseType` | Use Uppercase Type for Custom Alert | `boolean` | `false`                                       |
 | `vscode-dev-helper.enableCodeLens`     | Enable CodeLens                     | `boolean` | `true`                                        |
 | `vscode-dev-helper.nodeVersion`        | Default version for .node-version   | `string`  | `"lts-latest"`                                |
+| `vscode-dev-helper.stripeTypes`        | Package to use for types stripe     | `string`  | `"ts-blank-space"`                            |
 
 <!-- configs -->
 
