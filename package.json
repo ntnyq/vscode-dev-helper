@@ -212,7 +212,7 @@
           "description": "Default version for .node-version",
           "type": "string"
         },
-        "vscode-dev-helper.stripeTypes": {
+        "vscode-dev-helper.stripeTypesPackage": {
           "default": "ts-blank-space",
           "description": "Package to use for types stripe",
           "enum": [
