@@ -1,6 +1,6 @@
+import { interopDefault } from '@ntnyq/utils'
 import { createTSBlankSpace } from 'ts-blank-space-lite'
 import { config } from '../../config'
-import { interopDefault } from '../../utils/interopModule'
 import { getWholeDocumentRange } from '../../utils/vscode'
 import type { TextEditor } from 'vscode'
 
