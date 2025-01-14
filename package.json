@@ -38,13 +38,11 @@
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
-    "pretest": "tsc -b ./tests/tsconfig.json",
     "release": "run-s release:check release:version release:publish",
     "release:build": "run-s generate:meta build",
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
-    "test": "vscode-test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -60,8 +58,6 @@
     "@ntnyq/prettier-config": "^1.22.1",
     "@types/node": "^22.10.5",
     "@types/vscode": "^1.96.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1",
     "@vscode/vsce": "^3.2.1",
     "bumpp": "^9.10.0",
     "eslint": "^9.18.0",

@@ -10,7 +10,7 @@ export default defineConfig({
   format: ['cjs'],
   minify: process.env.NODE_ENV !== 'development',
   shims: true,
-  sourcemap: process.env.NODE_ENV === 'development',
+  sourcemap: false,
   splitting: true,
   watch: process.env.NODE_ENV === 'development',
   env: {

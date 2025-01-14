@@ -24,20 +24,6 @@
         "VSCODE_DEBUG_MODE": "true"
       },
       "preLaunchTask": "${defaultBuildTask}"
-    },
-    {
-      "name": "Extension Tests",
-      "type": "extensionHost",
-      "request": "launch",
-      "args": [
-        "--disable-extensions",
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/dist/tests"
-      ],
-      "testConfiguration": "${workspaceFolder}/.vscode-test.mjs",
-      "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "preLaunchTask": "${defaultBuildTask}"
     }
   ]
 }
