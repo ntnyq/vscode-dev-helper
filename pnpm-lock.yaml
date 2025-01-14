@@ -11,9 +11,6 @@ importers:
       '@ntnyq/utils':
         specifier: ^0.4.5
         version: 0.4.5
-      '@swc/wasm-typescript':
-        specifier: ^1.10.7
-        version: 1.10.7
       color:
         specifier: ^4.2.3
         version: 4.2.3
@@ -839,9 +836,6 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.40.0'
-
-  '@swc/wasm-typescript@1.10.7':
-    resolution: {integrity: sha512-YgtD+LML6RcpDmkdnppx9SBiMKugGfCTVt2SXjIHwlomQI9C6n40Rvctqco8RFBAKPOlmEZ4dWoK2ur2CK5HXg==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -3964,8 +3958,6 @@ snapshots:
       - supports-color
       - typescript
     optional: true
-
-  '@swc/wasm-typescript@1.10.7': {}
 
   '@types/debug@4.1.12':
     dependencies:

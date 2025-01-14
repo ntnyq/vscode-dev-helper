@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "@ntnyq/utils": "^0.4.5",
-    "@swc/wasm-typescript": "^1.10.7",
     "color": "^4.2.3",
     "ofetch": "^1.4.1",
     "reactive-vscode": "^0.2.9",
@@ -206,15 +205,6 @@
         "vscode-dev-helper.nodeVersion": {
           "default": "lts-latest",
           "description": "Default version for .node-version",
-          "type": "string"
-        },
-        "vscode-dev-helper.stripeTypesPackage": {
-          "default": "ts-blank-space",
-          "description": "Package to use for types stripe",
-          "enum": [
-            "@swc/wasm-typescript",
-            "ts-blank-space"
-          ],
           "type": "string"
         }
       },
