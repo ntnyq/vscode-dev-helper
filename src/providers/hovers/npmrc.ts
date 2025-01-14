@@ -19,7 +19,7 @@ export class NPMRCHoverProvider implements HoverProvider {
   provideHover(document: TextDocument, position: Position): ProviderResult<Hover> {
     const range = document.getWordRangeAtPosition(position)
     const { text } = document.lineAt(position.line)
-    const key = text.split('=')[0]
+    const key = text.split('=')[0].trim()
 
     if (!key || !NPMRC_CODELENS_KEYS.includes(key)) return
 

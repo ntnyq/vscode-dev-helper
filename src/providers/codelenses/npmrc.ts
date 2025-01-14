@@ -39,14 +39,14 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
 
       if (!text.value) return
 
-      const regexp = new RegExp(`(?:${NPMRC_CODELENS_KEYS.join('|')})=\\S+`, 'g')
+      const regexp = new RegExp(`(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`, 'g')
       let match: RegExpExecArray | null
 
       regexp.lastIndex = 0
 
       while ((match = regexp.exec(text.value))) {
         const line = document.lineAt(document.positionAt(match.index).line)
-        const key = line.text.split('=')[0]
+        const key = line.text.split('=')[0].trim()
 
         if (!key) return
 
