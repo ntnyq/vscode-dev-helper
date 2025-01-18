@@ -1,3 +1,7 @@
+/**
+ * @file markdown
+ */
+
 import { ALERT_DEFAULT_MARKER } from '../constants/alert'
 import { WHITESPACE } from '../constants/common'
 import type {

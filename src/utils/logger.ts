@@ -1,5 +1,5 @@
 /**
- * Logger
+ * @file logger
  */
 
 import { useLogger } from 'reactive-vscode'

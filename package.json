@@ -48,6 +48,7 @@
   "dependencies": {
     "@ntnyq/utils": "^0.4.5",
     "color": "^4.2.3",
+    "jsonc-parser": "^3.3.1",
     "ofetch": "^1.4.1",
     "reactive-vscode": "^0.2.10",
     "ts-blank-space-lite": "^0.0.3"

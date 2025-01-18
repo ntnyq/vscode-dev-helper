@@ -1,5 +1,5 @@
 /**
- * vscode utils
+ * @file vscode utils
  */
 
 import { Buffer } from 'node:buffer'

@@ -10,6 +10,7 @@
 
 - pnpm config jsonschema in `package.json`
 - `.npmrc` completion, codelenses
+- move dependencies to `pnpm-workspace.yaml` catalog
 - stripe types from ts?(x) files via [ts-blank-space](https://github.com/bloomberg/ts-blank-space)
 - generate files
   - `.gitattributes`
