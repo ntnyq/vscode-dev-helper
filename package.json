@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.13",
   "private": true,
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -53,12 +53,12 @@
     "ts-blank-space-lite": "^0.0.3"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.12.1",
+    "@ntnyq/eslint-config": "^3.12.3",
     "@ntnyq/prettier-config": "^1.22.1",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.7",
     "@types/vscode": "^1.96.0",
     "@vscode/vsce": "^3.2.1",
-    "bumpp": "^9.10.0",
+    "bumpp": "^9.10.1",
     "eslint": "^9.18.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
@@ -292,7 +292,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.96.2"
+    "vscode": "^1.96.4"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "eslint --fix"
