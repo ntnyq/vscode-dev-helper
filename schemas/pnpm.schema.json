@@ -66,6 +66,10 @@
       "type": "object",
       "markdownDescription": "[Pnpm Configuration](https://pnpm.io/package_json)",
       "properties": {
+        "configDependencies": {
+          "$ref": "#/definitions/dependency",
+          "markdownDescription": "Configurational dependencies cannot have dependencies of their own or lifecycle scripts. They should be added using exact version and the integrity checksum.\n\n[pnpm.configDependencies](https://pnpm.io/package_json#pnpmconfigdependencies)"
+        },
         "overrides": {
           "$ref": "#/definitions/dependency",
           "markdownDescription": "This field allows you to instruct pnpm to override any dependency in the dependency graph. This is useful to enforce all your packages to use a single version of a dependency, backport a fix, or replace a dependency with a fork.\n\nNote that the overrides field can only be set at the root of the project.\n\n[pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides)"
