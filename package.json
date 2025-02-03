@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.13",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.5",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -55,9 +55,9 @@
   "devDependencies": {
     "@ntnyq/eslint-config": "^3.12.3",
     "@ntnyq/prettier-config": "^1.22.1",
-    "@types/node": "^22.10.10",
+    "@types/node": "^22.13.0",
     "@types/vscode": "^1.96.0",
-    "@vscode/vsce": "^3.2.1",
+    "@vscode/vsce": "^3.2.2",
     "bumpp": "^10.0.1",
     "eslint": "^9.19.0",
     "husky": "^9.1.7",
