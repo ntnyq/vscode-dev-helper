@@ -70,6 +70,23 @@
           "$ref": "#/definitions/dependency",
           "markdownDescription": "Configurational dependencies cannot have dependencies of their own or lifecycle scripts. They should be added using exact version and the integrity checksum.\n\n[pnpm.configDependencies](https://pnpm.io/package_json#pnpmconfigdependencies)"
         },
+        "executionEnv": {
+          "type": "object",
+          "markdownDescription": "Specifies which exact Node.js version should be used for the project's runtime. pnpm will automatically install the specified version of Node.js and use it for running `pnpm run` commands or the `pnpm node` command..\n\n[pnpm.executionEnv](https://pnpm.io/package_json#pnpmexecutionenv)",
+          "properties": {
+            "nodeVersion": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ignoredBuiltDependencies": {
+          "type": "array",
+          "markdownDescription": "A list of package names that should not be built during installation.\n\n[pnpm.ignoredBuiltDependencies](https://pnpm.io/package_json#pnpmignoredbuiltdependencies)",
+          "items": {
+            "type": "string"
+          }
+        },
         "overrides": {
           "$ref": "#/definitions/dependency",
           "markdownDescription": "This field allows you to instruct pnpm to override any dependency in the dependency graph. This is useful to enforce all your packages to use a single version of a dependency, backport a fix, or replace a dependency with a fork.\n\nNote that the overrides field can only be set at the root of the project.\n\n[pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides)"
@@ -138,10 +155,6 @@
             "pattern": "^patches/"
           }
         },
-        "allowNonAppliedPatches": {
-          "type": "boolean",
-          "markdownDescription": "When `true`, installation won't fail if some of the patches from the `patchedDependencies` field were not applied.\n\n[pnpm.allowNonAppliedPatches](https://pnpm.io/package_json#pnpmallownonappliedpatches)"
-        },
         "updateConfig": {
           "type": "object",
           "markdownDescription": "[pnpm.updateConfig](https://pnpm.io/package_json#pnpmupdateconfig)",
@@ -208,12 +221,12 @@
           "items": {
             "type": "string"
           }
-        },
-        "resolutions": {
-          "$ref": "#/definitions/dependency",
-          "markdownDescription": "Functionally identical to [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides), this field is intended to make it easier to migrate from Yarn.\n\nresolutions and pnpm.overrides get merged before package resolution (with pnpm.overrides taking precedence), which can be useful when you're migrating from Yarn and need to tweak a few packages just for pnpm.\n\n[pnpm.resolutions](https://pnpm.io/package_json#resolutions)"
         }
       }
+    },
+    "resolutions": {
+      "$ref": "#/definitions/dependency",
+      "markdownDescription": "Functionally identical to [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides), this field is intended to make it easier to migrate from Yarn.\n\nresolutions and pnpm.overrides get merged before package resolution (with pnpm.overrides taking precedence), which can be useful when you're migrating from Yarn and need to tweak a few packages just for pnpm.\n\n[pnpm.resolutions](https://pnpm.io/package_json#resolutions)"
     }
   }
 }
