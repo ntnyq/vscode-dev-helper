@@ -53,12 +53,12 @@
     "ts-blank-space-lite": "^0.0.3"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.12.3",
+    "@ntnyq/eslint-config": "^4.0.0-beta.1",
     "@ntnyq/prettier-config": "^1.22.1",
-    "@types/node": "^22.13.0",
+    "@types/node": "^22.13.1",
     "@types/vscode": "^1.96.0",
     "@vscode/vsce": "^3.2.2",
-    "bumpp": "^10.0.1",
+    "bumpp": "^10.0.2",
     "eslint": "^9.19.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
@@ -214,6 +214,10 @@
       {
         "fileMatch": "package.json",
         "url": "./schemas/pnpm.schema.json"
+      },
+      {
+        "fileMatch": ".tazerc.json",
+        "url": "./schemas/taze.schema.json"
       }
     ],
     "menus": {

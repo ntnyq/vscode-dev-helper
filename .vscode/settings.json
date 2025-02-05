@@ -17,7 +17,18 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.words": ["bumpp", "changelogithub", "Cves", "GHSA", "Ghsas", "NPMRC", "ofetch", "tsup"],
+  "cSpell.words": [
+    "bumpp",
+    "changelogithub",
+    "Cves",
+    "GHSA",
+    "Ghsas",
+    "NPMRC",
+    "ofetch",
+    "taze",
+    "tazerc",
+    "tsup"
+  ],
   "emeraldwalk.runonsave": {
     "commands": [
       {

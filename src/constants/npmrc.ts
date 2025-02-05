@@ -52,13 +52,13 @@ export const NPMRC_COMPLETION_ITEMS = {
 
   'shell-emulator': BOOL_COMPLETION_ITEMS,
   'strict-peer-dependencies': BOOL_COMPLETION_ITEMS,
+  // Nodejs Settings
+  'use-node-version': [''],
   registry: [
     'https://registry.npmjs.org/',
     'https://registry.yarnpkg.com/',
     'https://registry.npmmirror.com/',
   ],
-  // Nodejs Settings
-  'use-node-version': [''],
 }
 
 export type NPMRCCompletionKeyUnion = keyof typeof NPMRC_COMPLETION_ITEMS

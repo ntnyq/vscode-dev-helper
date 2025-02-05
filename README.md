@@ -8,7 +8,9 @@
 
 ## Features
 
-- pnpm config jsonschema in `package.json`
+- JSONSchema support
+  - pnpm config in `package.json`
+  - [taze](https://github.com/antfu-collective/taze) config `.tazerc.json`
 - `.npmrc` completion, codelenses
 - stripe types from ts?(x) files via [ts-blank-space](https://github.com/bloomberg/ts-blank-space)
 - generate files

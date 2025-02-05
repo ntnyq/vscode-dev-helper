@@ -4,8 +4,34 @@ export interface CreateSummaryDetailOptions {
 }
 
 /**
- * Markdown alert preset
+ * Options for `createTable`
  */
+export interface CreateTableOptions {
+  columnCount: number
+  rowCount: number
+  /**
+   * @default `center`
+   */
+  align?: 'center' | 'left' | 'right'
+}
+
+/**
+ * Options for `createMarkdownAlert`
+ * @pg
+ */
+export type CreateMarkdownAlertOptions = Pick<
+  MarkdownAlertPreset,
+  'marker' | 'syntax' | 'uppercaseType'
+> & {
+  /**
+   * Alert type
+   */
+  type: string
+  /**
+   * Alert content
+   */
+  content?: string
+}
 export interface MarkdownAlertPreset {
   /**
    * Preset name, 'custom' for use custom preset
@@ -29,33 +55,4 @@ export interface MarkdownAlertPreset {
    * @default false
    */
   uppercaseType?: boolean
-}
-
-/**
- * Options for `createMarkdownAlert`
- */
-export type CreateMarkdownAlertOptions = Pick<
-  MarkdownAlertPreset,
-  'marker' | 'syntax' | 'uppercaseType'
-> & {
-  /**
-   * Alert content
-   */
-  content?: string
-  /**
-   * Alert type
-   */
-  type: string
-}
-
-/**
- * Options for `createTable`
- */
-export interface CreateTableOptions {
-  columnCount: number
-  rowCount: number
-  /**
-   * @default `center`
-   */
-  align?: 'center' | 'left' | 'right'
 }

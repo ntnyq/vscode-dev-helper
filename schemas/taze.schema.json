@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "description": "JSON schema for taze config",
+  "$id": "taze",
+  "title": "JSON schema for taze config",
+  "version": 1.1,
+  "definitions": {
+    "arrayable-string": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "cwd": {
+      "type": "string",
+      "markdownDescription": "current working directory"
+    },
+    "recursive": {
+      "type": "boolean",
+      "markdownDescription": "recursive to all packages"
+    },
+    "ignorePaths": {
+      "$ref": "#/definitions/arrayable-string",
+      "markdownDescription": "ignore paths for looking for package.json in monorepo"
+    },
+    "include": {
+      "$ref": "#/definitions/arrayable-string",
+      "markdownDescription": "packages should be bumped"
+    },
+    "exclude": {
+      "$ref": "#/definitions/arrayable-string",
+      "markdownDescription": "ignore packages from bumping"
+    },
+    "loglevel": {
+      "type": "string",
+      "markdownDescription": "log level",
+      "enum": ["debug", "info", "warn", "error", "silent"]
+    },
+    "failOnOutdated": {
+      "type": "boolean",
+      "markdownDescription": "fail when deps are outdated"
+    },
+    "silent": {
+      "type": "boolean",
+      "markdownDescription": "disable log"
+    },
+    "force": {
+      "type": "boolean",
+      "markdownDescription": "fetch latest package info from registry without cache"
+    },
+    "write": {
+      "type": "boolean",
+      "markdownDescription": "write to package.json"
+    },
+    "install": {
+      "type": "boolean",
+      "markdownDescription": "run `install` script right after bumping"
+    },
+    "depFields": {
+      "type": "object",
+      "markdownDescription": "fields in package.json to be checked. By default all fields will be checked",
+      "propertyNames": {
+        "type": "string",
+        "enum": [
+          "dependencies",
+          "devDependencies",
+          "peerDependencies",
+          "optionalDependencies",
+          "packageManager",
+          "pnpm.overrides",
+          "resolutions",
+          "overrides",
+          "pnpm:catalog"
+        ]
+      },
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "packageMode": {
+      "type": "object",
+      "markdownDescription": "override bumping mode for specific dependencies",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["major", "minor", "patch", "latest", "newest", "next", "ignore"]
+      }
+    }
+  }
+}
