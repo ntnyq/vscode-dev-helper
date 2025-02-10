@@ -6,6 +6,9 @@ export function useHovers() {
   const ctx = extensionContext.value!
 
   ctx.subscriptions.push(
-    languages.registerHoverProvider(NPMRCHoverProvider.selector, new NPMRCHoverProvider()),
+    languages.registerHoverProvider(
+      NPMRCHoverProvider.selector,
+      new NPMRCHoverProvider(),
+    ),
   )
 }

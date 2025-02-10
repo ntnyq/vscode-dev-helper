@@ -1,7 +1,10 @@
 import { useActiveTextEditor, useDocumentText } from 'reactive-vscode'
 import { CodeLens, EventEmitter, workspace } from 'vscode'
 import { config } from '../../config'
-import { NPMRC_CODELENS_ITEMS, NPMRC_CODELENS_KEYS } from '../../constants/npmrc'
+import {
+  NPMRC_CODELENS_ITEMS,
+  NPMRC_CODELENS_KEYS,
+} from '../../constants/npmrc'
 import { commands } from '../../meta'
 import { logger } from '../../utils'
 import type {
@@ -39,7 +42,10 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
 
       if (!text.value) return
 
-      const regexp = new RegExp(`(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`, 'g')
+      const regexp = new RegExp(
+        `(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`,
+        'g',
+      )
       let match: RegExpExecArray | null
 
       regexp.lastIndex = 0

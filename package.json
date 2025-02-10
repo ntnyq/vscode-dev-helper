@@ -53,8 +53,8 @@
     "ts-blank-space-lite": "^0.0.3"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^4.0.0-beta.2",
-    "@ntnyq/prettier-config": "^1.22.1",
+    "@ntnyq/eslint-config": "^4.0.0-beta.3",
+    "@ntnyq/prettier-config": "^2.0.0-beta.2",
     "@types/node": "^22.13.1",
     "@types/vscode": "^1.97.0",
     "@vscode/vsce": "^3.2.2",
@@ -118,6 +118,11 @@
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.generate-gitattributes",
         "title": "Generate .gitattributes"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-git-blame-ignore-revs",
+        "title": "Generate .git-blame-ignore-revs"
       },
       {
         "category": "VSCode Dev Helper",
@@ -253,6 +258,11 @@
         },
         {
           "command": "vscode-dev-helper.generate-gitignore",
+          "group": "dotfile",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-git-blame-ignore-revs",
           "group": "dotfile",
           "when": "explorerResourceIsFolder"
         },

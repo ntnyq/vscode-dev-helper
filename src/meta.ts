@@ -22,6 +22,7 @@ export type CommandKey =
   | "vscode-dev-helper.generate-node-version"
   | "vscode-dev-helper.generate-gitignore"
   | "vscode-dev-helper.generate-gitattributes"
+  | "vscode-dev-helper.generate-git-blame-ignore-revs"
   | "vscode-dev-helper.generate-eslint-config"
   | "vscode-dev-helper.generate-prettier-config"
   | "vscode-dev-helper.generate-prettier-ignore"
@@ -78,6 +79,11 @@ export const commands = {
    * @value `vscode-dev-helper.generate-gitattributes`
    */
   generateGitattributes: "vscode-dev-helper.generate-gitattributes",
+  /**
+   * Generate .git-blame-ignore-revs
+   * @value `vscode-dev-helper.generate-git-blame-ignore-revs`
+   */
+  generateGitBlameIgnoreRevs: "vscode-dev-helper.generate-git-blame-ignore-revs",
   /**
    * Generate eslint.config.mjs
    * @value `vscode-dev-helper.generate-eslint-config`

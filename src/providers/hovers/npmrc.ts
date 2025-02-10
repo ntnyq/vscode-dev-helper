@@ -1,5 +1,8 @@
 import { Hover, MarkdownString } from 'vscode'
-import { NPMRC_CODELENS_ITEMS, NPMRC_CODELENS_KEYS } from '../../constants/npmrc'
+import {
+  NPMRC_CODELENS_ITEMS,
+  NPMRC_CODELENS_KEYS,
+} from '../../constants/npmrc'
 import { logger } from '../../utils'
 import type {
   DocumentSelector,
@@ -16,7 +19,10 @@ export class NPMRCHoverProvider implements HoverProvider {
     scheme: 'file',
   }
 
-  provideHover(document: TextDocument, position: Position): ProviderResult<Hover> {
+  provideHover(
+    document: TextDocument,
+    position: Position,
+  ): ProviderResult<Hover> {
     const range = document.getWordRangeAtPosition(position)
     const { text } = document.lineAt(position.line)
     const key = text.split('=')[0].trim()
@@ -25,7 +31,8 @@ export class NPMRCHoverProvider implements HoverProvider {
 
     logger.info(`🟩 Created hover for: ${key}`)
 
-    const content = NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion].description
+    const content =
+      NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion].description
     const markdown = new MarkdownString(content)
 
     markdown.isTrusted = true

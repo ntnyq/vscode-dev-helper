@@ -1,6 +1,9 @@
 import { extensionContext } from 'reactive-vscode'
 import { languages } from 'vscode'
-import { NPMRCKeyCompletionProvider, NPMRCValueCompletionProvider } from './npmrc'
+import {
+  NPMRCKeyCompletionProvider,
+  NPMRCValueCompletionProvider,
+} from './npmrc'
 
 export function useCompletions() {
   const ctx = extensionContext.value!

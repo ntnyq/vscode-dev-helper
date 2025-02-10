@@ -6,6 +6,9 @@ export function useCodeLenses() {
   const ctx = extensionContext.value!
 
   ctx.subscriptions.push(
-    languages.registerCodeLensProvider(NPMRCCodeLensProvider.selector, new NPMRCCodeLensProvider()),
+    languages.registerCodeLensProvider(
+      NPMRCCodeLensProvider.selector,
+      new NPMRCCodeLensProvider(),
+    ),
   )
 }

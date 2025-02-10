@@ -1,5 +1,8 @@
 import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode'
-import { NPMRC_COMPLETION_ITEMS, NPMRC_COMPLETION_KEYS } from '../../constants/npmrc'
+import {
+  NPMRC_COMPLETION_ITEMS,
+  NPMRC_COMPLETION_KEYS,
+} from '../../constants/npmrc'
 import type {
   CompletionItemProvider,
   DocumentSelector,
@@ -24,7 +27,9 @@ export class NPMRCKeyCompletionProvider implements CompletionItemProvider {
     const line = document.lineAt(position)
     const lineText = `${line.text.slice(0, Math.max(0, position.character))}`
 
-    const comletionList = NPMRC_COMPLETION_KEYS.filter(key => key.startsWith(lineText)).map(
+    const comletionList = NPMRC_COMPLETION_KEYS.filter(key =>
+      key.startsWith(lineText),
+    ).map(
       item =>
         new CompletionItem(
           { label: item, description: 'Pnpm configuration' },
@@ -51,7 +56,9 @@ export class NPMRCValueCompletionProvider implements CompletionItemProvider {
     const line = document.lineAt(position)
     const lineText = `${line.text.slice(0, Math.max(0, position.character))}`
     const comletionValueList =
-      NPMRC_COMPLETION_ITEMS[lineText.replace('=', '') as NPMRCCompletionKeyUnion] ?? []
+      NPMRC_COMPLETION_ITEMS[
+        lineText.replace('=', '') as NPMRCCompletionKeyUnion
+      ] ?? []
 
     const comletionList = comletionValueList.map(
       item =>

@@ -94,7 +94,15 @@
       },
       "additionalProperties": {
         "type": "string",
-        "enum": ["major", "minor", "patch", "latest", "newest", "next", "ignore"]
+        "enum": [
+          "major",
+          "minor",
+          "patch",
+          "latest",
+          "newest",
+          "next",
+          "ignore"
+        ]
       }
     }
   }

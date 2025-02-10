@@ -104,12 +104,14 @@ export const NPMRC_CODELENS_ITEMS = {
     url: 'https://pnpm.io/npmrc#lockfile',
   },
   'modules-dir': {
-    description: 'The directory in which dependencies will be installed (instead of node_modules).',
     url: 'https://pnpm.io/npmrc#modules-dir',
+    description:
+      'The directory in which dependencies will be installed (instead of node_modules).',
   },
   'node-linker': {
-    description: 'Defines what linker should be used for installing Node packages.',
     url: 'https://pnpm.io/npmrc#node-linker',
+    description:
+      'Defines what linker should be used for installing Node packages.',
   },
   'package-manager-strict': {
     description: `If this setting is disabled, pnpm will not fail if a different package manager is specified in the \`packageManager\` field of \`package.json\`. When enabled, only the package name is checked (since pnpm v9.2.0), so you can still run any version of pnpm regardless of the version specified in the \`packageManager\` field.\n\nAlternatively, you can disable this setting by setting the \`COREPACK_ENABLE_STRICT\` environment variable to 0.`,
@@ -126,8 +128,9 @@ export const NPMRC_CODELENS_ITEMS = {
     This setting is useful when dealing with some flawed pluggable tools that don't resolve dependencies properly.`,
   },
   registry: {
-    description: 'The base URL of the npm package registry (trailing slash included).',
     url: 'https://pnpm.io/npmrc#registry',
+    description:
+      'The base URL of the npm package registry (trailing slash included).',
   },
   'shamefully-hoist': {
     url: 'https://pnpm.io/npmrc#shamefully-hoist',

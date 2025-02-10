@@ -1,5 +1,10 @@
 import { upperFirst } from '@ntnyq/utils'
-import { computed, useActiveTextEditor, useCommand, useTextEditorSelection } from 'reactive-vscode'
+import {
+  computed,
+  useActiveTextEditor,
+  useCommand,
+  useTextEditorSelection,
+} from 'reactive-vscode'
 import { SnippetString, window } from 'vscode'
 import { config } from '../config'
 import {
@@ -11,20 +16,25 @@ import {
 import { LANGUAGES_MARKDOWN } from '../constants/language'
 import { BUILTIN_COMMANDS } from '../constants/shared'
 import { commands } from '../meta'
-import { logger, openExternalURL } from '../utils'
-import { createAlert, createSummaryDetail, createTable } from '../utils/markdown'
-import { executeCommand } from '../utils/vscode'
 import {
-  generateESLintConfig,
-  generateGitAttributes,
-  generateGitIgnore,
-  generateNodeVersion,
-  generatePackageJson,
-  generatePrettierConfig,
-  generatePrettierIgnore,
-} from './generators'
+  eslintConfigTemplate,
+  gitAttributesTemplate,
+  gitBlameIgnoreRevsTemplate,
+  gitIgnoreTemplate,
+  prettierConfigTemplate,
+  prettierIgnoreTemplate,
+} from '../templates'
+import { packageJsonTemplate } from '../templates/packageJson'
+import { logger, openExternalURL } from '../utils'
+import {
+  createAlert,
+  createSummaryDetail,
+  createTable,
+} from '../utils/markdown'
+import { executeCommand } from '../utils/vscode'
+import { createFileInWorkspace } from './helper/fs'
 
-export function useCommands() {
+export async function useCommands() {
   const editor = useActiveTextEditor()
   const selection = useTextEditorSelection(editor)
   const languageId = computed(() => editor.value?.document.languageId)
@@ -55,39 +65,36 @@ export function useCommands() {
     return window.showInformationMessage('Types striped')
   })
 
-  useCommand(commands.generateNodeVersion, async () => {
-    await generateNodeVersion()
-    return window.showInformationMessage('File .node-version Generated')
+  useCommand(commands.generateNodeVersion, () => {
+    createFileInWorkspace('.node-version', config.nodeVersion)
   })
 
-  useCommand(commands.generateGitattributes, async () => {
-    await generateGitAttributes()
-    return window.showInformationMessage('File.gitattributes Generated')
+  useCommand(commands.generateGitattributes, () => {
+    createFileInWorkspace('.gitattributes', gitAttributesTemplate)
   })
 
-  useCommand(commands.generateGitignore, async () => {
-    await generateGitIgnore()
-    return window.showInformationMessage('File .gitignore Generated')
+  useCommand(commands.generateGitignore, () => {
+    createFileInWorkspace('.gitignore', gitIgnoreTemplate)
   })
 
-  useCommand(commands.generateEslintConfig, async () => {
-    await generateESLintConfig()
-    return window.showInformationMessage('File eslint.config.mjs Generated')
+  useCommand(commands.generateGitBlameIgnoreRevs, () => {
+    createFileInWorkspace('.git-blame-ignore-revs', gitBlameIgnoreRevsTemplate)
+  })
+
+  useCommand(commands.generateEslintConfig, () => {
+    createFileInWorkspace('eslint.config.mjs', eslintConfigTemplate)
   })
 
   useCommand(commands.generatePrettierConfig, async () => {
-    await generatePrettierConfig()
-    return window.showInformationMessage('File prettier.config.mjs Generated')
+    createFileInWorkspace('prettier.config.mjs', prettierConfigTemplate)
   })
 
-  useCommand(commands.generatePrettierIgnore, async () => {
-    await generatePrettierIgnore()
-    return window.showInformationMessage('File.prettierignore Generated')
+  useCommand(commands.generatePrettierIgnore, () => {
+    createFileInWorkspace('.prettierignore', prettierIgnoreTemplate)
   })
 
-  useCommand(commands.generatePackageJson, async () => {
-    await generatePackageJson()
-    return window.showInformationMessage('File package.json Generated')
+  useCommand(commands.generatePackageJson, () => {
+    createFileInWorkspace('package.json', packageJsonTemplate)
   })
 
   useCommand(commands.insertInlineCode, async () => {
@@ -113,7 +120,9 @@ export function useCommands() {
 
     const useCustomPreset = config.alertPreset === ALERT_PRESET_CUSTOM
 
-    const alertPreset = markdownAlertPresets.find(preset => preset.name === config.alertPreset)
+    const alertPreset = markdownAlertPresets.find(
+      preset => preset.name === config.alertPreset,
+    )
 
     const alertTypes = useCustomPreset ? config.alertTypes : alertPreset?.types
 
@@ -138,10 +147,13 @@ export function useCommands() {
       type,
       content,
       marker: config.alertMarker,
-      syntax: (useCustomPreset ? config.alertSyntax : alertPreset?.syntax) || ALERT_DEFAULT_SYNTAX,
+      syntax:
+        (useCustomPreset ? config.alertSyntax : alertPreset?.syntax)
+        || ALERT_DEFAULT_SYNTAX,
       uppercaseType:
-        (useCustomPreset ? config.alertUppercaseType : alertPreset?.uppercaseType) ||
-        ALERT_DEFAULT_UPPERCASE_TYPE,
+        (useCustomPreset
+          ? config.alertUppercaseType
+          : alertPreset?.uppercaseType) || ALERT_DEFAULT_UPPERCASE_TYPE,
     })
 
     await editor.value.insertSnippet(new SnippetString(alertText))
@@ -164,7 +176,9 @@ export function useCommands() {
         if (!size) return 'Please input table size'
         if (!/\d+x\d+/.test(size)) return 'Please use format like [4x3]'
         const [rowCount, columnCount] = size.split('x').map(Number)
-        if (rowCount <= 0 || columnCount <= 0) return 'Please use format like [4x3]'
+        if (rowCount <= 0 || columnCount <= 0) {
+          return 'Please use format like [4x3]'
+        }
         return null
       },
     })
@@ -172,7 +186,9 @@ export function useCommands() {
 
     if (!trimedInput) return
 
-    const [rowCount, columnCount] = trimedInput.split('x').map(v => Number.parseInt(v, 10))
+    const [rowCount, columnCount] = trimedInput
+      .split('x')
+      .map(v => Number.parseInt(v, 10))
 
     const alertText = createTable({
       rowCount,
@@ -183,7 +199,9 @@ export function useCommands() {
 
     await executeCommand(BUILTIN_COMMANDS.formatDocument)
 
-    return window.showInformationMessage(`Table ${rowCount}x${columnCount} Created`)
+    return window.showInformationMessage(
+      `Table ${rowCount}x${columnCount} Created`,
+    )
   })
 
   useCommand(commands.createSummaryDetail, async () => {

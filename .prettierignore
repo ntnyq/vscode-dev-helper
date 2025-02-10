@@ -1,0 +1,10 @@
+node_modules
+*.min.*
+public
+
+dist
+coverage
+
+pnpm-lock.yaml
+
+src/templates/**/*.ts

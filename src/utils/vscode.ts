@@ -4,7 +4,14 @@
 
 import { Buffer } from 'node:buffer'
 import { useWorkspaceFolders } from 'reactive-vscode'
-import { env, Range, Uri, commands as vscodeCommands, window, workspace } from 'vscode'
+import {
+  env,
+  Range,
+  Uri,
+  commands as vscodeCommands,
+  window,
+  workspace,
+} from 'vscode'
 import type { TextDocument } from 'vscode'
 
 /**

@@ -16,6 +16,7 @@
 - generate files
   - `.gitattributes`
   - `.gitignore`
+  - `.git-blame-ignore-revs`
   - `.node-version`
   - `eslint.config.mjs`
   - `prettier.config.mjs`
@@ -30,23 +31,24 @@
 
 <!-- commands -->
 
-| Command                                      | Title                                           |
-| -------------------------------------------- | ----------------------------------------------- |
-| `vscode-dev-helper.enable-codelens`          | VSCode Dev Helper: Enable CodeLens              |
-| `vscode-dev-helper.disable-codelens`         | VSCode Dev Helper: Disable CodeLens             |
-| `vscode-dev-helper.open-external-url`        | VSCode Dev Helper: Open External URL            |
-| `vscode-dev-helper.create-alert`             | VSCode Dev Helper: Create Alert                 |
-| `vscode-dev-helper.create-table`             | VSCode Dev Helper: Create Table                 |
-| `vscode-dev-helper.create-summary-detail`    | VSCode Dev Helper: Create Summary Detail        |
-| `vscode-dev-helper.generate-node-version`    | VSCode Dev Helper: Generate .node-version       |
-| `vscode-dev-helper.generate-gitignore`       | VSCode Dev Helper: Generate .gitignore          |
-| `vscode-dev-helper.generate-gitattributes`   | VSCode Dev Helper: Generate .gitattributes      |
-| `vscode-dev-helper.generate-eslint-config`   | VSCode Dev Helper: Generate eslint.config.mjs   |
-| `vscode-dev-helper.generate-prettier-config` | VSCode Dev Helper: Generate prettier.config.mjs |
-| `vscode-dev-helper.generate-prettier-ignore` | VSCode Dev Helper: Generate .prettierignore     |
-| `vscode-dev-helper.generate-package-json`    | VSCode Dev Helper: Generate package.json        |
-| `vscode-dev-helper.insert-inline-code`       | VSCode Dev Helper: Insert Inline Code           |
-| `vscode-dev-helper.stripe-types`             | VSCode Dev Helper: Stripe Types                 |
+| Command                                            | Title                                              |
+| -------------------------------------------------- | -------------------------------------------------- |
+| `vscode-dev-helper.enable-codelens`                | VSCode Dev Helper: Enable CodeLens                 |
+| `vscode-dev-helper.disable-codelens`               | VSCode Dev Helper: Disable CodeLens                |
+| `vscode-dev-helper.open-external-url`              | VSCode Dev Helper: Open External URL               |
+| `vscode-dev-helper.create-alert`                   | VSCode Dev Helper: Create Alert                    |
+| `vscode-dev-helper.create-table`                   | VSCode Dev Helper: Create Table                    |
+| `vscode-dev-helper.create-summary-detail`          | VSCode Dev Helper: Create Summary Detail           |
+| `vscode-dev-helper.generate-node-version`          | VSCode Dev Helper: Generate .node-version          |
+| `vscode-dev-helper.generate-gitignore`             | VSCode Dev Helper: Generate .gitignore             |
+| `vscode-dev-helper.generate-gitattributes`         | VSCode Dev Helper: Generate .gitattributes         |
+| `vscode-dev-helper.generate-git-blame-ignore-revs` | VSCode Dev Helper: Generate .git-blame-ignore-revs |
+| `vscode-dev-helper.generate-eslint-config`         | VSCode Dev Helper: Generate eslint.config.mjs      |
+| `vscode-dev-helper.generate-prettier-config`       | VSCode Dev Helper: Generate prettier.config.mjs    |
+| `vscode-dev-helper.generate-prettier-ignore`       | VSCode Dev Helper: Generate .prettierignore        |
+| `vscode-dev-helper.generate-package-json`          | VSCode Dev Helper: Generate package.json           |
+| `vscode-dev-helper.insert-inline-code`             | VSCode Dev Helper: Insert Inline Code              |
+| `vscode-dev-helper.stripe-types`                   | VSCode Dev Helper: Stripe Types                    |
 
 <!-- commands -->
 
