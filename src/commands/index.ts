@@ -1,4 +1,3 @@
-import { upperFirst } from '@ntnyq/utils'
 import {
   computed,
   useActiveTextEditor,
@@ -25,7 +24,7 @@ import {
   prettierIgnoreTemplate,
 } from '../templates'
 import { packageJsonTemplate } from '../templates/packageJson'
-import { logger, openExternalURL } from '../utils'
+import { logger, openExternalURL, upperFirst } from '../utils'
 import {
   createAlert,
   createSummaryDetail,
