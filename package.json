@@ -48,9 +48,8 @@
   "dependencies": {
     "@ntnyq/utils": "^0.6.0",
     "color": "^5.0.0",
-    "ofetch": "^1.4.1",
-    "reactive-vscode": "^0.2.10",
-    "ts-blank-space-lite": "^0.0.3"
+    "oxidase": "^0.0.3",
+    "reactive-vscode": "^0.2.10"
   },
   "devDependencies": {
     "@ntnyq/eslint-config": "^4.0.0-beta.8",
@@ -318,8 +317,13 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+      "@vscode/vsce-sign",
+      "esbuild",
+      "keytar"
+    ],
+    "patchedDependencies": {
+      "tsup": "patches/tsup.patch"
+    }
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"

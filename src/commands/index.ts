@@ -20,17 +20,19 @@ import {
   gitAttributesTemplate,
   gitBlameIgnoreRevsTemplate,
   gitIgnoreTemplate,
+  packageJsonTemplate,
   prettierConfigTemplate,
   prettierIgnoreTemplate,
 } from '../templates'
-import { packageJsonTemplate } from '../templates/packageJson'
-import { logger, openExternalURL, upperFirst } from '../utils'
 import {
   createAlert,
   createSummaryDetail,
   createTable,
-} from '../utils/markdown'
-import { executeCommand } from '../utils/vscode'
+  executeCommand,
+  logger,
+  openExternalURL,
+  upperFirst,
+} from '../utils'
 import { createFileInWorkspace } from './helper/fs'
 
 export async function useCommands() {
