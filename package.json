@@ -3,7 +3,7 @@
   "name": "vscode-dev-helper",
   "displayName": "VSCode Dev Helper",
   "preview": true,
-  "version": "0.0.14",
+  "version": "0.0.15",
   "private": true,
   "packageManager": "pnpm@10.4.1",
   "description": "Personal dev helper built on top of VSCode",
