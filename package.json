@@ -152,6 +152,7 @@
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.stripe-types",
+        "icon": "$(symbol-type-parameter)",
         "title": "Stripe Types"
       }
     ],
@@ -229,6 +230,13 @@
       "editor/context": [
         {
           "submenu": "vscode-dev-helper.editor-context"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "vscode-dev-helper.stripe-types",
+          "group": "navigation",
+          "when": "editorLangId == typescript || editorLangId == typescriptreact"
         }
       ],
       "explorer/context": [
