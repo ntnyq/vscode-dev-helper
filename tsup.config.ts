@@ -2,19 +2,22 @@ import process from 'node:process'
 import { defineConfig } from 'tsup'
 import pkg from './package.json'
 
+const NODE_ENV = process.env.NODE_ENV || 'production'
+const isProduction = NODE_ENV === 'production'
+
 export default defineConfig({
   clean: true,
   dts: false,
   entry: ['src/index.ts'],
   external: ['vscode'],
   format: ['cjs'],
-  minify: process.env.NODE_ENV !== 'development',
+  minify: isProduction,
   shims: true,
-  sourcemap: false,
+  sourcemap: !isProduction,
   splitting: true,
-  watch: process.env.NODE_ENV === 'development',
+  watch: !isProduction,
   env: {
-    NODE_ENV: process.env.NODE_ENV || 'production',
+    NODE_ENV,
   },
   noExternal: [
     // Bundle all dependencies
