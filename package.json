@@ -313,7 +313,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.97.0"
+    "vscode": "^1.97.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
