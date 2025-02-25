@@ -1,5 +1,6 @@
 import { extensionContext } from 'reactive-vscode'
 import { languages } from 'vscode'
+import { NpmPackageCodeLensProvider } from './npmPackage'
 import { NPMRCCodeLensProvider } from './npmrc'
 
 export function useCodeLenses() {
@@ -9,6 +10,11 @@ export function useCodeLenses() {
     languages.registerCodeLensProvider(
       NPMRCCodeLensProvider.selector,
       new NPMRCCodeLensProvider(),
+    ),
+
+    languages.registerCodeLensProvider(
+      NpmPackageCodeLensProvider.selector,
+      new NpmPackageCodeLensProvider(),
     ),
   )
 }

@@ -12,6 +12,7 @@
   - pnpm config in `package.json`
   - [taze](https://github.com/antfu-collective/taze) config `.tazerc.json`
 - `.npmrc` completion, codelenses
+- npm packages codelenses
 - stripe types from ts?(x) files via [oxidase](https://github.com/branchseer/oxidase)
 - generate files
   - `.gitattributes`

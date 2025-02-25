@@ -48,6 +48,7 @@
   "dependencies": {
     "@ntnyq/utils": "^0.6.0",
     "color": "^5.0.0",
+    "find-npm-packages": "^0.0.1",
     "oxidase": "^0.0.3",
     "reactive-vscode": "^0.2.10"
   },

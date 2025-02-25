@@ -6,15 +6,15 @@ import { useCompletions } from './providers/completions'
 import { useHovers } from './providers/hovers'
 import { logger } from './utils'
 
-const { activate, deactivate } = defineExtension(async () => {
+const { activate, deactivate } = defineExtension(() => {
   logger.info(`✅ Activated, v${version}`)
 
   // Keep register command at the top
   useCommands()
 
   useHovers()
-  useCompletions()
   useCodeLenses()
+  useCompletions()
 })
 
 export { activate, deactivate }
