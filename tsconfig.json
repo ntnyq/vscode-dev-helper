@@ -8,6 +8,7 @@
     "resolveJsonModule": true,
     "sourceMap": false,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "esModuleInterop": true,
     "strict": true,
     "strictNullChecks": true,

@@ -1,8 +1,8 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 724777259e88ea36a72b3b82d95c72399a5f8def..8a2378b22acd9472c6125a9260b4ab686b62c770 100644
+index 0d10e3993019d08a97151b9fec142fd3d51cd950..67d057e2ec16a5707d6137eeb1ce70fe2864be6c 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
-@@ -570,4 +570,4 @@ declare const defineConfig: (options: Options | Options[] | ((
+@@ -574,4 +574,4 @@ declare const defineConfig: (options: Options | Options[] | ((
  overrideOptions: Options) => MaybePromise<Options | Options[]>)) => Options | Options[] | ((overrideOptions: Options) => MaybePromise<Options | Options[]>);
  declare function build(_options: Options): Promise<void>;
  

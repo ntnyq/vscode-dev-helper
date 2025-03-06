@@ -1,0 +1,11 @@
+onlyBuiltDependencies:
+  - '@vscode/vsce-sign'
+  - esbuild
+  - keytar
+
+# TODO: Remove bellow once SchemaStore/schemastore/#4525 is merged
+packages:
+  - .
+
+patchedDependencies:
+  tsup: patches/tsup.patch

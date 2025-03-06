@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.16",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.0",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -46,27 +46,27 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.6.0",
+    "@ntnyq/utils": "^0.6.1",
     "color": "^5.0.0",
     "find-npm-packages": "^0.0.2",
     "oxidase": "^0.0.3",
     "reactive-vscode": "^0.2.13"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^4.0.0-beta.8",
+    "@ntnyq/eslint-config": "^4.0.0-beta.11",
     "@ntnyq/prettier-config": "^2.0.0",
-    "@types/node": "^22.13.5",
-    "@types/vscode": "^1.97.0",
+    "@types/node": "^22.13.9",
+    "@types/vscode": "^1.98.0",
     "@vscode/vsce": "^3.2.2",
     "bumpp": "^10.0.3",
     "eslint": "^9.21.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "vscode-ext-gen": "^1.0.2"
   },
   "activationEvents": [
@@ -314,17 +314,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.97.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@vscode/vsce-sign",
-      "esbuild",
-      "keytar"
-    ],
-    "patchedDependencies": {
-      "tsup": "patches/tsup.patch"
-    }
+    "vscode": "^1.98.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"
