@@ -49,6 +49,11 @@
       "type": "boolean",
       "markdownDescription": "fail when deps are outdated"
     },
+    "ignoreOtherWorkspaces": {
+      "type": "boolean",
+      "markdownDescription": "ignore package.json that in other workspaces",
+      "default": true
+    },
     "silent": {
       "type": "boolean",
       "markdownDescription": "disable log"
@@ -79,7 +84,7 @@
           "pnpm.overrides",
           "resolutions",
           "overrides",
-          "pnpm:catalog"
+          "pnpm-workspace"
         ]
       },
       "additionalProperties": {
@@ -95,6 +100,7 @@
       "additionalProperties": {
         "type": "string",
         "enum": [
+          "default",
           "major",
           "minor",
           "patch",
