@@ -22,8 +22,8 @@ catalogs:
       specifier: ^1.98.0
       version: 1.98.0
     '@vscode/vsce':
-      specifier: ^3.2.2
-      version: 3.2.2
+      specifier: ^3.3.0
+      version: 3.3.0
     bumpp:
       specifier: ^10.1.0
       version: 10.1.0
@@ -109,7 +109,7 @@ importers:
         version: 1.98.0
       '@vscode/vsce':
         specifier: 'catalog:'
-        version: 3.2.2
+        version: 3.3.0
       bumpp:
         specifier: 'catalog:'
         version: 10.1.0
@@ -917,8 +917,8 @@ packages:
   '@vscode/vsce-sign@2.0.5':
     resolution: {integrity: sha512-GfYWrsT/vypTMDMgWDm75iDmAOMe7F71sZECJ+Ws6/xyIfmB3ELVnVN+LwMFAvmXY+e6eWhR2EzNGF/zAhWY3Q==}
 
-  '@vscode/vsce@3.2.2':
-    resolution: {integrity: sha512-4TqdUq/yKlQTHcQMk/DamR632bq/+IJDomSbexOMee/UAYWqYm0XHWA6scGslsCpzY+sCWEhhl0nqdOB0XW1kw==}
+  '@vscode/vsce@3.3.0':
+    resolution: {integrity: sha512-HA/pUyvh/TQWkc4wG7AudPIWUvsR8i4jiWZZgM/a69ncPi9Nm5FDogf/wVEk4EWJs4/UdxU7J6X18dfAwfPbxA==}
     engines: {node: '>= 20'}
     hasBin: true
 
@@ -3780,7 +3780,7 @@ snapshots:
       '@vscode/vsce-sign-win32-arm64': 2.0.2
       '@vscode/vsce-sign-win32-x64': 2.0.2
 
-  '@vscode/vsce@3.2.2':
+  '@vscode/vsce@3.3.0':
     dependencies:
       '@azure/identity': 4.7.0
       '@vscode/vsce-sign': 2.0.5
