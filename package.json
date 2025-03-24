@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.16",
   "private": true,
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.6.5",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
