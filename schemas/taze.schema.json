@@ -1,9 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema",
-  "description": "JSON schema for taze config",
   "$id": "taze",
   "title": "JSON schema for taze config",
-  "version": 1.1,
+  "description": "JSON schema for taze config",
   "definitions": {
     "arrayable-string": {
       "oneOf": [
@@ -23,52 +22,6 @@
     "cwd": {
       "type": "string",
       "markdownDescription": "current working directory"
-    },
-    "recursive": {
-      "type": "boolean",
-      "markdownDescription": "recursive to all packages"
-    },
-    "ignorePaths": {
-      "$ref": "#/definitions/arrayable-string",
-      "markdownDescription": "ignore paths for looking for package.json in monorepo"
-    },
-    "include": {
-      "$ref": "#/definitions/arrayable-string",
-      "markdownDescription": "packages should be bumped"
-    },
-    "exclude": {
-      "$ref": "#/definitions/arrayable-string",
-      "markdownDescription": "ignore packages from bumping"
-    },
-    "loglevel": {
-      "type": "string",
-      "markdownDescription": "log level",
-      "enum": ["debug", "info", "warn", "error", "silent"]
-    },
-    "failOnOutdated": {
-      "type": "boolean",
-      "markdownDescription": "fail when deps are outdated"
-    },
-    "ignoreOtherWorkspaces": {
-      "type": "boolean",
-      "markdownDescription": "ignore package.json that in other workspaces",
-      "default": true
-    },
-    "silent": {
-      "type": "boolean",
-      "markdownDescription": "disable log"
-    },
-    "force": {
-      "type": "boolean",
-      "markdownDescription": "fetch latest package info from registry without cache"
-    },
-    "write": {
-      "type": "boolean",
-      "markdownDescription": "write to package.json"
-    },
-    "install": {
-      "type": "boolean",
-      "markdownDescription": "run `install` script right after bumping"
     },
     "depFields": {
       "type": "object",
@@ -91,6 +44,40 @@
         "type": "boolean"
       }
     },
+    "exclude": {
+      "$ref": "#/definitions/arrayable-string",
+      "markdownDescription": "ignore packages from bumping"
+    },
+    "failOnOutdated": {
+      "type": "boolean",
+      "markdownDescription": "fail when deps are outdated"
+    },
+    "force": {
+      "type": "boolean",
+      "markdownDescription": "fetch latest package info from registry without cache"
+    },
+    "ignoreOtherWorkspaces": {
+      "type": "boolean",
+      "markdownDescription": "ignore package.json that in other workspaces",
+      "default": true
+    },
+    "ignorePaths": {
+      "$ref": "#/definitions/arrayable-string",
+      "markdownDescription": "ignore paths for looking for package.json in monorepo"
+    },
+    "include": {
+      "$ref": "#/definitions/arrayable-string",
+      "markdownDescription": "packages should be bumped"
+    },
+    "install": {
+      "type": "boolean",
+      "markdownDescription": "run `install` script right after bumping"
+    },
+    "loglevel": {
+      "type": "string",
+      "markdownDescription": "log level",
+      "enum": ["debug", "info", "warn", "error", "silent"]
+    },
     "packageMode": {
       "type": "object",
       "markdownDescription": "override bumping mode for specific dependencies",
@@ -110,6 +97,19 @@
           "ignore"
         ]
       }
+    },
+    "recursive": {
+      "type": "boolean",
+      "markdownDescription": "recursive to all packages"
+    },
+    "silent": {
+      "type": "boolean",
+      "markdownDescription": "disable log"
+    },
+    "write": {
+      "type": "boolean",
+      "markdownDescription": "write to package.json"
     }
-  }
+  },
+  "version": 1.1
 }

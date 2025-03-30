@@ -9,15 +9,6 @@
     }
   },
   "properties": {
-    "engines": {
-      "type": "object",
-      "properties": {
-        "pnpm": {
-          "markdownDescription": "During local development, pnpm will always fail with an error message if its version does not match the one specified in the `engines` field.\n\nUnless the user has set the `engine-strict` config flag (see [.npmrc](https://pnpm.io/npmrc#engine-strict)), this field is advisory only and will only produce warnings when your package is installed as a dependency.\n\n[engines](https://pnpm.io/package_json#engines)",
-          "type": "string"
-        }
-      }
-    },
     "dependenciesMeta": {
       "type": "object",
       "markdownDescription": "Additional meta information used for dependencies declared inside `dependencies`, `optionalDependencies`, and `devDependencies`.\n\n[dependenciesMeta](https://pnpm.io/package_json#dependenciesmeta)",
@@ -28,6 +19,15 @@
             "type": "boolean",
             "markdownDescription": "If this is set to true for a local dependency, the package will be hard linked to the modules directory, not symlinked.\n\n[dependenciesMeta.*.injected](https://pnpm.io/package_json#dependenciesmetainjected)"
           }
+        }
+      }
+    },
+    "engines": {
+      "type": "object",
+      "properties": {
+        "pnpm": {
+          "markdownDescription": "During local development, pnpm will always fail with an error message if its version does not match the one specified in the `engines` field.\n\nUnless the user has set the `engine-strict` config flag (see [.npmrc](https://pnpm.io/npmrc#engine-strict)), this field is advisory only and will only produce warnings when your package is installed as a dependency.\n\n[engines](https://pnpm.io/package_json#engines)",
+          "type": "string"
         }
       }
     },
@@ -44,35 +44,25 @@
         }
       }
     },
-    "publishConfig": {
-      "type": "object",
-      "markdownDescription": "It is possible to override some fields in the manifest before the package is packed. The [following fields](https://github.com/stereobooster/package.json) may be overridden: \"bin\", \"main\", \"exports\", \"types\",  \"typings\", \"module\", \"browser\", \"esnext\", \"es2015\", \"unpkg\", \"umd\":main, \"typesVersions\", \"cpu\", \"os\".\n\nTo override a field, add the publish version of the field to publishConfig.\n\n[publishConfig](https://pnpm.io/package_json#publishconfig)",
-      "properties": {
-        "executableFiles": {
-          "type": "array",
-          "markdownDescription": "By default, for portability reasons, no files except those listed in the bin field will be marked as executable in the resulting package archive. The `executableFiles` field lets you declare additional fields that must have the executable flag (+x) set even if they aren't directly accessible through the bin field.\n\n[publishConfig.executableFiles](https://pnpm.io/package_json#publishconfigexecutablefiles)"
-        },
-        "directory": {
-          "type": "string",
-          "markdownDescription": "You also can use the field `publishConfig.directory` to customize the published subdirectory relative to the current `package.json`.\n\nIt is expected to have a modified version of the current package in the specified directory (usually using third party build tools).\n\n[publishConfig.directory](https://pnpm.io/package_json#publishconfigdirectory)"
-        },
-        "linkDirectory": {
-          "type": "boolean",
-          "markdownDescription": "When set to `true`, the project will be symlinked from the `publishConfig.directory` location during local development.\n\n[publishConfig.linkDirectory](https://pnpm.io/package_json#publishconfiglinkdirectory)"
-        }
-      }
-    },
     "pnpm": {
       "type": "object",
       "markdownDescription": "[Pnpm Configuration](https://pnpm.io/package_json)",
       "properties": {
+        "allowUnusedPatches": {
+          "type": "boolean",
+          "markdownDescription": "When `true`, installation won't fail if some of the patches from the `patchedDependencies` field were not applied.\n\n[pnpm.configDependencies](https://pnpm.io/settings#allowunusedpatches)"
+        },
+        "ignorePatchFailures": {
+          "type": "boolean",
+          "markdownDescription": "Controls how patch failures are handled.\n\n[pnpm.configDependencies](https://pnpm.io/settings#ignorepatchfailures)"
+        },
         "configDependencies": {
           "$ref": "#/definitions/dependency",
-          "markdownDescription": "Configurational dependencies cannot have dependencies of their own or lifecycle scripts. They should be added using exact version and the integrity checksum.\n\n[pnpm.configDependencies](https://pnpm.io/package_json#pnpmconfigdependencies)"
+          "markdownDescription": "Configurational dependencies cannot have dependencies of their own or lifecycle scripts. They should be added using exact version and the integrity checksum.\n\n[pnpm.configDependencies](https://pnpm.io/settings#configdependencies)"
         },
         "executionEnv": {
           "type": "object",
-          "markdownDescription": "Specifies which exact Node.js version should be used for the project's runtime. pnpm will automatically install the specified version of Node.js and use it for running `pnpm run` commands or the `pnpm node` command..\n\n[pnpm.executionEnv](https://pnpm.io/package_json#pnpmexecutionenv)",
+          "markdownDescription": "Specifies which exact Node.js version should be used for the project's runtime. pnpm will automatically install the specified version of Node.js and use it for running `pnpm run` commands or the `pnpm node` command..\n\n[pnpm.executionEnv](https://pnpm.io/settings#executionenvnodeversion)",
           "properties": {
             "nodeVersion": {
               "type": "string"
@@ -82,43 +72,43 @@
         },
         "ignoredBuiltDependencies": {
           "type": "array",
-          "markdownDescription": "A list of package names that should not be built during installation.\n\n[pnpm.ignoredBuiltDependencies](https://pnpm.io/package_json#pnpmignoredbuiltdependencies)",
+          "markdownDescription": "A list of package names that should not be built during installation.\n\n[pnpm.ignoredBuiltDependencies](https://pnpm.io/settings#ignoredbuiltdependencies)",
           "items": {
             "type": "string"
           }
         },
         "overrides": {
           "$ref": "#/definitions/dependency",
-          "markdownDescription": "This field allows you to instruct pnpm to override any dependency in the dependency graph. This is useful to enforce all your packages to use a single version of a dependency, backport a fix, or replace a dependency with a fork.\n\nNote that the overrides field can only be set at the root of the project.\n\n[pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides)"
+          "markdownDescription": "This field allows you to instruct pnpm to override any dependency in the dependency graph. This is useful to enforce all your packages to use a single version of a dependency, backport a fix, or replace a dependency with a fork.\n\nNote that the overrides field can only be set at the root of the project.\n\n[pnpm.overrides](https://pnpm.io/settings#overrides)"
         },
         "packageExtensions": {
           "type": "object",
-          "markdownDescription": "The `packageExtensions` fields offer a way to extend the existing package definitions with additional information.\n\n[pnpm.packageExtensions](https://pnpm.io/package_json#pnpmpackageextensions)",
+          "markdownDescription": "The `packageExtensions` fields offer a way to extend the existing package definitions with additional information.\n\n[pnpm.packageExtensions](https://pnpm.io/settings#packageextensions)",
           "additionalProperties": {
             "$ref": "https://json.schemastore.org/package.json"
           }
         },
         "peerDependencyRules": {
           "type": "object",
-          "markdownDescription": "[pnpm.peerDependencyRules](https://pnpm.io/package_json#pnpmpeerdependencyrules)",
+          "markdownDescription": "[pnpm.peerDependencyRules](https://pnpm.io/settings#peerdependencyrules)",
           "properties": {
             "ignoreMissing": {
               "type": "array",
-              "markdownDescription": "pnpm will not print warnings about missing peer dependencies from this list.\n\n[pnpm.peerDependencyRules.ignoreMissing](https://pnpm.io/package_json#pnpmpeerdependencyrulesignoremissing)",
+              "markdownDescription": "pnpm will not print warnings about missing peer dependencies from this list.\n\n[pnpm.peerDependencyRules.ignoreMissing](https://pnpm.io/settings#peerdependencyrulesignoremissing)",
               "items": {
                 "type": "string"
               }
             },
             "allowedVersions": {
               "type": "object",
-              "markdownDescription": "Unmet peer dependency warnings will not be printed for peer dependencies of the specified range.\n\n[pnpm.peerDependencyRules.allowedVersions](https://pnpm.io/package_json#pnpmpeerdependencyrulesallowedversions)",
+              "markdownDescription": "Unmet peer dependency warnings will not be printed for peer dependencies of the specified range.\n\n[pnpm.peerDependencyRules.allowedVersions](https://pnpm.io/settings#peerdependencyrulesallowedversions)",
               "additionalProperties": {
                 "type": "string"
               }
             },
             "allowAny": {
               "type": "array",
-              "markdownDescription": "`allowAny` is an array of package name patterns, any peer dependency matching the pattern will be resolved from any version, regardless of the range specified in `peerDependencies`.\n\n[pnpm.peerDependencyRules.allowAny](https://pnpm.io/package_json#pnpmpeerdependencyrulesallowany)",
+              "markdownDescription": "`allowAny` is an array of package name patterns, any peer dependency matching the pattern will be resolved from any version, regardless of the range specified in `peerDependencies`.\n\n[pnpm.peerDependencyRules.allowAny](https://pnpm.io/settings#peerdependencyrulesallowany)",
               "items": {
                 "type": "string"
               }
@@ -127,29 +117,29 @@
         },
         "neverBuiltDependencies": {
           "type": "array",
-          "markdownDescription": "This field allows to ignore the builds of specific dependencies. The \"preinstall\", \"install\", and \"postinstall\" scripts of the listed packages will not be executed during installation.\n\n[pnpm.neverBuiltDependencies](https://pnpm.io/package_json#pnpmneverbuiltdependencies)",
+          "markdownDescription": "This field allows to ignore the builds of specific dependencies. The \"preinstall\", \"install\", and \"postinstall\" scripts of the listed packages will not be executed during installation.\n\n[pnpm.neverBuiltDependencies](https://pnpm.io/settings#neverbuiltdependencies)",
           "items": {
             "type": "string"
           }
         },
         "onlyBuiltDependencies": {
           "type": "array",
-          "markdownDescription": "A list of package names that are allowed to be executed during installation. If this field exists, only the listed packages will be able to run install scripts.\n\n[pnpm.onlyBuiltDependencies](https://pnpm.io/package_json#pnpmonlybuiltdependencies)",
+          "markdownDescription": "A list of package names that are allowed to be executed during installation. If this field exists, only the listed packages will be able to run install scripts.\n\n[pnpm.onlyBuiltDependencies](https://pnpm.io/settings#onlybuiltdependencies)",
           "items": {
             "type": "string"
           }
         },
         "onlyBuiltDependenciesFile": {
           "type": "string",
-          "markdownDescription": "This configuration option allows users to specify a JSON file that lists the only packages permitted to run installation scripts during the pnpm install process. By using this, you can enhance security or ensure that only specific dependencies execute scripts during installation.\n\n[pnpm.onlyBuiltDependenciesFile](https://pnpm.io/package_json#pnpmonlybuiltdependenciesfile)"
+          "markdownDescription": "This configuration option allows users to specify a JSON file that lists the only packages permitted to run installation scripts during the pnpm install process. By using this, you can enhance security or ensure that only specific dependencies execute scripts during installation.\n\n[pnpm.onlyBuiltDependenciesFile](https://pnpm.io/settings#onlybuiltdependenciesfile)"
         },
         "allowedDeprecatedVersions": {
           "$ref": "#/definitions/dependency",
-          "markdownDescription": "This setting allows muting deprecation warnings of specific packages.\n\n[pnpm.allowedDeprecatedVersions](https://pnpm.io/package_json#pnpmalloweddeprecatedversions)"
+          "markdownDescription": "This setting allows muting deprecation warnings of specific packages.\n\n[pnpm.allowedDeprecatedVersions](https://pnpm.io/settings#alloweddeprecatedversions)"
         },
         "patchedDependencies": {
           "type": "object",
-          "markdownDescription": "This field is added/updated automatically when you run [pnpm patch-commit](https://pnpm.io/cli/patch-commit). It is a dictionary where the key should be the package name and exact version. The value should be a relative path to a patch file.\n\n[pnpm.patchedDependencies](https://pnpm.io/package_json#pnpmpatcheddependencies)",
+          "markdownDescription": "This field is added/updated automatically when you run [pnpm patch-commit](https://pnpm.io/cli/patch-commit). It is a dictionary where the key should be the package name and exact version. The value should be a relative path to a patch file.\n\n[pnpm.patchedDependencies](https://pnpm.io/settings#patcheddependencies)",
           "additionalProperties": {
             "type": "string",
             "pattern": "^patches/"
@@ -157,11 +147,11 @@
         },
         "updateConfig": {
           "type": "object",
-          "markdownDescription": "[pnpm.updateConfig](https://pnpm.io/package_json#pnpmupdateconfig)",
+          "markdownDescription": "[pnpm.updateConfig](https://pnpm.io/settings#updateconfig)",
           "properties": {
             "ignoreDependencies": {
               "type": "array",
-              "markdownDescription": "Sometimes you can't update a dependency. For instance, the latest version of the dependency started to use ESM but your project is not yet in ESM. Annoyingly, such a package will be always printed out by the `pnpm outdated` command and updated, when running `pnpm update --latest`. However, you may list packages that you don't want to upgrade in the `ignoreDependencies` field.\n\nPatterns are also supported, so you may ignore any packages from a scope: `@babel/*`.\n\n[pnpm.updateConfig.ignoreDependencies](https://pnpm.io/package_json#pnpmupdateconfigignoredependencies)",
+              "markdownDescription": "Sometimes you can't update a dependency. For instance, the latest version of the dependency started to use ESM but your project is not yet in ESM. Annoyingly, such a package will be always printed out by the `pnpm outdated` command and updated, when running `pnpm update --latest`. However, you may list packages that you don't want to upgrade in the `ignoreDependencies` field.\n\nPatterns are also supported, so you may ignore any packages from a scope: `@babel/*`.\n\n[pnpm.updateConfig.ignoreDependencies](https://pnpm.io/settings#updateconfigignoredependencies)",
               "items": {
                 "type": "string"
               }
@@ -170,18 +160,18 @@
         },
         "auditConfig": {
           "type": "object",
-          "markdownDescription": "[pnpm.auditConfig](https://pnpm.io/package_json#pnpmauditconfig)",
+          "markdownDescription": "[pnpm.auditConfig](https://pnpm.io/settings#auditconfig)",
           "properties": {
             "ignoreCves": {
               "type": "array",
-              "markdownDescription": "A list of CVE IDs that will be ignored by the [pnpm audit](https://pnpm.io/cli/audit) command.\n\n[pnpm.auditConfig.ignoreCves](https://pnpm.io/package_json#pnpmauditconfigignorecves)",
+              "markdownDescription": "A list of CVE IDs that will be ignored by the [pnpm audit](https://pnpm.io/cli/audit) command.\n\n[pnpm.auditConfig.ignoreCves](https://pnpm.io/settings#auditconfigignorecves)",
               "items": {
                 "type": "string"
               }
             },
             "ignoreGhsas": {
               "type": "array",
-              "markdownDescription": "A list of GHSA Codes that will be ignored by the [pnpm audit](https://pnpm.io/cli/audit) command\n\n[pnpm.auditConfig.ignoreGhsas](https://pnpm.io/package_json#pnpmauditconfigignoreghsas)",
+              "markdownDescription": "A list of GHSA Codes that will be ignored by the [pnpm audit](https://pnpm.io/cli/audit) command\n\n[pnpm.auditConfig.ignoreGhsas](https://pnpm.io/settings#auditconfigignoreghsas)",
               "items": {
                 "type": "string"
               }
@@ -190,14 +180,14 @@
         },
         "requiredScripts": {
           "type": "array",
-          "markdownDescription": "Scripts listed in this array will be required in each project of the workspace. Otherwise, `pnpm -r run <script name>` will fail.\n\n[pnpm.auditConfig.requiredScripts](https://pnpm.io/package_json#pnpmrequiredscripts)",
+          "markdownDescription": "Scripts listed in this array will be required in each project of the workspace. Otherwise, `pnpm -r run <script name>` will fail.\n\n[pnpm.auditConfig.requiredScripts](https://pnpm.io/settings#requiredscripts)",
           "items": {
             "type": "string"
           }
         },
         "supportedArchitectures": {
           "type": "object",
-          "markdownDescription": "You can specify architectures for which you'd like to install optional dependencies, even if they don't match the architecture of the system running the install.\n\n[pnpm.supportedArchitectures](https://pnpm.io/package_json#pnpmsupportedarchitectures)",
+          "markdownDescription": "You can specify architectures for which you'd like to install optional dependencies, even if they don't match the architecture of the system running the install.\n\n[pnpm.supportedArchitectures](https://pnpm.io/settings#supportedarchitectures)",
           "properties": {
             "os": {
               "type": "array",
@@ -217,10 +207,28 @@
         },
         "ignoredOptionalDependencies": {
           "type": "array",
-          "markdownDescription": "If an optional dependency has its name included in this array, it will be skipped.\n\n[pnpm.ignoredOptionalDependencies](https://pnpm.io/package_json#pnpmignoredoptionaldependencies)",
+          "markdownDescription": "If an optional dependency has its name included in this array, it will be skipped.\n\n[pnpm.ignoredOptionalDependencies](https://pnpm.io/settings#ignoredoptionaldependencies)",
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "publishConfig": {
+      "type": "object",
+      "markdownDescription": "It is possible to override some fields in the manifest before the package is packed. The [following fields](https://github.com/stereobooster/package.json) may be overridden: \"bin\", \"main\", \"exports\", \"types\",  \"typings\", \"module\", \"browser\", \"esnext\", \"es2015\", \"unpkg\", \"umd\":main, \"typesVersions\", \"cpu\", \"os\".\n\nTo override a field, add the publish version of the field to publishConfig.\n\n[publishConfig](https://pnpm.io/package_json#publishconfig)",
+      "properties": {
+        "executableFiles": {
+          "type": "array",
+          "markdownDescription": "By default, for portability reasons, no files except those listed in the bin field will be marked as executable in the resulting package archive. The `executableFiles` field lets you declare additional fields that must have the executable flag (+x) set even if they aren't directly accessible through the bin field.\n\n[publishConfig.executableFiles](https://pnpm.io/package_json#publishconfigexecutablefiles)"
+        },
+        "directory": {
+          "type": "string",
+          "markdownDescription": "You also can use the field `publishConfig.directory` to customize the published subdirectory relative to the current `package.json`.\n\nIt is expected to have a modified version of the current package in the specified directory (usually using third party build tools).\n\n[publishConfig.directory](https://pnpm.io/package_json#publishconfigdirectory)"
+        },
+        "linkDirectory": {
+          "type": "boolean",
+          "markdownDescription": "When set to `true`, the project will be symlinked from the `publishConfig.directory` location during local development.\n\n[publishConfig.linkDirectory](https://pnpm.io/package_json#publishconfiglinkdirectory)"
         }
       }
     },
