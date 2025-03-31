@@ -16,14 +16,14 @@ catalogs:
       specifier: ^0.6.2
       version: 0.6.2
     '@types/node':
-      specifier: ^22.13.13
-      version: 22.13.13
+      specifier: ^22.13.14
+      version: 22.13.14
     '@types/vscode':
       specifier: ^1.98.0
       version: 1.98.0
     '@vscode/vsce':
-      specifier: ^3.3.0
-      version: 3.3.0
+      specifier: ^3.3.1
+      version: 3.3.1
     bumpp:
       specifier: ^10.1.0
       version: 10.1.0
@@ -34,8 +34,8 @@ catalogs:
       specifier: ^9.23.0
       version: 9.23.0
     find-npm-packages:
-      specifier: ^0.0.2
-      version: 0.0.2
+      specifier: ^0.1.0
+      version: 0.1.0
     husky:
       specifier: ^9.1.7
       version: 9.1.7
@@ -52,8 +52,8 @@ catalogs:
       specifier: ^3.5.3
       version: 3.5.3
     reactive-vscode:
-      specifier: ^0.2.13
-      version: 0.2.13
+      specifier: ^0.2.14
+      version: 0.2.14
     tsup:
       specifier: ^8.4.0
       version: 8.4.0
@@ -87,13 +87,13 @@ importers:
         version: 5.0.0
       find-npm-packages:
         specifier: 'catalog:'
-        version: 0.0.2
+        version: 0.1.0
       oxidase:
         specifier: 'catalog:'
         version: 0.0.3
       reactive-vscode:
         specifier: 'catalog:'
-        version: 0.2.13(@types/vscode@1.98.0)
+        version: 0.2.14(@types/vscode@1.98.0)
     devDependencies:
       '@ntnyq/eslint-config':
         specifier: 'catalog:'
@@ -103,13 +103,13 @@ importers:
         version: 2.0.0
       '@types/node':
         specifier: 'catalog:'
-        version: 22.13.13
+        version: 22.13.14
       '@types/vscode':
         specifier: 'catalog:'
         version: 1.98.0
       '@vscode/vsce':
         specifier: 'catalog:'
-        version: 3.3.0
+        version: 3.3.1
       bumpp:
         specifier: 'catalog:'
         version: 10.1.0
@@ -207,8 +207,17 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  '@babel/parser@7.27.0':
+    resolution: {integrity: sha512-iaepho73/2Pz7w2eMS0Q5f83+0RKI7i4xmiYeBmDzfRVbQtTOG7Ts0S4HzJVsTMGI9keU8rNfuZr8DKfSt7Yyg==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
   '@babel/types@7.26.9':
     resolution: {integrity: sha512-Y3IR1cRnOxOCDvMmNiym7XpXQ93iGDDPHx+Zj+NM+rg0fBaShfQLkg+hKPaZCEvg5N/LeCo4+Rj/i3FuJsIQaw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/types@7.27.0':
+    resolution: {integrity: sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg==}
     engines: {node: '>=6.9.0'}
 
   '@clack/core@0.4.1':
@@ -609,8 +618,8 @@ packages:
     resolution: {integrity: sha512-sx8J1O/+j2lqs8MvsEz6rs/6UAUpCb4fu7C6EqtMqzbS3CmqLkTDTOMK+DrWukvyUuHzl8DhMjfNJzQDTqfGJg==}
     engines: {node: '>=20.18.0'}
 
-  '@reactive-vscode/reactivity@0.2.13':
-    resolution: {integrity: sha512-2GZlDFYS2dNqAuDiArXEMszcwOUPoybChH7ltGQldqCyeskqtWTYJ54mW477Qc/Rl6NG4N+IeQ1d22nO7uhRAw==}
+  '@reactive-vscode/reactivity@0.2.14':
+    resolution: {integrity: sha512-Rb3+kBX9A55C+4OKqVe4XGWtG7eGWo+E/8n0eSmbpmOEdZq3r5+SNEfEe3U0OdaCMT2r59R6kkK2QVfZpdBKhA==}
 
   '@rollup/rollup-android-arm-eabi@4.34.9':
     resolution: {integrity: sha512-qZdlImWXur0CFakn2BJ2znJOdqYZKiedEPEVNTBrpfPjc/YuTGcaYZcdmNFTkUj3DU0ZM/AElcM8Ybww3xVLzA==}
@@ -731,8 +740,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@22.13.13':
-    resolution: {integrity: sha512-ClsL5nMwKaBRwPcCvH8E7+nU4GxHVx1axNvMZTFHMEfNI7oahimt26P5zjVCRrjiIWj6YFXfE1v3dEp94wLcGQ==}
+  '@types/node@22.13.14':
+    resolution: {integrity: sha512-Zs/Ollc1SJ8nKUAgc7ivOEdIBM8JAKgrqqUYi2J997JuKO7/tpQC+WCetQ1sypiKCQWHdvdg9wBNpUPEWZae7w==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -921,8 +930,8 @@ packages:
   '@vscode/vsce-sign@2.0.5':
     resolution: {integrity: sha512-GfYWrsT/vypTMDMgWDm75iDmAOMe7F71sZECJ+Ws6/xyIfmB3ELVnVN+LwMFAvmXY+e6eWhR2EzNGF/zAhWY3Q==}
 
-  '@vscode/vsce@3.3.0':
-    resolution: {integrity: sha512-HA/pUyvh/TQWkc4wG7AudPIWUvsR8i4jiWZZgM/a69ncPi9Nm5FDogf/wVEk4EWJs4/UdxU7J6X18dfAwfPbxA==}
+  '@vscode/vsce@3.3.1':
+    resolution: {integrity: sha512-aZ+0UilLsSidWcY6qjQRmsNgJXfFvE3ihj0u9oNLMejFGBBYORTRua0KHx3kx+RW5pxvza2OepzTpct2OdhTUA==}
     engines: {node: '>= 20'}
     hasBin: true
 
@@ -1702,8 +1711,8 @@ packages:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
 
-  find-npm-packages@0.0.2:
-    resolution: {integrity: sha512-idYGE37xarXs5Qbm/Ei1CeF+2g5CWJax9i1mu/IhCQkqyHNsZef89FiU0Ft+S0eTs5JoEu+uk6fUaKAJFly9Jw==}
+  find-npm-packages@0.1.0:
+    resolution: {integrity: sha512-0/xvrJbjTtSP3BSi2G8xiR2gKUgq1sehpsuVtF4OoJpsgC9hPj0ZVFPrXM3tFJjeCWxgZJOVByXPfOq2BFv/1g==}
     engines: {node: '>=18.18.0'}
 
   find-up-simple@1.0.1:
@@ -2540,8 +2549,8 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  reactive-vscode@0.2.13:
-    resolution: {integrity: sha512-c/7cAUKAmIqUJJHIVY6DAOpwTX18uDx3WgVLA9+iF8JUxCqvbivbH18LSnYxSeBiit9yIyvzdGHnXK7lG8W9yA==}
+  reactive-vscode@0.2.14:
+    resolution: {integrity: sha512-F4HgF9gDwGZJPTglGjxspJNWrYeOMLDyeFSccOMjfB6CWXoQWpw7WrcPb61wuMuNDbHi+5Txn9DIY1GfmV3pGw==}
     peerDependencies:
       '@types/vscode': ^1.89.0
 
@@ -3141,7 +3150,16 @@ snapshots:
     dependencies:
       '@babel/types': 7.26.9
 
+  '@babel/parser@7.27.0':
+    dependencies:
+      '@babel/types': 7.27.0
+
   '@babel/types@7.26.9':
+    dependencies:
+      '@babel/helper-string-parser': 7.25.9
+      '@babel/helper-validator-identifier': 7.25.9
+
+  '@babel/types@7.27.0':
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
@@ -3508,7 +3526,7 @@ snapshots:
     dependencies:
       quansync: 0.2.8
 
-  '@reactive-vscode/reactivity@0.2.13': {}
+  '@reactive-vscode/reactivity@0.2.14': {}
 
   '@rollup/rollup-android-arm-eabi@4.34.9':
     optional: true
@@ -3593,7 +3611,7 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@22.13.13':
+  '@types/node@22.13.14':
     dependencies:
       undici-types: 6.20.0
 
@@ -3786,7 +3804,7 @@ snapshots:
       '@vscode/vsce-sign-win32-arm64': 2.0.2
       '@vscode/vsce-sign-win32-x64': 2.0.2
 
-  '@vscode/vsce@3.3.0':
+  '@vscode/vsce@3.3.1':
     dependencies:
       '@azure/identity': 4.7.0
       '@vscode/vsce-sign': 2.0.5
@@ -3890,7 +3908,7 @@ snapshots:
 
   ast-kit@1.4.2:
     dependencies:
-      '@babel/parser': 7.26.9
+      '@babel/parser': 7.27.0
       pathe: 2.0.3
 
   asynckit@0.4.0: {}
@@ -4723,9 +4741,9 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
 
-  find-npm-packages@0.0.2:
+  find-npm-packages@0.1.0:
     dependencies:
-      '@babel/parser': 7.26.9
+      '@babel/parser': 7.27.0
       ast-kit: 1.4.2
       validate-npm-package-name: 6.0.0
 
@@ -5736,9 +5754,9 @@ snapshots:
       strip-json-comments: 2.0.1
     optional: true
 
-  reactive-vscode@0.2.13(@types/vscode@1.98.0):
+  reactive-vscode@0.2.14(@types/vscode@1.98.0):
     dependencies:
-      '@reactive-vscode/reactivity': 0.2.13
+      '@reactive-vscode/reactivity': 0.2.14
       '@types/vscode': 1.98.0
 
   read-package-json-fast@4.0.0:
