@@ -3,13 +3,13 @@ packages:
 catalog:
   '@ntnyq/eslint-config': ^4.0.3
   '@ntnyq/prettier-config': ^2.0.0
-  '@ntnyq/utils': ^0.6.2
-  '@types/node': ^22.13.17
-  '@types/vscode': ^1.98.0
+  '@ntnyq/utils': ^0.6.3
+  '@types/node': ^22.14.0
+  '@types/vscode': ^1.99.0
   '@vscode/vsce': ^3.3.2
   bumpp: ^10.1.0
   color: ^5.0.0
-  eslint: ^9.23.0
+  eslint: ^9.24.0
   find-npm-packages: ^0.1.0
   husky: ^9.1.7
   nano-staged: ^0.8.0
@@ -19,7 +19,7 @@ catalog:
   reactive-vscode: ^0.2.14
   tsup: ^8.4.0
   tsx: ^4.19.3
-  typescript: ^5.8.2
+  typescript: ^5.8.3
   vscode-ext-gen: ^1.0.2
 overrides:
   esbuild: ^0.25.2
