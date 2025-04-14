@@ -13,14 +13,14 @@ catalogs:
       specifier: ^2.0.0
       version: 2.0.0
     '@ntnyq/utils':
-      specifier: ^0.6.3
-      version: 0.6.3
+      specifier: ^0.6.4
+      version: 0.6.4
     '@types/node':
-      specifier: ^22.14.0
-      version: 22.14.0
+      specifier: ^22.14.1
+      version: 22.14.1
     '@types/vscode':
-      specifier: ^1.99.0
-      version: 1.99.0
+      specifier: ^1.99.1
+      version: 1.99.1
     '@vscode/vsce':
       specifier: ^3.3.2
       version: 3.3.2
@@ -81,7 +81,7 @@ importers:
     dependencies:
       '@ntnyq/utils':
         specifier: 'catalog:'
-        version: 0.6.3
+        version: 0.6.4
       color:
         specifier: 'catalog:'
         version: 5.0.0
@@ -93,7 +93,7 @@ importers:
         version: 0.0.3
       reactive-vscode:
         specifier: 'catalog:'
-        version: 0.2.14(@types/vscode@1.99.0)
+        version: 0.2.14(@types/vscode@1.99.1)
     devDependencies:
       '@ntnyq/eslint-config':
         specifier: 'catalog:'
@@ -103,10 +103,10 @@ importers:
         version: 2.0.0
       '@types/node':
         specifier: 'catalog:'
-        version: 22.14.0
+        version: 22.14.1
       '@types/vscode':
         specifier: 'catalog:'
-        version: 1.99.0
+        version: 1.99.1
       '@vscode/vsce':
         specifier: 'catalog:'
         version: 3.3.2
@@ -533,8 +533,8 @@ packages:
   '@ntnyq/prettier-config@2.0.0':
     resolution: {integrity: sha512-cgb+VCW8+BJzZBSURgDEjMNt0JNiZ+Kx4k2rC54Igs+VmRiI2J8jPTVVqEKG2urhGLcUA2IuCE6ZDMMKuibN3Q==}
 
-  '@ntnyq/utils@0.6.3':
-    resolution: {integrity: sha512-BRbcrcuPinRp6PfjmQQeBvtXhs43SnsEYQJzSVvIXwhUvwZCAAh1l7ioiGo3FSrpjfJ1++E1UUZY1gqw/mZpKg==}
+  '@ntnyq/utils@0.6.4':
+    resolution: {integrity: sha512-he9j01PRMEZHIvEBkiS55Fu+DJoV/swJIThEJ1+gOVCUDEDss8toAmeFVw02ALsF5aD9QHcFv7raT1deAgDEwg==}
     engines: {node: '>=18.18.0'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -680,8 +680,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@22.14.0':
-    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
+  '@types/node@22.14.1':
+    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -689,8 +689,8 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
-  '@types/vscode@1.99.0':
-    resolution: {integrity: sha512-30sjmas1hQ0gVbX68LAWlm/YYlEqUErunPJJKLpEl+xhK0mKn+jyzlCOpsdTwfkZfPy4U6CDkmygBLC3AB8W9Q==}
+  '@types/vscode@1.99.1':
+    resolution: {integrity: sha512-cQlqxHZ040ta6ovZXnXRxs3fJiTmlurkIWOfZVcLSZPcm9J4ikFpXuB7gihofGn5ng+kDVma5EmJIclfk0trPQ==}
 
   '@typescript-eslint/eslint-plugin@8.29.0':
     resolution: {integrity: sha512-PAIpk/U7NIS6H7TEtN45SPGLQaHNgB7wSjsQV/8+KYokAb2T/gloOA/Bee2yd4/yKVhPKe5LlaUGhAZk5zmSaQ==}
@@ -3403,7 +3403,7 @@ snapshots:
 
   '@ntnyq/prettier-config@2.0.0': {}
 
-  '@ntnyq/utils@0.6.3': {}
+  '@ntnyq/utils@0.6.4': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -3504,7 +3504,7 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@22.14.0':
+  '@types/node@22.14.1':
     dependencies:
       undici-types: 6.21.0
 
@@ -3512,7 +3512,7 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
-  '@types/vscode@1.99.0': {}
+  '@types/vscode@1.99.1': {}
 
   '@typescript-eslint/eslint-plugin@8.29.0(@typescript-eslint/parser@8.29.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
@@ -4309,7 +4309,7 @@ snapshots:
 
   eslint-plugin-github-action@0.0.15(eslint@9.24.0(jiti@2.4.2)):
     dependencies:
-      '@ntnyq/utils': 0.6.3
+      '@ntnyq/utils': 0.6.4
       '@types/json-schema': 7.0.15
       eslint: 9.24.0(jiti@2.4.2)
       uncase: 0.0.4
@@ -4382,7 +4382,7 @@ snapshots:
 
   eslint-plugin-ntnyq@0.11.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
-      '@ntnyq/utils': 0.6.3
+      '@ntnyq/utils': 0.6.4
       '@typescript-eslint/parser': 8.29.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
       '@typescript-eslint/utils': 8.29.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
       eslint: 9.24.0(jiti@2.4.2)
@@ -5624,10 +5624,10 @@ snapshots:
       strip-json-comments: 2.0.1
     optional: true
 
-  reactive-vscode@0.2.14(@types/vscode@1.99.0):
+  reactive-vscode@0.2.14(@types/vscode@1.99.1):
     dependencies:
       '@reactive-vscode/reactivity': 0.2.14
-      '@types/vscode': 1.99.0
+      '@types/vscode': 1.99.1
 
   read-package-json-fast@4.0.0:
     dependencies:

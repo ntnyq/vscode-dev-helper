@@ -5,7 +5,7 @@
   "preview": true,
   "version": "0.0.16",
   "private": true,
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.8.0",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -314,7 +314,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.99.0"
+    "vscode": "^1.99.2"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"

@@ -3,9 +3,9 @@ packages:
 catalog:
   '@ntnyq/eslint-config': ^4.0.3
   '@ntnyq/prettier-config': ^2.0.0
-  '@ntnyq/utils': ^0.6.3
-  '@types/node': ^22.14.0
-  '@types/vscode': ^1.99.0
+  '@ntnyq/utils': ^0.6.4
+  '@types/node': ^22.14.1
+  '@types/vscode': ^1.99.1
   '@vscode/vsce': ^3.3.2
   bumpp: ^10.1.0
   color: ^5.0.0
