@@ -52,6 +52,10 @@
           "type": "boolean",
           "markdownDescription": "When `true`, installation won't fail if some of the patches from the `patchedDependencies` field were not applied.\n\n[pnpm.configDependencies](https://pnpm.io/settings#allowunusedpatches)"
         },
+        "dangerouslyAllowAllBuilds": {
+          "type": "boolean",
+          "markdownDescription": "If set to `true`, all build scripts (e.g. `preinstall`, `install`, `postinstall`) from dependencies will run automatically, without requiring approval.\n\n[pnpm.configDependencies](https://pnpm.io/settings#dangerouslyallowallbuilds)"
+        },
         "ignorePatchFailures": {
           "type": "boolean",
           "markdownDescription": "Controls how patch failures are handled.\n\n[pnpm.configDependencies](https://pnpm.io/settings#ignorepatchfailures)"
