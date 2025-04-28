@@ -2,10 +2,10 @@ packages:
   - .
 
 catalog:
-  '@ntnyq/eslint-config': ^4.0.4
+  '@ntnyq/eslint-config': ^4.1.0
   '@ntnyq/prettier-config': ^2.0.0
   '@ntnyq/utils': ^0.6.4
-  '@types/node': ^22.15.1
+  '@types/node': ^22.15.3
   '@types/vscode': ^1.99.1
   '@vscode/vsce': ^3.3.2
   bumpp: ^10.1.0
