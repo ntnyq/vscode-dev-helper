@@ -4,69 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    '@ntnyq/eslint-config':
-      specifier: ^4.2.0
-      version: 4.2.0
-    '@ntnyq/prettier-config':
-      specifier: ^2.0.0
-      version: 2.0.0
-    '@ntnyq/utils':
-      specifier: ^0.6.4
-      version: 0.6.4
-    '@types/node':
-      specifier: ^22.15.16
-      version: 22.15.16
-    '@types/vscode':
-      specifier: ^1.99.1
-      version: 1.99.1
-    '@vscode/vsce':
-      specifier: ^3.3.2
-      version: 3.3.2
-    bumpp:
-      specifier: ^10.1.0
-      version: 10.1.0
-    color:
-      specifier: ^5.0.0
-      version: 5.0.0
-    eslint:
-      specifier: ^9.26.0
-      version: 9.26.0
-    find-npm-packages:
-      specifier: ^0.1.0
-      version: 0.1.0
-    husky:
-      specifier: ^9.1.7
-      version: 9.1.7
-    nano-staged:
-      specifier: ^0.8.0
-      version: 0.8.0
-    npm-run-all2:
-      specifier: ^8.0.1
-      version: 8.0.1
-    oxidase:
-      specifier: ^0.0.3
-      version: 0.0.3
-    prettier:
-      specifier: ^3.5.3
-      version: 3.5.3
-    reactive-vscode:
-      specifier: ^0.2.14
-      version: 0.2.14
-    tsdown:
-      specifier: ^0.11.1
-      version: 0.11.1
-    tsx:
-      specifier: ^4.19.4
-      version: 4.19.4
-    typescript:
-      specifier: ^5.8.3
-      version: 5.8.3
-    vscode-ext-gen:
-      specifier: ^1.0.2
-      version: 1.0.2
-
 overrides:
   esbuild: ^0.25.4
 
@@ -75,65 +12,65 @@ importers:
   .:
     dependencies:
       '@ntnyq/utils':
-        specifier: 'catalog:'
+        specifier: ^0.6.4
         version: 0.6.4
       color:
-        specifier: 'catalog:'
+        specifier: ^5.0.0
         version: 5.0.0
       find-npm-packages:
-        specifier: 'catalog:'
+        specifier: ^0.1.0
         version: 0.1.0
       oxidase:
-        specifier: 'catalog:'
+        specifier: ^0.0.3
         version: 0.0.3
       reactive-vscode:
-        specifier: 'catalog:'
+        specifier: ^0.2.14
         version: 0.2.14(@types/vscode@1.99.1)
     devDependencies:
       '@ntnyq/eslint-config':
-        specifier: 'catalog:'
+        specifier: ^4.2.0
         version: 4.2.0(@types/eslint@9.6.1)(@typescript-eslint/utils@8.32.0(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3))(@vue/compiler-sfc@3.5.13)(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3)
       '@ntnyq/prettier-config':
-        specifier: 'catalog:'
+        specifier: ^2.0.0
         version: 2.0.0
       '@types/node':
-        specifier: 'catalog:'
+        specifier: ^22.15.16
         version: 22.15.16
       '@types/vscode':
-        specifier: 'catalog:'
+        specifier: ^1.99.1
         version: 1.99.1
       '@vscode/vsce':
-        specifier: 'catalog:'
+        specifier: ^3.3.2
         version: 3.3.2
       bumpp:
-        specifier: 'catalog:'
+        specifier: ^10.1.0
         version: 10.1.0
       eslint:
-        specifier: 'catalog:'
+        specifier: ^9.26.0
         version: 9.26.0(jiti@2.4.2)
       husky:
-        specifier: 'catalog:'
+        specifier: ^9.1.7
         version: 9.1.7
       nano-staged:
-        specifier: 'catalog:'
+        specifier: ^0.8.0
         version: 0.8.0
       npm-run-all2:
-        specifier: 'catalog:'
+        specifier: ^8.0.1
         version: 8.0.1
       prettier:
-        specifier: 'catalog:'
+        specifier: ^3.5.3
         version: 3.5.3
       tsdown:
-        specifier: 'catalog:'
+        specifier: ^0.11.1
         version: 0.11.1(typescript@5.8.3)
       tsx:
-        specifier: 'catalog:'
+        specifier: ^4.19.4
         version: 4.19.4
       typescript:
-        specifier: 'catalog:'
+        specifier: ^5.8.3
         version: 5.8.3
       vscode-ext-gen:
-        specifier: 'catalog:'
+        specifier: ^1.0.2
         version: 1.0.2
 
 packages:
