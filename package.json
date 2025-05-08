@@ -32,8 +32,8 @@
     "schemas/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "NODE_ENV=development tsup",
+    "build": "tsdown",
+    "dev": "NODE_ENV=development tsdown",
     "generate:meta": "vscode-ext-gen --output=src/meta.ts",
     "lint": "eslint",
     "pack": "vsce package --no-dependencies",
@@ -64,7 +64,7 @@
     "nano-staged": "catalog:",
     "npm-run-all2": "catalog:",
     "prettier": "catalog:",
-    "tsup": "catalog:",
+    "tsdown": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:",
     "vscode-ext-gen": "catalog:"

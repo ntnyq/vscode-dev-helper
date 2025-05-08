@@ -32,7 +32,8 @@
     "NPMRC",
     "taze",
     "tazerc",
-    "tsup"
+    "tsdown",
+    "unrs"
   ],
   "emeraldwalk.runonsave": {
     "commands": [

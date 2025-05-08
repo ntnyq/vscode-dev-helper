@@ -2,10 +2,10 @@ packages:
   - .
 
 catalog:
-  '@ntnyq/eslint-config': ^4.1.0
+  '@ntnyq/eslint-config': ^4.2.0
   '@ntnyq/prettier-config': ^2.0.0
   '@ntnyq/utils': ^0.6.4
-  '@types/node': ^22.15.3
+  '@types/node': ^22.15.16
   '@types/vscode': ^1.99.1
   '@vscode/vsce': ^3.3.2
   bumpp: ^10.1.0
@@ -14,23 +14,20 @@ catalog:
   find-npm-packages: ^0.1.0
   husky: ^9.1.7
   nano-staged: ^0.8.0
-  npm-run-all2: ^7.0.2
+  npm-run-all2: ^8.0.1
   oxidase: ^0.0.3
   prettier: ^3.5.3
   reactive-vscode: ^0.2.14
-  tsup: ^8.4.0
+  tsdown: ^0.11.1
   tsx: ^4.19.4
   typescript: ^5.8.3
   vscode-ext-gen: ^1.0.2
 
 overrides:
-  esbuild: ^0.25.3
+  esbuild: ^0.25.4
 
 onlyBuiltDependencies:
   - '@vscode/vsce-sign'
   - esbuild
   - keytar
   - unrs-resolver
-
-patchedDependencies:
-  tsup: patches/tsup.patch

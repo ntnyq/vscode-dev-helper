@@ -8,7 +8,7 @@
 
 ## Features
 
-- JSONSchema support
+- JSON Schema support
   - pnpm config in `package.json`
   - [taze](https://github.com/antfu-collective/taze) config `.tazerc.json`
 - `.npmrc` completion, codelenses
