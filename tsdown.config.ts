@@ -8,7 +8,6 @@ export default defineConfig({
   clean: true,
   entry: ['src/index.ts'],
   external: ['vscode'],
-  format: 'cjs',
   minify: !isDev(),
   plugins: [],
   shims: true,

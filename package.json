@@ -3,6 +3,7 @@
   "name": "vscode-dev-helper",
   "displayName": "VSCode Dev Helper",
   "preview": true,
+  "type": "module",
   "version": "0.0.17",
   "private": true,
   "packageManager": "pnpm@10.11.0",
