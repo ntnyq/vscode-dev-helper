@@ -1,5 +1,5 @@
 /**
- * prettier
+ * @file prettier
  */
 
 import { unindent as $ } from '@ntnyq/utils'
@@ -7,11 +7,9 @@ import { unindent as $ } from '@ntnyq/utils'
 export const prettierConfigTemplate = $`
   // @ts-check
   
-  import { config, defineConfig } from '@ntnyq/prettier-config'
+  import { defineConfig } from '@ntnyq/prettier-config'
   
   export default defineConfig({
-    ...config,
-  
     overrides: [
       {
         files: ['**/*.html'],

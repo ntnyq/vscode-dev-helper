@@ -1,5 +1,5 @@
 /**
- * package.json
+ * @file package.json
  */
 
 import { unindent as $ } from '@ntnyq/utils'

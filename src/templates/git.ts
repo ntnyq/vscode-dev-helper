@@ -1,5 +1,5 @@
 /**
- * git
+ * @file git
  */
 
 import { unindent as $ } from '@ntnyq/utils'

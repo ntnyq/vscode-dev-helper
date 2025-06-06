@@ -1,5 +1,5 @@
 /**
- * eslint
+ * @file eslint
  */
 
 import { unindent as $ } from '@ntnyq/utils'
