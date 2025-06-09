@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       '@ntnyq/utils':
-        specifier: ^0.7.0
-        version: 0.7.1
+        specifier: ^0.7.2
+        version: 0.7.2
       color:
         specifier: ^5.0.0
         version: 5.0.0
@@ -34,13 +34,13 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@types/node':
-        specifier: ^22.15.29
+        specifier: ^22.15.30
         version: 22.15.30
       '@types/vscode':
         specifier: ^1.100.0
         version: 1.100.0
       '@vscode/vsce':
-        specifier: ^3.4.2
+        specifier: ^3.5.0
         version: 3.5.0
       bumpp:
         specifier: ^10.1.1
@@ -61,7 +61,7 @@ importers:
         specifier: ^3.5.3
         version: 3.5.3
       tsdown:
-        specifier: ^0.12.6
+        specifier: ^0.12.7
         version: 0.12.7(typescript@5.8.3)
       tsx:
         specifier: ^4.19.4
@@ -467,8 +467,8 @@ packages:
     resolution: {integrity: sha512-sjCzIYGXvRRuwN37twCVjszeDTfPtDE3hQ+vT/orH9Xo0ubKQDEA+HsyTewN1vo3ao0Kl3DGpsgPJ4nxy+nyvQ==}
     engines: {node: '>=18.18.0'}
 
-  '@ntnyq/utils@0.7.1':
-    resolution: {integrity: sha512-dGFTey6JMoPfwG+l/J8MUeN68CPhBqc97Ehf7svSA4yXqWkDygyuwXlhBji/q8tbpbHtKxRVwAlLm/fsNrrXIQ==}
+  '@ntnyq/utils@0.7.2':
+    resolution: {integrity: sha512-E2knEJCRxBhPGj0sTQ7X1Xs0BTfgCAEfaiXS76MQXKRpaHV7BZUCAqRBnwA+ZdVqc0ZL4R2L2crlrb3uBW+dFQ==}
     engines: {node: '>=18.18.0'}
 
   '@oxc-project/runtime@0.72.2':
@@ -3473,7 +3473,7 @@ snapshots:
 
   '@ntnyq/utils@0.6.5': {}
 
-  '@ntnyq/utils@0.7.1': {}
+  '@ntnyq/utils@0.7.2': {}
 
   '@oxc-project/runtime@0.72.2': {}
 
