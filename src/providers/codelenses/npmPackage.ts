@@ -37,7 +37,9 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
       const text = useDocumentText(() => editor.value?.document)
       const languageId = computed(() => editor.value?.document.languageId)
 
-      if (!text.value || !languageId.value) return
+      if (!text.value || !languageId.value) {
+        return
+      }
 
       const { findNpmPackages } = await interopDefault(
         import('find-npm-packages'),

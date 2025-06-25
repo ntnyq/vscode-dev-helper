@@ -40,7 +40,9 @@ export function getWholeDocumentRange(document: TextDocument): Range {
 export async function generateFileInWorkspace(filepath: string, content = '') {
   const workspaceFolders = useWorkspaceFolders()
 
-  if (!workspaceFolders.value?.length) return
+  if (!workspaceFolders.value?.length) {
+    return
+  }
 
   const rootPath = workspaceFolders.value[0].uri.fsPath
   const path = Uri.file(`${rootPath}/${filepath}`)

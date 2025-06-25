@@ -49,12 +49,16 @@ export async function useCommands() {
   })
 
   useCommand(commands.openExternalUrl, (url: string) => {
-    if (!url.length) return
+    if (!url.length) {
+      return
+    }
     openExternalURL(url)
   })
 
   useCommand(commands.stripeTypes, async () => {
-    if (!editor.value) return
+    if (!editor.value) {
+      return
+    }
 
     logger.info('🟩 Stripe types')
 
@@ -99,13 +103,17 @@ export async function useCommands() {
   })
 
   useCommand(commands.insertInlineCode, async () => {
-    if (!editor.value) return
+    if (!editor.value) {
+      return
+    }
 
     logger.info('🟩 Insert Inline Code')
 
     const content = editor.value.document.getText(selection.value)
 
-    if (!content.length) return
+    if (!content.length) {
+      return
+    }
 
     editor.value.edit(editBuilder => {
       editBuilder.replace(selection.value, `\\\`${content}\\\``)
@@ -113,7 +121,9 @@ export async function useCommands() {
   })
 
   useCommand(commands.createAlert, async () => {
-    if (!editor.value) return
+    if (!editor.value) {
+      return
+    }
 
     if (!languageId.value || !LANGUAGES_MARKDOWN.includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')
@@ -140,7 +150,9 @@ export async function useCommands() {
       placeHolder: 'Select alert type',
     })
 
-    if (!type) return
+    if (!type) {
+      return
+    }
 
     const content = editor.value.document.getText(selection.value)
 
@@ -163,7 +175,9 @@ export async function useCommands() {
   })
 
   useCommand(commands.createTable, async () => {
-    if (!editor.value) return
+    if (!editor.value) {
+      return
+    }
 
     if (!languageId.value || !LANGUAGES_MARKDOWN.includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')
@@ -174,8 +188,12 @@ export async function useCommands() {
       prompt: 'Input table size, e.g. 4x3',
       value: '4x3',
       validateInput(size) {
-        if (!size) return 'Please input table size'
-        if (!/\d+x\d+/.test(size)) return 'Please use format like [4x3]'
+        if (!size) {
+          return 'Please input table size'
+        }
+        if (!/\d+x\d+/.test(size)) {
+          return 'Please use format like [4x3]'
+        }
         const [rowCount, columnCount] = size.split('x').map(Number)
         if (rowCount <= 0 || columnCount <= 0) {
           return 'Please use format like [4x3]'
@@ -185,7 +203,9 @@ export async function useCommands() {
     })
     const trimedInput = input?.trim()
 
-    if (!trimedInput) return
+    if (!trimedInput) {
+      return
+    }
 
     const [rowCount, columnCount] = trimedInput
       .split('x')
@@ -206,7 +226,9 @@ export async function useCommands() {
   })
 
   useCommand(commands.createSummaryDetail, async () => {
-    if (!editor.value) return
+    if (!editor.value) {
+      return
+    }
 
     if (!languageId.value || !LANGUAGES_MARKDOWN.includes(languageId.value)) {
       return window.showWarningMessage('Only markdown and mdx is supported')

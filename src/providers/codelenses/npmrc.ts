@@ -40,7 +40,9 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
       const editor = useActiveTextEditor()
       const text = useDocumentText(() => editor.value?.document)
 
-      if (!text.value) return
+      if (!text.value) {
+        return
+      }
 
       const regexp = new RegExp(
         `(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`,
@@ -54,13 +56,17 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
         const line = document.lineAt(document.positionAt(match.index).line)
         const key = line.text.split('=')[0].trim()
 
-        if (!key) return
+        if (!key) {
+          return
+        }
 
         logger.info(`🟩 Created codeLens for: ${key}`)
 
         const codelensItem = NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion]
 
-        if (!codelensItem) return
+        if (!codelensItem) {
+          return
+        }
 
         const codelens = new CodeLens(line.range, {
           title: 'view docs',

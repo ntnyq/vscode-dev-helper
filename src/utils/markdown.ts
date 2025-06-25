@@ -60,7 +60,9 @@ const separatorMap = {
 export function createTable(options: CreateTableOptions) {
   const { columnCount, rowCount, align = 'center' } = options
 
-  if (columnCount < 1 || rowCount < 1) return ''
+  if (columnCount < 1 || rowCount < 1) {
+    return ''
+  }
 
   const header = `|${Array.from({ length: columnCount }).fill(WHITESPACE.repeat(5)).join('|')}|`
   const separator = `|${Array.from({ length: columnCount })

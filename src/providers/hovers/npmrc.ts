@@ -27,7 +27,9 @@ export class NPMRCHoverProvider implements HoverProvider {
     const { text } = document.lineAt(position.line)
     const key = text.split('=')[0].trim()
 
-    if (!key || !NPMRC_CODELENS_KEYS.includes(key)) return
+    if (!key || !NPMRC_CODELENS_KEYS.includes(key)) {
+      return
+    }
 
     logger.info(`🟩 Created hover for: ${key}`)
 

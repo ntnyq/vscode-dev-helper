@@ -3,6 +3,7 @@
   "$id": "taze",
   "title": "JSON schema for taze config",
   "description": "JSON schema for taze config",
+  "version": 1.1,
   "definitions": {
     "arrayable-string": {
       "oneOf": [
@@ -110,6 +111,5 @@
       "type": "boolean",
       "markdownDescription": "write to package.json"
     }
-  },
-  "version": 1.1
+  }
 }
