@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { defineConfig } from 'tsdown'
-import pkg from './package.json'
+import pkg from './package.json' with { type: 'json' }
 
 const isDev = () => process.env.NODE_ENV === 'development'
 

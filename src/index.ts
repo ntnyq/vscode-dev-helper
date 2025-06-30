@@ -9,7 +9,7 @@ import { logger } from './utils'
 const { activate, deactivate } = defineExtension(() => {
   logger.info(`✅ Activated, v${version}`)
 
-  // Keep register command at the top
+  // Keep command register at the top
   useCommands()
 
   useHovers()
