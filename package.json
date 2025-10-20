@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.18.1",
+  "packageManager": "pnpm@10.18.2",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -51,13 +51,13 @@
     "color": "^5.0.2",
     "find-npm-packages": "^0.1.0",
     "oxidase": "^0.0.3",
-    "reactive-vscode": "^0.3.3"
+    "reactive-vscode": "^0.4.0"
   },
   "devDependencies": {
     "@ntnyq/eslint-config": "^5.6.0",
     "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^24.7.0",
-    "@types/vscode": "^1.104.0",
+    "@types/node": "^24.7.2",
+    "@types/vscode": "^1.105.0",
     "@vscode/vsce": "^3.6.2",
     "bumpp": "^10.3.1",
     "eslint": "^9.37.0",
@@ -315,7 +315,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.104.3"
+    "vscode": "^1.105.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"
