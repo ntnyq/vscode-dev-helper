@@ -12,7 +12,7 @@ export const extensionId = `${publisher}.${name}`
 /**
  * Type union of all commands
  */
-export type CommandKey = 
+export type CommandKey =
   | "vscode-dev-helper.enable-codelens"
   | "vscode-dev-helper.disable-codelens"
   | "vscode-dev-helper.open-external-url"
@@ -31,7 +31,7 @@ export type CommandKey =
   | "vscode-dev-helper.stripe-types"
 
 /**
- * Commands map registed by `ntnyq.vscode-dev-helper`
+ * Commands map registered by `ntnyq.vscode-dev-helper`
  */
 export const commands = {
   /**
@@ -119,7 +119,7 @@ export const commands = {
 /**
  * Type union of all configs
  */
-export type ConfigKey = 
+export type ConfigKey =
   | "vscode-dev-helper.alertMarker"
   | "vscode-dev-helper.alertPreset"
   | "vscode-dev-helper.alertSyntax"
