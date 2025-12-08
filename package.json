@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.23.0",
+  "packageManager": "pnpm@10.24.0",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -59,14 +59,14 @@
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.106.1",
     "@vscode/vsce": "^3.7.1",
-    "bumpp": "^10.3.1",
+    "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
     "husky": "^9.1.7",
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
-    "prettier": "^3.6.2",
-    "tsdown": "^0.16.6",
-    "tsx": "^4.20.6",
+    "prettier": "^3.7.3",
+    "tsdown": "^0.16.8",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vscode-ext-gen": "^1.4.0"
   },
