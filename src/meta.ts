@@ -4,7 +4,7 @@
 // Meta info
 export const publisher = "ntnyq"
 export const name = "vscode-dev-helper"
-export const version = "0.1.0"
+export const version = "0.1.1"
 export const displayName = "VSCode Dev Helper"
 export const description = "Personal dev helper built on top of VSCode"
 export const extensionId = `${publisher}.${name}`
