@@ -20,6 +20,7 @@ import {
   gitAttributesTemplate,
   gitBlameIgnoreRevsTemplate,
   gitIgnoreTemplate,
+  oxfmtJsonTemplate,
   packageJsonTemplate,
   prettierConfigTemplate,
   prettierIgnoreTemplate,
@@ -41,11 +42,11 @@ export async function useCommands() {
   const languageId = computed(() => editor.value?.document.languageId)
 
   useCommand(commands.enableCodelens, () => {
-    config.$update('enableCodeLens', true)
+    config.update('enableCodeLens', true)
   })
 
   useCommand(commands.disableCodelens, () => {
-    config.$update('enableCodeLens', false)
+    config.update('enableCodeLens', false)
   })
 
   useCommand(commands.openExternalUrl, (url: string) => {
@@ -90,8 +91,12 @@ export async function useCommands() {
     createFileInWorkspace('eslint.config.mjs', eslintConfigTemplate)
   })
 
-  useCommand(commands.generatePrettierConfig, async () => {
+  useCommand(commands.generatePrettierConfig, () => {
     createFileInWorkspace('prettier.config.mjs', prettierConfigTemplate)
+  })
+
+  useCommand(commands.generateOxfmtConfig, () => {
+    createFileInWorkspace('.oxfmtrc.json', oxfmtJsonTemplate)
   })
 
   useCommand(commands.generatePrettierIgnore, () => {
@@ -116,6 +121,9 @@ export async function useCommands() {
     }
 
     editor.value.edit(editBuilder => {
+      if (!selection.value) {
+        return
+      }
       editBuilder.replace(selection.value, `\\\`${content}\\\``)
     })
   })
@@ -201,13 +209,13 @@ export async function useCommands() {
         return null
       },
     })
-    const trimedInput = input?.trim()
+    const trimmedInput = input?.trim()
 
-    if (!trimedInput) {
+    if (!trimmedInput) {
       return
     }
 
-    const [rowCount, columnCount] = trimedInput
+    const [rowCount, columnCount] = trimmedInput
       .split('x')
       .map(v => Number.parseInt(v, 10))
 

@@ -40,6 +40,7 @@
 | `vscode-dev-helper.create-alert`                   | VSCode Dev Helper: Create Alert                    |
 | `vscode-dev-helper.create-table`                   | VSCode Dev Helper: Create Table                    |
 | `vscode-dev-helper.create-summary-detail`          | VSCode Dev Helper: Create Summary Detail           |
+| `vscode-dev-helper.generate-oxfmt-config`          | VSCode Dev Helper: Generate .oxfmtrc.json          |
 | `vscode-dev-helper.generate-node-version`          | VSCode Dev Helper: Generate .node-version          |
 | `vscode-dev-helper.generate-gitignore`             | VSCode Dev Helper: Generate .gitignore             |
 | `vscode-dev-helper.generate-gitattributes`         | VSCode Dev Helper: Generate .gitattributes         |
