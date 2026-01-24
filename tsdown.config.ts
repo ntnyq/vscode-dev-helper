@@ -8,6 +8,7 @@ export default defineConfig({
   clean: true,
   entry: ['src/index.ts'],
   external: ['vscode'],
+  inlineOnly: false,
   minify: !isDev(),
   platform: 'node',
   plugins: [],
@@ -20,6 +21,17 @@ export default defineConfig({
       to: 'dist/oxidase_wasm_bindings_bg.wasm',
     },
   ],
+  // inlineOnly: [
+  //   '@babel/parser',
+  //   'ast-kit',
+  //   'validate-npm-package-name',
+  //   'find-npm-packages',
+  //   'oxidase',
+  //   '@reactive-vscode/reactivity',
+  //   'reactive-vscode',
+  //   '@ntnyq/utils',
+  //   'tsdown',
+  // ],
   noExternal: [
     // Bundle all dependencies
     ...Object.keys(pkg.dependencies || {}),

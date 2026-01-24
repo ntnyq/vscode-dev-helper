@@ -19,8 +19,7 @@ export const oxfmtJsonTemplate = $`
       "**/dist/**",
       "pnpm-lock.yaml",
       "**/*.min.*",
-      "**/tests/fixtures/**",
-      "dts/rule-options.d.ts"
+      "**/tests/fixtures/**"
     ],
     "insertFinalNewline": true,
     "jsxSingleQuote": true,

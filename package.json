@@ -65,7 +65,7 @@
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.8.1",
-    "tsdown": "^0.20.0-beta.4",
+    "tsdown": "^0.20.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vscode-ext-gen": "^1.5.1"
@@ -291,12 +291,17 @@
         },
         {
           "command": "vscode-dev-helper.generate-prettier-config",
-          "group": "prettier",
+          "group": "formatter",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "vscode-dev-helper.generate-prettier-ignore",
-          "group": "prettier",
+          "group": "formatter",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "vscode-dev-helper.generate-oxfmt-config",
+          "group": "formatter",
           "when": "explorerResourceIsFolder"
         },
         {
