@@ -20,7 +20,7 @@ import {
   gitAttributesTemplate,
   gitBlameIgnoreRevsTemplate,
   gitIgnoreTemplate,
-  oxfmtJsonTemplate,
+  oxfmtJsoncTemplate,
   oxlintJsoncTemplate,
   packageJsonTemplate,
   prettierConfigTemplate,
@@ -97,11 +97,11 @@ export async function useCommands() {
   })
 
   useCommand(commands.generateOxfmtConfig, () => {
-    createFileInWorkspace('.oxfmtrc.json', oxfmtJsonTemplate)
+    createFileInWorkspace('.oxfmtrc.jsonc', oxfmtJsoncTemplate)
   })
 
   useCommand(commands.generateOxlintConfig, () => {
-    createFileInWorkspace('.oxlintrc.json', oxlintJsoncTemplate)
+    createFileInWorkspace('.oxlintrc.jsonc', oxlintJsoncTemplate)
   })
 
   useCommand(commands.generatePrettierIgnore, () => {

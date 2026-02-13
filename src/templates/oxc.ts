@@ -4,7 +4,7 @@
 
 import { unindent as $ } from '@ntnyq/utils'
 
-export const oxfmtJsonTemplate = $`
+export const oxfmtJsoncTemplate = $`
   {
     "$schema": "./node_modules/oxfmt/configuration_schema.json",
     "arrowParens": "avoid",
@@ -19,7 +19,7 @@ export const oxfmtJsonTemplate = $`
       "**/dist/**",
       "pnpm-lock.yaml",
       "**/*.min.*",
-      "**/tests/fixtures/**"
+      "**/tests/fixtures/**",
     ],
     "insertFinalNewline": true,
     "jsxSingleQuote": true,
@@ -28,15 +28,15 @@ export const oxfmtJsonTemplate = $`
       {
         "files": ["**/*.{css,scss}"],
         "options": {
-          "singleQuote": false
-        }
+          "singleQuote": false,
+        },
       },
       {
         "files": ["**/*.html"],
         "options": {
-          "singleAttributePerLine": false
-        }
-      }
+          "singleAttributePerLine": false,
+        },
+      },
     ],
     "printWidth": 80,
     "proseWrap": "preserve",
@@ -47,7 +47,7 @@ export const oxfmtJsonTemplate = $`
     "tabWidth": 2,
     "trailingComma": "all",
     "useTabs": false,
-    "vueIndentScriptAndStyle": false
+    "vueIndentScriptAndStyle": false,
   }
 `
 
