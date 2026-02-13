@@ -1,5 +1,5 @@
 export * from './git'
+export * from './oxc'
 export * from './eslint'
 export * from './prettier'
-export * from './oxfmtJson'
 export * from './packageJson'

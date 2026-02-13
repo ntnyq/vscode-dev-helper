@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.1.1",
   "private": true,
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.3",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -37,6 +37,8 @@
     "dev": "NODE_ENV=development tsdown",
     "generate:meta": "vscode-ext-gen --output=src/meta.ts",
     "lint": "eslint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
@@ -44,7 +46,7 @@
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
     "@ntnyq/utils": "^0.11.0",
@@ -54,18 +56,18 @@
     "reactive-vscode": "^1.0.0-beta.2"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^5.9.0",
-    "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^25.2.0",
-    "@types/vscode": "^1.108.1",
+    "@ntnyq/eslint-config": "^6.0.0-beta.8",
+    "@types/node": "^25.2.3",
+    "@types/vscode": "^1.109.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260212.1",
     "@vscode/vsce": "^3.7.1",
-    "bumpp": "^10.4.0",
-    "eslint": "^9.39.2",
+    "bumpp": "^10.4.1",
+    "eslint": "^10.0.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
-    "prettier": "^3.8.1",
-    "tsdown": "^0.20.1",
+    "oxfmt": "^0.32.0",
+    "tsdown": "^0.20.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vscode-ext-gen": "^1.5.1"
@@ -109,6 +111,11 @@
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.generate-oxfmt-config",
         "title": "Generate .oxfmtrc.json"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.generate-oxlint-config",
+        "title": "Generate .oxlint.jsonc"
       },
       {
         "category": "VSCode Dev Helper",
@@ -305,6 +312,11 @@
           "when": "explorerResourceIsFolder"
         },
         {
+          "command": "vscode-dev-helper.generate-oxlint-config",
+          "group": "formatter",
+          "when": "explorerResourceIsFolder"
+        },
+        {
           "command": "vscode-dev-helper.generate-package-json",
           "when": "explorerResourceIsFolder"
         }
@@ -325,9 +337,10 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.999.0"
+    "vscode": "^1.109.0"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"
+    "*.{js,ts,mjs,tsx,md,yml,yaml,json,toml}": "eslint --fix",
+    "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }

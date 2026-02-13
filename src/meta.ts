@@ -2,34 +2,35 @@
 // @see https://github.com/antfu/vscode-ext-gen
 
 // Meta info
-export const publisher = "ntnyq"
-export const name = "vscode-dev-helper"
-export const version = "0.1.1"
-export const displayName = "VSCode Dev Helper"
-export const description = "Personal dev helper built on top of VSCode"
+export const publisher = 'ntnyq'
+export const name = 'vscode-dev-helper'
+export const version = '0.1.1'
+export const displayName = 'VSCode Dev Helper'
+export const description = 'Personal dev helper built on top of VSCode'
 export const extensionId = `${publisher}.${name}`
 
 /**
  * Type union of all commands
  */
 export type CommandKey =
-  | "vscode-dev-helper.enable-codelens"
-  | "vscode-dev-helper.disable-codelens"
-  | "vscode-dev-helper.open-external-url"
-  | "vscode-dev-helper.create-alert"
-  | "vscode-dev-helper.create-table"
-  | "vscode-dev-helper.create-summary-detail"
-  | "vscode-dev-helper.generate-oxfmt-config"
-  | "vscode-dev-helper.generate-node-version"
-  | "vscode-dev-helper.generate-gitignore"
-  | "vscode-dev-helper.generate-gitattributes"
-  | "vscode-dev-helper.generate-git-blame-ignore-revs"
-  | "vscode-dev-helper.generate-eslint-config"
-  | "vscode-dev-helper.generate-prettier-config"
-  | "vscode-dev-helper.generate-prettier-ignore"
-  | "vscode-dev-helper.generate-package-json"
-  | "vscode-dev-helper.insert-inline-code"
-  | "vscode-dev-helper.stripe-types"
+  | 'vscode-dev-helper.enable-codelens'
+  | 'vscode-dev-helper.disable-codelens'
+  | 'vscode-dev-helper.open-external-url'
+  | 'vscode-dev-helper.create-alert'
+  | 'vscode-dev-helper.create-table'
+  | 'vscode-dev-helper.create-summary-detail'
+  | 'vscode-dev-helper.generate-oxfmt-config'
+  | 'vscode-dev-helper.generate-oxlint-config'
+  | 'vscode-dev-helper.generate-node-version'
+  | 'vscode-dev-helper.generate-gitignore'
+  | 'vscode-dev-helper.generate-gitattributes'
+  | 'vscode-dev-helper.generate-git-blame-ignore-revs'
+  | 'vscode-dev-helper.generate-eslint-config'
+  | 'vscode-dev-helper.generate-prettier-config'
+  | 'vscode-dev-helper.generate-prettier-ignore'
+  | 'vscode-dev-helper.generate-package-json'
+  | 'vscode-dev-helper.insert-inline-code'
+  | 'vscode-dev-helper.stripe-types'
 
 /**
  * Commands map registered by `ntnyq.vscode-dev-helper`
@@ -39,136 +40,145 @@ export const commands = {
    * Enable CodeLens
    * @value `vscode-dev-helper.enable-codelens`
    */
-  enableCodelens: "vscode-dev-helper.enable-codelens",
+  enableCodelens: 'vscode-dev-helper.enable-codelens',
   /**
    * Disable CodeLens
    * @value `vscode-dev-helper.disable-codelens`
    */
-  disableCodelens: "vscode-dev-helper.disable-codelens",
+  disableCodelens: 'vscode-dev-helper.disable-codelens',
   /**
    * Open External URL
    * @value `vscode-dev-helper.open-external-url`
    */
-  openExternalUrl: "vscode-dev-helper.open-external-url",
+  openExternalUrl: 'vscode-dev-helper.open-external-url',
   /**
    * Create Alert
    * @value `vscode-dev-helper.create-alert`
    */
-  createAlert: "vscode-dev-helper.create-alert",
+  createAlert: 'vscode-dev-helper.create-alert',
   /**
    * Create Table
    * @value `vscode-dev-helper.create-table`
    */
-  createTable: "vscode-dev-helper.create-table",
+  createTable: 'vscode-dev-helper.create-table',
   /**
    * Create Summary Detail
    * @value `vscode-dev-helper.create-summary-detail`
    */
-  createSummaryDetail: "vscode-dev-helper.create-summary-detail",
+  createSummaryDetail: 'vscode-dev-helper.create-summary-detail',
   /**
    * Generate .oxfmtrc.json
    * @value `vscode-dev-helper.generate-oxfmt-config`
    */
-  generateOxfmtConfig: "vscode-dev-helper.generate-oxfmt-config",
+  generateOxfmtConfig: 'vscode-dev-helper.generate-oxfmt-config',
+  /**
+   * Generate .oxlint.jsonc
+   * @value `vscode-dev-helper.generate-oxlint-config`
+   */
+  generateOxlintConfig: 'vscode-dev-helper.generate-oxlint-config',
   /**
    * Generate .node-version
    * @value `vscode-dev-helper.generate-node-version`
    */
-  generateNodeVersion: "vscode-dev-helper.generate-node-version",
+  generateNodeVersion: 'vscode-dev-helper.generate-node-version',
   /**
    * Generate .gitignore
    * @value `vscode-dev-helper.generate-gitignore`
    */
-  generateGitignore: "vscode-dev-helper.generate-gitignore",
+  generateGitignore: 'vscode-dev-helper.generate-gitignore',
   /**
    * Generate .gitattributes
    * @value `vscode-dev-helper.generate-gitattributes`
    */
-  generateGitattributes: "vscode-dev-helper.generate-gitattributes",
+  generateGitattributes: 'vscode-dev-helper.generate-gitattributes',
   /**
    * Generate .git-blame-ignore-revs
    * @value `vscode-dev-helper.generate-git-blame-ignore-revs`
    */
-  generateGitBlameIgnoreRevs: "vscode-dev-helper.generate-git-blame-ignore-revs",
+  generateGitBlameIgnoreRevs:
+    'vscode-dev-helper.generate-git-blame-ignore-revs',
   /**
    * Generate eslint.config.mjs
    * @value `vscode-dev-helper.generate-eslint-config`
    */
-  generateEslintConfig: "vscode-dev-helper.generate-eslint-config",
+  generateEslintConfig: 'vscode-dev-helper.generate-eslint-config',
   /**
    * Generate prettier.config.mjs
    * @value `vscode-dev-helper.generate-prettier-config`
    */
-  generatePrettierConfig: "vscode-dev-helper.generate-prettier-config",
+  generatePrettierConfig: 'vscode-dev-helper.generate-prettier-config',
   /**
    * Generate .prettierignore
    * @value `vscode-dev-helper.generate-prettier-ignore`
    */
-  generatePrettierIgnore: "vscode-dev-helper.generate-prettier-ignore",
+  generatePrettierIgnore: 'vscode-dev-helper.generate-prettier-ignore',
   /**
    * Generate package.json
    * @value `vscode-dev-helper.generate-package-json`
    */
-  generatePackageJson: "vscode-dev-helper.generate-package-json",
+  generatePackageJson: 'vscode-dev-helper.generate-package-json',
   /**
    * Insert Inline Code
    * @value `vscode-dev-helper.insert-inline-code`
    */
-  insertInlineCode: "vscode-dev-helper.insert-inline-code",
+  insertInlineCode: 'vscode-dev-helper.insert-inline-code',
   /**
    * Stripe Types
    * @value `vscode-dev-helper.stripe-types`
    */
-  stripeTypes: "vscode-dev-helper.stripe-types",
+  stripeTypes: 'vscode-dev-helper.stripe-types',
 } satisfies Record<string, CommandKey>
 
 /**
  * Type union of all configs
  */
 export type ConfigKey =
-  | "vscode-dev-helper.alertMarker"
-  | "vscode-dev-helper.alertPreset"
-  | "vscode-dev-helper.alertSyntax"
-  | "vscode-dev-helper.alertTypes"
-  | "vscode-dev-helper.alertUppercaseType"
-  | "vscode-dev-helper.enableCodeLens"
-  | "vscode-dev-helper.nodeVersion"
+  | 'vscode-dev-helper.alertMarker'
+  | 'vscode-dev-helper.alertPreset'
+  | 'vscode-dev-helper.alertSyntax'
+  | 'vscode-dev-helper.alertTypes'
+  | 'vscode-dev-helper.alertUppercaseType'
+  | 'vscode-dev-helper.enableCodeLens'
+  | 'vscode-dev-helper.nodeVersion'
 
 export interface ConfigKeyTypeMap {
-  "vscode-dev-helper.alertMarker": string,
-  "vscode-dev-helper.alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
-  "vscode-dev-helper.alertSyntax": ("blockquote" | "container"),
-  "vscode-dev-helper.alertTypes": string[],
-  "vscode-dev-helper.alertUppercaseType": boolean,
-  "vscode-dev-helper.enableCodeLens": boolean,
-  "vscode-dev-helper.nodeVersion": string,
+  'vscode-dev-helper.alertMarker': string
+  'vscode-dev-helper.alertPreset':
+    | 'custom'
+    | 'github'
+    | 'obsidian'
+    | 'vitepress'
+  'vscode-dev-helper.alertSyntax': 'blockquote' | 'container'
+  'vscode-dev-helper.alertTypes': string[]
+  'vscode-dev-helper.alertUppercaseType': boolean
+  'vscode-dev-helper.enableCodeLens': boolean
+  'vscode-dev-helper.nodeVersion': string
 }
 
 export interface ConfigShorthandMap {
-  alertMarker: "vscode-dev-helper.alertMarker",
-  alertPreset: "vscode-dev-helper.alertPreset",
-  alertSyntax: "vscode-dev-helper.alertSyntax",
-  alertTypes: "vscode-dev-helper.alertTypes",
-  alertUppercaseType: "vscode-dev-helper.alertUppercaseType",
-  enableCodeLens: "vscode-dev-helper.enableCodeLens",
-  nodeVersion: "vscode-dev-helper.nodeVersion",
+  alertMarker: 'vscode-dev-helper.alertMarker'
+  alertPreset: 'vscode-dev-helper.alertPreset'
+  alertSyntax: 'vscode-dev-helper.alertSyntax'
+  alertTypes: 'vscode-dev-helper.alertTypes'
+  alertUppercaseType: 'vscode-dev-helper.alertUppercaseType'
+  enableCodeLens: 'vscode-dev-helper.enableCodeLens'
+  nodeVersion: 'vscode-dev-helper.nodeVersion'
 }
 
 export interface ConfigShorthandTypeMap {
-  alertMarker: string,
-  alertPreset: ("custom" | "github" | "obsidian" | "vitepress"),
-  alertSyntax: ("blockquote" | "container"),
-  alertTypes: string[],
-  alertUppercaseType: boolean,
-  enableCodeLens: boolean,
-  nodeVersion: string,
+  alertMarker: string
+  alertPreset: 'custom' | 'github' | 'obsidian' | 'vitepress'
+  alertSyntax: 'blockquote' | 'container'
+  alertTypes: string[]
+  alertUppercaseType: boolean
+  enableCodeLens: boolean
+  nodeVersion: string
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
-  key: T,
-  default: ConfigKeyTypeMap[T],
+  key: T
+  default: ConfigKeyTypeMap[T]
 }
-
 
 /**
  * Configs map registered by `ntnyq.vscode-dev-helper`
@@ -181,9 +191,9 @@ export const configs = {
    * @type `string`
    */
   alertMarker: {
-    key: "vscode-dev-helper.alertMarker",
-    default: "!",
-  } as ConfigItem<"vscode-dev-helper.alertMarker">,
+    key: 'vscode-dev-helper.alertMarker',
+    default: '!',
+  } as ConfigItem<'vscode-dev-helper.alertMarker'>,
   /**
    * Preset of Alert
    * @key `vscode-dev-helper.alertPreset`
@@ -191,9 +201,9 @@ export const configs = {
    * @type `string`
    */
   alertPreset: {
-    key: "vscode-dev-helper.alertPreset",
-    default: "github",
-  } as ConfigItem<"vscode-dev-helper.alertPreset">,
+    key: 'vscode-dev-helper.alertPreset',
+    default: 'github',
+  } as ConfigItem<'vscode-dev-helper.alertPreset'>,
   /**
    * Markdown Syntax for Custom Alert
    * @key `vscode-dev-helper.alertSyntax`
@@ -201,9 +211,9 @@ export const configs = {
    * @type `string`
    */
   alertSyntax: {
-    key: "vscode-dev-helper.alertSyntax",
-    default: "container",
-  } as ConfigItem<"vscode-dev-helper.alertSyntax">,
+    key: 'vscode-dev-helper.alertSyntax',
+    default: 'container',
+  } as ConfigItem<'vscode-dev-helper.alertSyntax'>,
   /**
    * Types for Custom Alert
    * @key `vscode-dev-helper.alertTypes`
@@ -211,9 +221,9 @@ export const configs = {
    * @type `array`
    */
   alertTypes: {
-    key: "vscode-dev-helper.alertTypes",
-    default: ["danger","info","success","tip","warning"],
-  } as ConfigItem<"vscode-dev-helper.alertTypes">,
+    key: 'vscode-dev-helper.alertTypes',
+    default: ['danger', 'info', 'success', 'tip', 'warning'],
+  } as ConfigItem<'vscode-dev-helper.alertTypes'>,
   /**
    * Use Uppercase Type for Custom Alert
    * @key `vscode-dev-helper.alertUppercaseType`
@@ -221,9 +231,9 @@ export const configs = {
    * @type `boolean`
    */
   alertUppercaseType: {
-    key: "vscode-dev-helper.alertUppercaseType",
+    key: 'vscode-dev-helper.alertUppercaseType',
     default: false,
-  } as ConfigItem<"vscode-dev-helper.alertUppercaseType">,
+  } as ConfigItem<'vscode-dev-helper.alertUppercaseType'>,
   /**
    * Enable CodeLens
    * @key `vscode-dev-helper.enableCodeLens`
@@ -231,9 +241,9 @@ export const configs = {
    * @type `boolean`
    */
   enableCodeLens: {
-    key: "vscode-dev-helper.enableCodeLens",
+    key: 'vscode-dev-helper.enableCodeLens',
     default: true,
-  } as ConfigItem<"vscode-dev-helper.enableCodeLens">,
+  } as ConfigItem<'vscode-dev-helper.enableCodeLens'>,
   /**
    * Default version for .node-version
    * @key `vscode-dev-helper.nodeVersion`
@@ -241,53 +251,52 @@ export const configs = {
    * @type `string`
    */
   nodeVersion: {
-    key: "vscode-dev-helper.nodeVersion",
-    default: "lts-latest",
-  } as ConfigItem<"vscode-dev-helper.nodeVersion">,
+    key: 'vscode-dev-helper.nodeVersion',
+    default: 'lts-latest',
+  } as ConfigItem<'vscode-dev-helper.nodeVersion'>,
 }
 
 export interface ScopedConfigKeyTypeMap {
-  "alertMarker": string,
-  "alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
-  "alertSyntax": ("blockquote" | "container"),
-  "alertTypes": string[],
-  "alertUppercaseType": boolean,
-  "enableCodeLens": boolean,
-  "nodeVersion": string,
+  alertMarker: string
+  alertPreset: 'custom' | 'github' | 'obsidian' | 'vitepress'
+  alertSyntax: 'blockquote' | 'container'
+  alertTypes: string[]
+  alertUppercaseType: boolean
+  enableCodeLens: boolean
+  nodeVersion: string
 }
 
 export const scopedConfigs = {
-  scope: "vscode-dev-helper",
+  scope: 'vscode-dev-helper',
   defaults: {
-    "alertMarker": "!",
-    "alertPreset": "github",
-    "alertSyntax": "container",
-    "alertTypes": ["danger","info","success","tip","warning"],
-    "alertUppercaseType": false,
-    "enableCodeLens": true,
-    "nodeVersion": "lts-latest",
+    alertMarker: '!',
+    alertPreset: 'github',
+    alertSyntax: 'container',
+    alertTypes: ['danger', 'info', 'success', 'tip', 'warning'],
+    alertUppercaseType: false,
+    enableCodeLens: true,
+    nodeVersion: 'lts-latest',
   } satisfies ScopedConfigKeyTypeMap,
 }
 
 export interface NestedConfigs {
-  "vscode-dev-helper": {
-    "alertMarker": string,
-    "alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
-    "alertSyntax": ("blockquote" | "container"),
-    "alertTypes": string[],
-    "alertUppercaseType": boolean,
-    "enableCodeLens": boolean,
-    "nodeVersion": string,
-  },
+  'vscode-dev-helper': {
+    alertMarker: string
+    alertPreset: 'custom' | 'github' | 'obsidian' | 'vitepress'
+    alertSyntax: 'blockquote' | 'container'
+    alertTypes: string[]
+    alertUppercaseType: boolean
+    enableCodeLens: boolean
+    nodeVersion: string
+  }
 }
 
 export interface NestedScopedConfigs {
-  "alertMarker": string,
-  "alertPreset": ("custom" | "github" | "obsidian" | "vitepress"),
-  "alertSyntax": ("blockquote" | "container"),
-  "alertTypes": string[],
-  "alertUppercaseType": boolean,
-  "enableCodeLens": boolean,
-  "nodeVersion": string,
+  alertMarker: string
+  alertPreset: 'custom' | 'github' | 'obsidian' | 'vitepress'
+  alertSyntax: 'blockquote' | 'container'
+  alertTypes: string[]
+  alertUppercaseType: boolean
+  enableCodeLens: boolean
+  nodeVersion: string
 }
-

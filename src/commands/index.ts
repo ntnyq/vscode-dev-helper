@@ -21,6 +21,7 @@ import {
   gitBlameIgnoreRevsTemplate,
   gitIgnoreTemplate,
   oxfmtJsonTemplate,
+  oxlintJsoncTemplate,
   packageJsonTemplate,
   prettierConfigTemplate,
   prettierIgnoreTemplate,
@@ -99,6 +100,10 @@ export async function useCommands() {
     createFileInWorkspace('.oxfmtrc.json', oxfmtJsonTemplate)
   })
 
+  useCommand(commands.generateOxlintConfig, () => {
+    createFileInWorkspace('.oxlintrc.json', oxlintJsoncTemplate)
+  })
+
   useCommand(commands.generatePrettierIgnore, () => {
     createFileInWorkspace('.prettierignore', prettierIgnoreTemplate)
   })
@@ -169,8 +174,8 @@ export async function useCommands() {
       content,
       marker: config.alertMarker,
       syntax:
-        (useCustomPreset ? config.alertSyntax : alertPreset?.syntax)
-        || ALERT_DEFAULT_SYNTAX,
+        (useCustomPreset ? config.alertSyntax : alertPreset?.syntax) ||
+        ALERT_DEFAULT_SYNTAX,
       uppercaseType:
         (useCustomPreset
           ? config.alertUppercaseType
