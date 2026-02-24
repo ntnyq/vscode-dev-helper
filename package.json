@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.1.2",
   "private": true,
-  "packageManager": "pnpm@10.30.1",
+  "packageManager": "pnpm@10.30.2",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -43,7 +43,7 @@
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
     "release:build": "run-s generate:meta build",
-    "release:check": "run-s lint typecheck",
+    "release:check": "run-s format:check lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
     "typecheck": "tsgo --noEmit"
@@ -62,7 +62,7 @@
     "@typescript/native-preview": "^7.0.0-dev.20260223.1",
     "@vscode/vsce": "^3.7.1",
     "bumpp": "^10.4.1",
-    "eslint": "^10.0.1",
+    "eslint": "^10.0.2",
     "husky": "^9.1.7",
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
