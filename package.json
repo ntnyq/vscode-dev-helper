@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.1.3",
   "private": true,
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.32.1",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -36,7 +36,7 @@
     "build": "tsdown",
     "dev": "NODE_ENV=development tsdown",
     "generate:meta": "vscode-ext-gen --output=src/meta.ts",
-    "lint": "eslint",
+    "lint": "oxlint",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "pack": "vsce package --no-dependencies",
@@ -56,18 +56,17 @@
     "reactive-vscode": "^1.0.0-beta.2"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^6.0.0-beta.11",
-    "@types/node": "^25.3.3",
-    "@types/vscode": "^1.109.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260301.1",
+    "@types/node": "^25.5.0",
+    "@types/vscode": "^1.110.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260315.1",
     "@vscode/vsce": "^3.7.1",
-    "bumpp": "^10.4.1",
-    "eslint": "^10.0.2",
+    "bumpp": "^11.0.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
-    "oxfmt": "^0.35.0",
-    "tsdown": "^0.20.3",
+    "oxfmt": "^0.40.0",
+    "oxlint": "^1.55.0",
+    "tsdown": "^0.21.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vscode-ext-gen": "^1.6.0"
@@ -115,7 +114,7 @@
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.generate-oxlint-config",
-        "title": "Generate .oxlintrc.jsonc"
+        "title": "Generate .oxlintrc.json"
       },
       {
         "category": "VSCode Dev Helper",
@@ -337,10 +336,10 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.109.5"
+    "vscode": "^1.110.0"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,tsx,md,yml,yaml,json,toml}": "eslint --fix",
+    "*.{js,ts,mjs,tsx}": "oxlint --fix",
     "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }

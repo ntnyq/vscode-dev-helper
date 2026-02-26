@@ -17,7 +17,6 @@ export interface CreateTableOptions {
 
 /**
  * Options for `createMarkdownAlert`
- * @pg
  */
 export type CreateMarkdownAlertOptions = Pick<
   MarkdownAlertPreset,
@@ -42,7 +41,7 @@ export interface MarkdownAlertPreset {
    */
   types: string[]
   /**
-   * required if `syntax` is `blockquote`
+   * Required if `syntax` is `blockquote`
    *
    * @default '!'
    */

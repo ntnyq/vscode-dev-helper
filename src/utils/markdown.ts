@@ -6,24 +6,50 @@ import type {
   CreateTableOptions,
 } from '../types/markdown'
 
+/**
+ * Resolved markdown alert options used by alert builders.
+ *
+ * Excludes content and syntax because they are handled separately
+ * before rendering the final markdown output.
+ */
 type ResolvedOptions = Omit<CreateMarkdownAlertOptions, 'content' | 'syntax'>
 
-function createBlockquoteAlert(lines: string[], options: ResolvedOptions) {
+/**
+ * Creates a blockquote-style alert block.
+ *
+ * @param lines - Content lines for the alert.
+ * @param options - Resolved alert options.
+ * @returns A markdown blockquote alert string.
+ */
+function createBlockquoteAlert(
+  lines: string[],
+  options: ResolvedOptions,
+): string {
   return `
 > [${options.marker || ALERT_DEFAULT_MARKER}${options.uppercaseType ? options.type.toUpperCase() : options.type}]
 ${
   lines.length > 0
-    ? lines.map(line => `> ${line.trim()}`).join('\n') // Keep empty line between
+    ? lines.map(line => `> ${line.trim()}`).join('\n')
     : `> This is an example for ${options.type.toUpperCase()}`
 }`.trimStart()
 }
 
-function createContainerAlert(lines: string[], options: ResolvedOptions) {
+/**
+ * Creates a container-style alert block.
+ *
+ * @param lines - Content lines for the alert.
+ * @param options - Resolved alert options.
+ * @returns A markdown container alert string.
+ */
+function createContainerAlert(
+  lines: string[],
+  options: ResolvedOptions,
+): string {
   return `
 ::: ${options.uppercaseType ? options.type.toUpperCase() : options.type}
 ${
   lines.length > 0
-    ? lines.map(line => `${line.trim()}`).join('\n') // Keep empty line between
+    ? lines.map(line => `${line.trim()}`).join('\n')
     : `This is an example for ${options.type.toUpperCase()}`
 }
 :::
@@ -31,9 +57,12 @@ ${
 }
 
 /**
- * create markdown alert
+ * Creates an alert markdown block based on the selected syntax.
+ *
+ * @param options - Alert creation options.
+ * @returns A markdown alert string.
  */
-export function createAlert(options: CreateMarkdownAlertOptions) {
+export function createAlert(options: CreateMarkdownAlertOptions): string {
   const isWhitespace = options.content?.trim()?.length === 0
   const lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
 
@@ -49,15 +78,18 @@ export function createAlert(options: CreateMarkdownAlertOptions) {
 }
 
 const separatorMap = {
-  left: ':---',
   center: ':---:',
+  left: ':---',
   right: '---:',
 } as const
 
 /**
- * create table
+ * Creates a markdown table template.
+ *
+ * @param options - Table creation options.
+ * @returns A markdown table string or an empty string for invalid sizes.
  */
-export function createTable(options: CreateTableOptions) {
+export function createTable(options: CreateTableOptions): string {
   const { columnCount, rowCount, align = 'center' } = options
 
   if (columnCount < 1 || rowCount < 1) {
@@ -73,9 +105,14 @@ export function createTable(options: CreateTableOptions) {
 }
 
 /**
- * create summary detail
+ * Creates a markdown details/summary block.
+ *
+ * @param options - Summary/detail content options.
+ * @returns A markdown details block.
  */
-export function createSummaryDetail(options: CreateSummaryDetailOptions = {}) {
+export function createSummaryDetail(
+  options: CreateSummaryDetailOptions = {},
+): string {
   const { title = 'This is title', content = 'This is content' } = options
   return `
 <details>

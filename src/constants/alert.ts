@@ -35,7 +35,6 @@ export const markdownAlertPresets: MarkdownAlertPreset[] = [
     marker: '!',
     name: 'obsidian',
     syntax: 'blockquote',
-    uppercaseType: false,
     types: [
       'note',
       'abstract',
@@ -65,5 +64,6 @@ export const markdownAlertPresets: MarkdownAlertPreset[] = [
       'quote',
       'cite',
     ],
+    uppercaseType: false,
   },
 ]

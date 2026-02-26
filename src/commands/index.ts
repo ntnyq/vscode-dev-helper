@@ -21,7 +21,7 @@ import {
   gitBlameIgnoreRevsTemplate,
   gitIgnoreTemplate,
   oxfmtJsoncTemplate,
-  oxlintJsoncTemplate,
+  oxlintJsonTemplate,
   packageJsonTemplate,
   prettierConfigTemplate,
   prettierIgnoreTemplate,
@@ -37,7 +37,7 @@ import {
 } from '../utils'
 import { createFileInWorkspace } from './helper/fs'
 
-export async function useCommands() {
+export async function useCommands(): Promise<void> {
   const editor = useActiveTextEditor()
   const selection = useTextEditorSelection(editor)
   const languageId = computed(() => editor.value?.document.languageId)
@@ -51,7 +51,7 @@ export async function useCommands() {
   })
 
   useCommand(commands.openExternalUrl, (url: string) => {
-    if (!url.length) {
+    if (url.length === 0) {
       return
     }
     openExternalURL(url)
@@ -101,7 +101,7 @@ export async function useCommands() {
   })
 
   useCommand(commands.generateOxlintConfig, () => {
-    createFileInWorkspace('.oxlintrc.jsonc', oxlintJsoncTemplate)
+    createFileInWorkspace('.oxlintrc.json', oxlintJsonTemplate)
   })
 
   useCommand(commands.generatePrettierIgnore, () => {
@@ -112,7 +112,7 @@ export async function useCommands() {
     createFileInWorkspace('package.json', packageJsonTemplate)
   })
 
-  useCommand(commands.insertInlineCode, async () => {
+  useCommand(commands.insertInlineCode, () => {
     if (!editor.value) {
       return
     }
@@ -121,7 +121,7 @@ export async function useCommands() {
 
     const content = editor.value.document.getText(selection.value)
 
-    if (!content.length) {
+    if (content.length === 0) {
       return
     }
 
@@ -157,11 +157,14 @@ export async function useCommands() {
       return
     }
 
-    const type = await window.showQuickPick(alertTypes.map(upperFirst), {
-      canPickMany: false,
-      title: 'Select alert type',
-      placeHolder: 'Select alert type',
-    })
+    const type = await window.showQuickPick(
+      alertTypes.map(v => upperFirst(v)),
+      {
+        canPickMany: false,
+        placeHolder: 'Select alert type',
+        title: 'Select alert type',
+      },
+    )
 
     if (!type) {
       return
@@ -170,12 +173,12 @@ export async function useCommands() {
     const content = editor.value.document.getText(selection.value)
 
     const alertText = createAlert({
-      type,
       content,
       marker: config.alertMarker,
       syntax:
         (useCustomPreset ? config.alertSyntax : alertPreset?.syntax) ||
         ALERT_DEFAULT_SYNTAX,
+      type,
       uppercaseType:
         (useCustomPreset
           ? config.alertUppercaseType
@@ -197,9 +200,8 @@ export async function useCommands() {
     }
 
     const input = await window.showInputBox({
-      title: 'Create Table',
       prompt: 'Input table size, e.g. 4x3',
-      value: '4x3',
+      title: 'Create Table',
       validateInput(size) {
         if (!size) {
           return 'Please input table size'
@@ -213,6 +215,7 @@ export async function useCommands() {
         }
         return null
       },
+      value: '4x3',
     })
     const trimmedInput = input?.trim()
 
@@ -225,8 +228,8 @@ export async function useCommands() {
       .map(v => Number.parseInt(v, 10))
 
     const alertText = createTable({
-      rowCount,
       columnCount,
+      rowCount,
     })
 
     await editor.value.insertSnippet(new SnippetString(alertText))

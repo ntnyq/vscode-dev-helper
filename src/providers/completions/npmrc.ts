@@ -32,7 +32,7 @@ export class NPMRCKeyCompletionProvider implements CompletionItemProvider {
     ).map(
       item =>
         new CompletionItem(
-          { label: item, description: 'Pnpm configuration' },
+          { description: 'Pnpm configuration', label: item },
           CompletionItemKind.Field,
         ),
     )
@@ -63,7 +63,7 @@ export class NPMRCValueCompletionProvider implements CompletionItemProvider {
     const comletionList = comletionValueList.map(
       item =>
         new CompletionItem(
-          { label: item, description: 'Pnpm configuration' },
+          { description: 'Pnpm configuration', label: item },
           CompletionItemKind.Value,
         ),
     )

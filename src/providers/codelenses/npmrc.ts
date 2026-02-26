@@ -48,7 +48,7 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
         `(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`,
         'g',
       )
-      let match: RegExpExecArray | null
+      let match: RegExpExecArray | null = null
 
       regexp.lastIndex = 0
 
@@ -69,9 +69,9 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
         }
 
         const codelens = new CodeLens(line.range, {
-          title: 'view docs',
-          command: commands.openExternalUrl,
           arguments: [codelensItem.url || ''],
+          command: commands.openExternalUrl,
+          title: 'view docs',
         })
 
         this.#codeLens.push(codelens)

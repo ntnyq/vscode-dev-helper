@@ -56,7 +56,7 @@ export const oxfmtJsoncTemplate = $`
   }
 `
 
-export const oxlintJsoncTemplate = $`
+export const oxlintJsonTemplate = $`
   {
     "$schema": "./node_modules/oxlint/configuration_schema.json",
     "plugins": [
@@ -68,7 +68,7 @@ export const oxlintJsoncTemplate = $`
       "oxc",
       "typescript",
       "unicorn",
-      "vue",
+      "vue"
     ],
     "categories": {
       "correctness": "error",
@@ -76,19 +76,45 @@ export const oxlintJsoncTemplate = $`
       "pedantic": "warn",
       "perf": "warn",
       "style": "warn",
-      "restriction": "warn",
+      "restriction": "warn"
     },
     "ignorePatterns": [
       "**/dist/**",
       "**/node_modules/**",
-      "**/tests/fixtures/**",
+      "**/tests/fixtures/**"
     ],
-    "globals": {},
-    "rules": {},
+    "rules": {
+      "import/no-named-export": "off",
+      "import/group-exports": "off",
+      "func-style": [
+        "warn",
+        "declaration",
+        { "allowArrowFunctions": true }
+      ],
+      "no-magic-numbers": [
+        "warn",
+        {
+          "ignore": [0, 1, -1, 2, 10, 100, 1000],
+          "ignoreArrayIndexes": true,
+          "enforceConst": true,
+          "detectObjects": false
+        }
+      ]
+    },
     "overrides": [
       {
         "files": ["scripts/**/*.{js,ts}"],
-        "rules": {},
+        "rules": {
+          "import/no-nodejs-modules": "off",
+          "import/prefer-default-export": "off",
+          "import/no-named-export": "off"
+        }
+      },
+      {
+        "files": ["**/*.config.ts"],
+        "rules": {
+          "import/no-default-export": "off"
+        }
       },
       {
         "files": ["**/components/**/*.{ts,tsx,vue}"],
@@ -109,11 +135,11 @@ export const oxlintJsoncTemplate = $`
           // to extend existing modules, import/export must not appear in declaration files at top level
           "import/unambiguous": "off",
           // we need \`export {}\` to convert a file to a module
-          "unicorn/require-module-specifiers": "off",
+          "unicorn/require-module-specifiers": "off"
         },
       },
       {
-        "files": [".{spec,test}.{js,ts,tsx}", ".{spec,test}-d.{ts,tsx}"],
+        "files": ["*.{spec,test}.{js,ts,tsx}", "*.{spec,test}-d.{ts,tsx}"],
         "plugins": ["vitest"],
         "rules": {
           "id-length": "off",

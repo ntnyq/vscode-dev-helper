@@ -1,0 +1,97 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    // "import",
+    "jsdoc",
+    "node",
+    "promise",
+    "oxc",
+    "typescript",
+    "unicorn",
+    "vue",
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "restriction": "warn",
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/fixtures/**",
+    "src/meta.ts",
+  ],
+  "rules": {
+    "capitalized-comments": "off",
+    "class-methods-use-this": "off",
+    "func-style": "off",
+    "no-ternary": "off",
+    "require-await": "off",
+    "sort-imports": "off",
+    "import/no-relative-parent-imports": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-type": "off",
+    "oxc/no-optional-chaining": "off",
+    "oxc/no-async-await": "off",
+    "typescript/no-non-null-assertion": "off",
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off",
+    "unicorn/filename-case": "off",
+    "unicorn/no-null": "off",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/prefer-event-target": "off",
+    "unicorn/prefer-native-coercion-functions": "off",
+    "id-length": [
+      "error",
+      {
+        "min": 2,
+        "max": 50,
+        "properties": "never",
+        "exceptions": ["i", "j", "k", "v", "x", "y", "z", "_", "$", "T"],
+      },
+    ],
+    "max-classes-per-file": ["warn", 5],
+    "max-lines-per-function": [
+      "warn",
+      { "max": 500, "skipBlankLines": true, "skipComments": true },
+    ],
+    "max-statements": ["warn", 50],
+    "no-duplicate-imports": [
+      "warn",
+      { "includeExports": false, "allowSeparateTypeImports": true },
+    ],
+    "no-magic-numbers": [
+      "error",
+      {
+        "ignore": [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        "ignoreArrayIndexes": true,
+        "ignoreClassFieldInitialValues": true,
+        "ignoreDefaultValues": true,
+        "ignoreEnums": true,
+      },
+    ],
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**/*.{js,ts}"],
+      "rules": {},
+    },
+    {
+      "files": ["*.config.{ts,mjs}"],
+      "rules": {},
+    },
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        // to extend existing modules, import/export must not appear in declaration files at top level
+        "import/unambiguous": "off",
+        // we need `export {}` to convert a file to a module
+        "unicorn/require-module-specifiers": "off",
+      },
+    },
+  ],
+}

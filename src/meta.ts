@@ -72,7 +72,7 @@ export const commands = {
    */
   generateOxfmtConfig: "vscode-dev-helper.generate-oxfmt-config",
   /**
-   * Generate .oxlintrc.jsonc
+   * Generate .oxlintrc.json
    * @value `vscode-dev-helper.generate-oxlint-config`
    */
   generateOxlintConfig: "vscode-dev-helper.generate-oxlint-config",

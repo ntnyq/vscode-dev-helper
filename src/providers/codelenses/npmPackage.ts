@@ -37,7 +37,10 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
       const text = useDocumentText(() => editor.value?.document)
       const languageId = computed(() => editor.value?.document.languageId)
 
-      if (!text.value || !languageId.value) {
+      if (!text.value) {
+        return
+      }
+      if (!languageId.value) {
         return
       }
 
@@ -49,7 +52,7 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
       )
         ? 'jsx'
         : 'ts'
-      const npmPackages = findNpmPackages(text.value!, {
+      const npmPackages = findNpmPackages(text.value, {
         cache: true,
         language,
       })
@@ -59,9 +62,9 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
         const endPos = document.positionAt(npmPackage.end!)
 
         const codelens = new CodeLens(new Range(startPos, endPos), {
-          title: 'node-modules.dev',
-          command: commands.openExternalUrl,
           arguments: [`https://node-modules.dev/#install=${npmPackage.name}`],
+          command: commands.openExternalUrl,
+          title: 'node-modules.dev',
         })
 
         this.#codeLens.push(codelens)

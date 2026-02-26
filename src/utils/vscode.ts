@@ -1,5 +1,5 @@
 /**
- * vscode utils
+ * Vscode utils
  */
 
 import { Buffer } from 'node:buffer'
@@ -15,29 +15,49 @@ import {
 import type { TextDocument } from 'vscode'
 
 /**
- * Open external URL
+ * Opens a URL using the system external handler.
+ *
+ * @param url - The URL to open.
  */
-export function openExternalURL(url: string) {
+export function openExternalURL(url: string): void {
   const uri = Uri.parse(url)
   env.openExternal(uri)
 }
 
 /**
- * execute a command
+ * Executes a VS Code command with optional arguments.
+ *
+ * @param command - The command identifier.
+ * @param args - Arguments passed to the command.
  */
-export async function executeCommand(command: string, ...args: any[]) {
+export async function executeCommand(
+  command: string,
+  ...args: unknown[]
+): Promise<void> {
   await vscodeCommands.executeCommand(command, ...args)
 }
 
 /**
- * get the range of the whole document
+ * Returns the validated range that covers the whole document.
+ *
+ * @param document - The target text document.
+ * @returns A range from document start to the line after the last line.
  */
 export function getWholeDocumentRange(document: TextDocument): Range {
   const oneLineMoreRange = new Range(0, 0, document.lineCount, 0)
   return document.validateRange(oneLineMoreRange)
 }
 
-export async function generateFileInWorkspace(filepath: string, content = '') {
+/**
+ * Writes a file into the first workspace folder.
+ *
+ * @param filepath - Relative file path from workspace root.
+ * @param content - File content to write.
+ */
+export async function generateFileInWorkspace(
+  filepath: string,
+  content = '',
+): Promise<void> {
   const workspaceFolders = useWorkspaceFolders()
 
   if (!workspaceFolders.value?.length) {
@@ -49,7 +69,7 @@ export async function generateFileInWorkspace(filepath: string, content = '') {
 
   try {
     await workspace.fs.writeFile(path, Buffer.from(content))
-  } catch (err) {
-    window.showErrorMessage(`File ${filepath} created failed: ${err}`)
+  } catch (error) {
+    window.showErrorMessage(`File ${filepath} created failed: ${error}`)
   }
 }
