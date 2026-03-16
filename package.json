@@ -348,7 +348,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.110.0"
+    "vscode": "^1.111.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,tsx}": "oxlint --fix",
