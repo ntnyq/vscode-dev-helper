@@ -31,6 +31,7 @@ export type CommandKey =
   | "vscode-dev-helper.generate-package-json"
   | "vscode-dev-helper.insert-inline-code"
   | "vscode-dev-helper.stripe-types"
+  | "vscode-dev-helper.sort-json"
 
 /**
  * Commands map registered by `ntnyq.vscode-dev-helper`
@@ -72,7 +73,7 @@ export const commands = {
    */
   generateOxfmtConfig: "vscode-dev-helper.generate-oxfmt-config",
   /**
-   * Generate .oxlintrc.json
+   * Generate .oxlintrc.jsonc
    * @value `vscode-dev-helper.generate-oxlint-config`
    */
   generateOxlintConfig: "vscode-dev-helper.generate-oxlint-config",
@@ -126,6 +127,11 @@ export const commands = {
    * @value `vscode-dev-helper.stripe-types`
    */
   stripeTypes: "vscode-dev-helper.stripe-types",
+  /**
+   * Sort JSON
+   * @value `vscode-dev-helper.sort-json`
+   */
+  sortJson: "vscode-dev-helper.sort-json",
 } satisfies Record<string, CommandKey>
 
 /**

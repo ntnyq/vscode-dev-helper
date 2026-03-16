@@ -21,7 +21,7 @@ import {
   gitBlameIgnoreRevsTemplate,
   gitIgnoreTemplate,
   oxfmtJsoncTemplate,
-  oxlintJsonTemplate,
+  oxlintJsoncTemplate,
   packageJsonTemplate,
   prettierConfigTemplate,
   prettierIgnoreTemplate,
@@ -72,6 +72,21 @@ export async function useCommands(): Promise<void> {
     return window.showInformationMessage('Types striped')
   })
 
+  useCommand(commands.sortJson, async () => {
+    if (!editor.value) {
+      return
+    }
+
+    logger.info('🟩 Sort JSON')
+
+    const { sortJson } = await import('./helper/sortJson')
+
+    await sortJson(editor.value)
+    await executeCommand(BUILTIN_COMMANDS.formatDocument)
+
+    return window.showInformationMessage('JSON sorted')
+  })
+
   useCommand(commands.generateNodeVersion, () => {
     createFileInWorkspace('.node-version', config.nodeVersion)
   })
@@ -101,7 +116,7 @@ export async function useCommands(): Promise<void> {
   })
 
   useCommand(commands.generateOxlintConfig, () => {
-    createFileInWorkspace('.oxlintrc.json', oxlintJsonTemplate)
+    createFileInWorkspace('.oxlintrc.jsonc', oxlintJsoncTemplate)
   })
 
   useCommand(commands.generatePrettierIgnore, () => {

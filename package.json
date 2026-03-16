@@ -53,7 +53,8 @@
     "color": "^5.0.3",
     "find-npm-packages": "^0.1.0",
     "oxidase": "^0.0.3",
-    "reactive-vscode": "^1.0.0-beta.2"
+    "reactive-vscode": "^1.0.0-beta.2",
+    "sort-keys": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
@@ -114,7 +115,7 @@
       {
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.generate-oxlint-config",
-        "title": "Generate .oxlintrc.json"
+        "title": "Generate .oxlintrc.jsonc"
       },
       {
         "category": "VSCode Dev Helper",
@@ -166,6 +167,12 @@
         "command": "vscode-dev-helper.stripe-types",
         "icon": "$(symbol-type-parameter)",
         "title": "Stripe Types"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.sort-json",
+        "icon": "$(sort-precedence)",
+        "title": "Sort JSON"
       }
     ],
     "configuration": {
@@ -249,6 +256,11 @@
           "command": "vscode-dev-helper.stripe-types",
           "group": "navigation",
           "when": "editorLangId == typescript || editorLangId == typescriptreact"
+        },
+        {
+          "command": "vscode-dev-helper.sort-json",
+          "group": "navigation",
+          "when": "editorLangId == json || editorLangId == jsonc"
         }
       ],
       "explorer/context": [

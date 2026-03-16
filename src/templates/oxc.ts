@@ -56,7 +56,7 @@ export const oxfmtJsoncTemplate = $`
   }
 `
 
-export const oxlintJsonTemplate = $`
+export const oxlintJsoncTemplate = $`
   {
     "$schema": "./node_modules/oxlint/configuration_schema.json",
     "plugins": [
@@ -81,15 +81,57 @@ export const oxlintJsonTemplate = $`
     "ignorePatterns": [
       "**/dist/**",
       "**/node_modules/**",
-      "**/tests/fixtures/**"
+      "**/fixtures/**"
     ],
     "rules": {
+      "capitalized-comments": "off",
+      "no-ternary": "off",
+      "no-undefined": "off",
+      "no-plusplus": "off",
+      "no-implicit-coercion": "off",
+      "require-await": "off",
+      "sort-imports": "off",
+      "sort-keys": "off",
+      "import/exports-last": "off",
+      "import/group-exports": "off",
+      "import/no-default-export": "off",
+      "import/no-named-export": "off",
+      "import/no-unassigned-import": "off",
+      "import/no-relative-parent-imports": "off",
+      "import/prefer-default-export": "off",
+      "jsdoc/require-param-type": "off",
+      "jsdoc/require-returns-type": "off",
+      "oxc/no-async-await": "off",
+      "oxc/no-optional-chaining": "off",
+      "oxc/no-rest-spread-properties": "off",
+      "promise/prefer-await-to-callbacks": "off",
+      "typescript/no-non-null-assertion": "off",
+      "typescript/no-empty-object-type": "off",
+      "typescript/no-explicit-any": "off",
+      "typescript/ban-types": "off",
+      "typescript/consistent-type-imports": "off",
+      "typescript/explicit-function-return-type": "off",
+      "typescript/explicit-module-boundary-types": "off",
+      "unicorn/filename-case": "off",
+      "unicorn/explicit-length-check": "off",
+      "unicorn/no-abusive-eslint-disable": "off",
+      "unicorn/prefer-global-this": "off",
+      "unicorn/no-array-reverse": "off",
       "import/no-named-export": "off",
       "import/group-exports": "off",
-      "func-style": [
+      "id-length": [
         "warn",
-        "declaration",
-        { "allowArrowFunctions": true }
+        { "min": 2, "exceptions": ["i", "j", "k", "t", "x", "y", "T", "_", "$"] },
+      ],
+      "func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
+      "max-statements": ["warn", 50],
+      "max-lines-per-function": [
+        "warn",
+        { "max": 200, "skipComments": true, "skipBlankLines": true },
+      ],
+      "no-duplicate-imports": [
+        "warn",
+        { "includeExports": false, "allowSeparateTypeImports": true },
       ],
       "no-magic-numbers": [
         "warn",
@@ -105,6 +147,7 @@ export const oxlintJsonTemplate = $`
       {
         "files": ["scripts/**/*.{js,ts}"],
         "rules": {
+          "no-console": "off",
           "import/no-nodejs-modules": "off",
           "import/prefer-default-export": "off",
           "import/no-named-export": "off"
@@ -113,7 +156,10 @@ export const oxlintJsonTemplate = $`
       {
         "files": ["**/*.config.ts"],
         "rules": {
-          "import/no-default-export": "off"
+          "new-cap": "off",
+          "sort-keys": ["warn"],
+          "import/no-default-export": "off",
+          "import/no-nodejs-modules": "off",
         }
       },
       {
@@ -148,12 +194,14 @@ export const oxlintJsonTemplate = $`
           "max-lines": "off",
           "max-statements": "off",
           "no-empty-function": "off",
+          "no-magic-numbers": "off",
           "no-undefined": "off",
           "import/no-nodejs-modules": "off",
           "typescript/ban-ts-comment": "off",
           "typescript/no-non-null-assertion": "off",
           "typescript/prefer-ts-expect-error": "off",
           "typescript/require-array-sort-compare": "off",
+          "vitest/no-importing-vitest-globals": "off",
         },
       },
     ],
