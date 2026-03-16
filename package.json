@@ -4,7 +4,7 @@
   "displayName": "VSCode Dev Helper",
   "preview": true,
   "type": "module",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "private": true,
   "packageManager": "pnpm@10.32.1",
   "description": "Personal dev helper built on top of VSCode",
