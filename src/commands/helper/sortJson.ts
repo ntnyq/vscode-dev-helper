@@ -1,20 +1,14 @@
 import { window } from 'vscode'
 import { getWholeDocumentRange } from '../../utils/vscode'
 import type { TextEditor } from 'vscode'
+import JSONC from 'tiny-jsonc'
 import { interopDefault } from '@ntnyq/utils'
 
 export async function sortJson(editor: TextEditor) {
   const { document } = editor
   const text = document.getText()
 
-  let json: unknown = null
-
-  try {
-    json = JSON.parse(text)
-  } catch {
-    window.showErrorMessage('Selected text is not valid JSON.')
-    return
-  }
+  const json = JSONC.parse(text)
 
   if (typeof json !== 'object' || json === null) {
     window.showErrorMessage('Selected JSON must be an object or array.')

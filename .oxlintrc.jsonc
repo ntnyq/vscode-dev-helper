@@ -2,7 +2,7 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
     "eslint",
-    // "import",
+    "import",
     "jsdoc",
     "node",
     "promise",
@@ -32,6 +32,11 @@
     "no-ternary": "off",
     "require-await": "off",
     "sort-imports": "off",
+    "import/group-exports": "off",
+    "import/exports-last": "off",
+    "import/no-named-export": "off",
+    "import/no-nodejs-modules": "off",
+    "import/prefer-default-export": "off",
     "import/no-relative-parent-imports": "off",
     "jsdoc/require-param-type": "off",
     "jsdoc/require-returns-type": "off",
@@ -78,11 +83,18 @@
   "overrides": [
     {
       "files": ["scripts/**/*.{js,ts}"],
-      "rules": {},
+      "rules": {
+        "no-console": "off",
+        "import/no-nodejs-modules": "off",
+      },
     },
     {
       "files": ["*.config.{ts,mjs}"],
-      "rules": {},
+      "rules": {
+        "sort-keys": "warn",
+        "import/no-default-export": "off",
+        "import/no-nodejs-modules": "off",
+      },
     },
     {
       "files": ["*.d.ts"],

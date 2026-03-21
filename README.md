@@ -52,7 +52,7 @@
 | `vscode-dev-helper.generate-package-json`          | VSCode Dev Helper: Generate package.json           |
 | `vscode-dev-helper.insert-inline-code`             | VSCode Dev Helper: Insert Inline Code              |
 | `vscode-dev-helper.stripe-types`                   | VSCode Dev Helper: Stripe Types                    |
-| `vscode-dev-helper.sort-json`                      | VSCode Dev Helper: Sort JSON                       |
+| `vscode-dev-helper.sort-json`                      | VSCode Dev Helper: Sort JSON(c)                    |
 
 <!-- commands -->
 

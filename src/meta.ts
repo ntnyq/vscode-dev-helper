@@ -128,7 +128,7 @@ export const commands = {
    */
   stripeTypes: "vscode-dev-helper.stripe-types",
   /**
-   * Sort JSON
+   * Sort JSON(c)
    * @value `vscode-dev-helper.sort-json`
    */
   sortJson: "vscode-dev-helper.sort-json",

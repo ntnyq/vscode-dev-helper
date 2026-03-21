@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.2.0",
   "private": true,
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -49,27 +49,27 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.11.0",
+    "@ntnyq/utils": "^0.11.2",
     "color": "^5.0.3",
     "find-npm-packages": "^0.1.0",
     "oxidase": "^0.0.3",
     "reactive-vscode": "^1.0.0-beta.2",
-    "sort-keys": "^6.0.0"
+    "sort-keys": "^6.0.0",
+    "tiny-jsonc": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
     "@types/vscode": "^1.110.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260315.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260329.1",
     "@vscode/vsce": "^3.7.1",
-    "bumpp": "^11.0.0",
+    "bumpp": "^11.0.1",
     "husky": "^9.1.7",
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
-    "oxfmt": "^0.40.0",
-    "oxlint": "^1.55.0",
-    "tsdown": "^0.21.3",
+    "oxfmt": "^0.42.0",
+    "oxlint": "^1.57.0",
+    "tsdown": "^0.21.7",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
     "vscode-ext-gen": "^1.6.0"
   },
   "activationEvents": [
@@ -172,7 +172,7 @@
         "category": "VSCode Dev Helper",
         "command": "vscode-dev-helper.sort-json",
         "icon": "$(sort-precedence)",
-        "title": "Sort JSON"
+        "title": "Sort JSON(c)"
       }
     ],
     "configuration": {
