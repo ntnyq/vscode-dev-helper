@@ -14,6 +14,7 @@
 - `.npmrc` completion, codelenses
 - npm packages codelenses
 - stripe types from ts?(x) files via [oxidase](https://github.com/branchseer/oxidase)
+- sort json(c) files
 - generate files
   - `.gitattributes`
   - `.gitignore`
