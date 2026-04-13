@@ -221,7 +221,7 @@ export async function useCommands(): Promise<void> {
         if (!size) {
           return 'Please input table size'
         }
-        if (!/\d+x\d+/.test(size)) {
+        if (!/\d+x\d+/u.test(size)) {
           return 'Please use format like [4x3]'
         }
         const [rowCount, columnCount] = size.split('x').map(Number)

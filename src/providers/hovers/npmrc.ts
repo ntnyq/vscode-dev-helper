@@ -14,12 +14,12 @@ import type {
 import type { NPMRCCodelensKeyUnion } from '../../constants/npmrc'
 
 export class NPMRCHoverProvider implements HoverProvider {
-  static selector: DocumentSelector = {
+  public static selector: DocumentSelector = {
     pattern: '/**/.npmrc',
     scheme: 'file',
   }
 
-  provideHover(
+  public provideHover(
     document: TextDocument,
     position: Position,
   ): ProviderResult<Hover> {

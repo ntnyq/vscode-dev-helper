@@ -11,7 +11,7 @@ import type {
 } from 'vscode'
 
 export class NpmPackageCodeLensProvider implements CodeLensProvider {
-  static selector: DocumentSelector = {
+  public static selector: DocumentSelector = {
     pattern: '/**/*.{js,ts,jsx,tsx}',
     scheme: 'file',
   }
@@ -19,15 +19,15 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
   #codeLens: CodeLens[] = []
   #_onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
 
-  constructor() {
+  public constructor() {
     workspace.onDidChangeConfiguration(() => {
       this.#_onDidChangeCodeLenses.fire()
     })
   }
 
-  onDidChangeCodeLenses: Event<void> = this.#_onDidChangeCodeLenses.event
+  public onDidChangeCodeLenses: Event<void> = this.#_onDidChangeCodeLenses.event
 
-  async provideCodeLenses(
+  public async provideCodeLenses(
     document: TextDocument,
   ): Promise<CodeLens[] | undefined> {
     if (config.enableCodeLens) {

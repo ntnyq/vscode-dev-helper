@@ -17,7 +17,7 @@ import type {
 import type { NPMRCCodelensKeyUnion } from '../../constants/npmrc'
 
 export class NPMRCCodeLensProvider implements CodeLensProvider {
-  static selector: DocumentSelector = {
+  public static selector: DocumentSelector = {
     pattern: '/**/*.npmrc',
     scheme: 'file',
   }
@@ -25,15 +25,15 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
   #codeLens: CodeLens[] = []
   #_onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
 
-  constructor() {
+  public constructor() {
     workspace.onDidChangeConfiguration(() => {
       this.#_onDidChangeCodeLenses.fire()
     })
   }
 
-  onDidChangeCodeLenses: Event<void> = this.#_onDidChangeCodeLenses.event
+  public onDidChangeCodeLenses: Event<void> = this.#_onDidChangeCodeLenses.event
 
-  provideCodeLenses(document: TextDocument): ProviderResult<CodeLens[]> {
+  public provideCodeLenses(document: TextDocument): ProviderResult<CodeLens[]> {
     if (config.enableCodeLens) {
       this.#codeLens = []
 
@@ -46,7 +46,7 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
 
       const regexp = new RegExp(
         `(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`,
-        'g',
+        'gu',
       )
       let match: RegExpExecArray | null = null
 
