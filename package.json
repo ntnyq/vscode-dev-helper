@@ -58,18 +58,18 @@
     "tiny-jsonc": "^1.0.2"
   },
   "devDependencies": {
-    "@types/node": "^25.6.2",
-    "@types/vscode": "^1.118.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260510.1",
+    "@types/node": "^25.8.0",
+    "@types/vscode": "^1.120.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260517.1",
     "@vscode/vsce": "^3.9.1",
     "bumpp": "^11.1.0",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "npm-run-all2": "^8.0.4",
-    "oxfmt": "^0.48.0",
-    "oxlint": "^1.63.0",
+    "oxfmt": "^0.50.0",
+    "oxlint": "^1.65.0",
     "tsdown": "^0.22.0",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.1",
     "vscode-ext-gen": "^1.6.0"
   },
   "activationEvents": [
@@ -348,7 +348,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.119.0"
+    "vscode": "^1.120.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,tsx}": "oxlint --fix",
