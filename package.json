@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.2.1",
   "private": true,
-  "packageManager": "pnpm@10.33.4",
+  "packageManager": "pnpm@11.1.3",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
