@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.2.1",
   "private": true,
-  "packageManager": "pnpm@11.7.0",
+  "packageManager": "pnpm@11.8.0",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -58,9 +58,9 @@
     "tiny-jsonc": "^1.0.2"
   },
   "devDependencies": {
-    "@types/node": "^25.9.3",
-    "@types/vscode": "^1.120.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260615.1",
+    "@types/node": "^25.9.4",
+    "@types/vscode": "^1.125.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260621.1",
     "@vscode/vsce": "^3.9.2",
     "bumpp": "^11.1.0",
     "husky": "^9.1.7",
@@ -68,7 +68,7 @@
     "npm-run-all2": "^9.0.2",
     "oxfmt": "^0.55.0",
     "oxlint": "^1.70.0",
-    "tsdown": "^0.22.2",
+    "tsdown": "^0.22.3",
     "tsx": "^4.22.4",
     "vscode-ext-gen": "^1.6.0"
   },
@@ -348,7 +348,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.124.2"
+    "vscode": "^1.125.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,tsx}": "oxlint --fix",
