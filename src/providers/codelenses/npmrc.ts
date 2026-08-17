@@ -37,8 +37,8 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
     if (config.enableCodeLens) {
       this.#codeLens = []
 
-      const editor = useActiveTextEditor()
-      const text = useDocumentText(() => editor.value?.document)
+      const editor = useActiveTextEditor(),
+        text = useDocumentText(() => editor.value?.document)
 
       if (!text.value) {
         return
@@ -53,8 +53,8 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
       regexp.lastIndex = 0
 
       while ((match = regexp.exec(text.value))) {
-        const line = document.lineAt(document.positionAt(match.index).line)
-        const key = line.text.split('=')[0].trim()
+        const line = document.lineAt(document.positionAt(match.index).line),
+          key = line.text.split('=')[0].trim()
 
         if (!key) {
           return

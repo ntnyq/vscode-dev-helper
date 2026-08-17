@@ -3,13 +3,11 @@ import { getWholeDocumentRange } from '../../utils/vscode'
 import type { TextEditor } from 'vscode'
 
 export async function stripeTypes(editor: TextEditor) {
-  const { document, selection } = editor
-  const range = selection.isEmpty ? getWholeDocumentRange(document) : selection
-  const tsCode = document.getText(range)
-
-  const { transpile } = await interopDefault(import('oxidase'))
-
-  const jsCode = transpile(tsCode)
+  const { document, selection } = editor,
+    range = selection.isEmpty ? getWholeDocumentRange(document) : selection,
+    tsCode = document.getText(range),
+    { transpile } = await interopDefault(import('oxidase')),
+    jsCode = transpile(tsCode)
 
   await editor.edit(editBuilder => {
     editBuilder.replace(range, jsCode)

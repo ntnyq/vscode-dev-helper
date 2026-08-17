@@ -33,9 +33,9 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
     if (config.enableCodeLens) {
       this.#codeLens = []
 
-      const editor = useActiveTextEditor()
-      const text = useDocumentText(() => editor.value?.document)
-      const languageId = computed(() => editor.value?.document.languageId)
+      const editor = useActiveTextEditor(),
+        text = useDocumentText(() => editor.value?.document),
+        languageId = computed(() => editor.value?.document.languageId)
 
       if (!text.value) {
         return
@@ -45,27 +45,26 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
       }
 
       const { findNpmPackages } = await interopDefault(
-        import('find-npm-packages'),
-      )
-      const language = ['javascriptreact', 'typescriptreact'].includes(
-        languageId.value,
-      )
-        ? 'jsx'
-        : 'ts'
-      const npmPackages = findNpmPackages(text.value, {
-        cache: true,
-        language,
-      })
+          import('find-npm-packages'),
+        ),
+        language = ['javascriptreact', 'typescriptreact'].includes(
+          languageId.value,
+        )
+          ? 'jsx'
+          : 'ts',
+        npmPackages = findNpmPackages(text.value, {
+          cache: true,
+          language,
+        })
 
       npmPackages.forEach(npmPackage => {
-        const startPos = document.positionAt(npmPackage.start!)
-        const endPos = document.positionAt(npmPackage.end!)
-
-        const codelens = new CodeLens(new Range(startPos, endPos), {
-          arguments: [`https://node-modules.dev/#install=${npmPackage.name}`],
-          command: commands.openExternalUrl,
-          title: 'node-modules.dev',
-        })
+        const startPos = document.positionAt(npmPackage.start!),
+          endPos = document.positionAt(npmPackage.end!),
+          codelens = new CodeLens(new Range(startPos, endPos), {
+            arguments: [`https://node-modules.dev/#install=${npmPackage.name}`],
+            command: commands.openExternalUrl,
+            title: 'node-modules.dev',
+          })
 
         this.#codeLens.push(codelens)
       })

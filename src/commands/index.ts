@@ -38,9 +38,9 @@ import {
 import { createFileInWorkspace } from './helper/fs'
 
 export async function useCommands(): Promise<void> {
-  const editor = useActiveTextEditor()
-  const selection = useTextEditorSelection(editor)
-  const languageId = computed(() => editor.value?.document.languageId)
+  const editor = useActiveTextEditor(),
+    selection = useTextEditorSelection(editor),
+    languageId = computed(() => editor.value?.document.languageId)
 
   useCommand(commands.enableCodelens, () => {
     config.update('enableCodeLens', true)
@@ -157,13 +157,11 @@ export async function useCommands(): Promise<void> {
       return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
-    const useCustomPreset = config.alertPreset === ALERT_PRESET_CUSTOM
-
-    const alertPreset = markdownAlertPresets.find(
-      preset => preset.name === config.alertPreset,
-    )
-
-    const alertTypes = useCustomPreset ? config.alertTypes : alertPreset?.types
+    const useCustomPreset = config.alertPreset === ALERT_PRESET_CUSTOM,
+      alertPreset = markdownAlertPresets.find(
+        preset => preset.name === config.alertPreset,
+      ),
+      alertTypes = useCustomPreset ? config.alertTypes : alertPreset?.types
 
     if (!alertTypes?.length) {
       if (useCustomPreset) {
@@ -185,20 +183,19 @@ export async function useCommands(): Promise<void> {
       return
     }
 
-    const content = editor.value.document.getText(selection.value)
-
-    const alertText = createAlert({
-      content,
-      marker: config.alertMarker,
-      syntax:
-        (useCustomPreset ? config.alertSyntax : alertPreset?.syntax) ||
-        ALERT_DEFAULT_SYNTAX,
-      type,
-      uppercaseType:
-        (useCustomPreset
-          ? config.alertUppercaseType
-          : alertPreset?.uppercaseType) || ALERT_DEFAULT_UPPERCASE_TYPE,
-    })
+    const content = editor.value.document.getText(selection.value),
+      alertText = createAlert({
+        content,
+        marker: config.alertMarker,
+        syntax:
+          (useCustomPreset ? config.alertSyntax : alertPreset?.syntax) ||
+          ALERT_DEFAULT_SYNTAX,
+        type,
+        uppercaseType:
+          (useCustomPreset
+            ? config.alertUppercaseType
+            : alertPreset?.uppercaseType) || ALERT_DEFAULT_UPPERCASE_TYPE,
+      })
 
     await editor.value.insertSnippet(new SnippetString(alertText))
 
@@ -215,37 +212,36 @@ export async function useCommands(): Promise<void> {
     }
 
     const input = await window.showInputBox({
-      prompt: 'Input table size, e.g. 4x3',
-      title: 'Create Table',
-      validateInput(size) {
-        if (!size) {
-          return 'Please input table size'
-        }
-        if (!/\d+x\d+/u.test(size)) {
-          return 'Please use format like [4x3]'
-        }
-        const [rowCount, columnCount] = size.split('x').map(Number)
-        if (rowCount <= 0 || columnCount <= 0) {
-          return 'Please use format like [4x3]'
-        }
-        return null
-      },
-      value: '4x3',
-    })
-    const trimmedInput = input?.trim()
+        prompt: 'Input table size, e.g. 4x3',
+        title: 'Create Table',
+        validateInput(size) {
+          if (!size) {
+            return 'Please input table size'
+          }
+          if (!/\d+x\d+/u.test(size)) {
+            return 'Please use format like [4x3]'
+          }
+          const [rowCount, columnCount] = size.split('x').map(Number)
+          if (rowCount <= 0 || columnCount <= 0) {
+            return 'Please use format like [4x3]'
+          }
+          return null
+        },
+        value: '4x3',
+      }),
+      trimmedInput = input?.trim()
 
     if (!trimmedInput) {
       return
     }
 
     const [rowCount, columnCount] = trimmedInput
-      .split('x')
-      .map(v => Number.parseInt(v, 10))
-
-    const alertText = createTable({
-      columnCount,
-      rowCount,
-    })
+        .split('x')
+        .map(v => Number.parseInt(v, 10)),
+      alertText = createTable({
+        columnCount,
+        rowCount,
+      })
 
     await editor.value.insertSnippet(new SnippetString(alertText))
 
