@@ -38,9 +38,9 @@ import {
 import { createFileInWorkspace } from './helper/fs'
 
 export async function useCommands(): Promise<void> {
-  const editor = useActiveTextEditor()
-  const selection = useTextEditorSelection(editor)
-  const languageId = computed(() => editor.value?.document.languageId)
+  const editor = useActiveTextEditor(),
+   selection = useTextEditorSelection(editor),
+   languageId = computed(() => editor.value?.document.languageId)
 
   useCommand(commands.enableCodelens, () => {
     config.update('enableCodeLens', true)
@@ -157,13 +157,13 @@ export async function useCommands(): Promise<void> {
       return window.showWarningMessage('Only markdown and mdx is supported')
     }
 
-    const useCustomPreset = config.alertPreset === ALERT_PRESET_CUSTOM
+    const useCustomPreset = config.alertPreset === ALERT_PRESET_CUSTOM,
 
-    const alertPreset = markdownAlertPresets.find(
+     alertPreset = markdownAlertPresets.find(
       preset => preset.name === config.alertPreset,
-    )
+    ),
 
-    const alertTypes = useCustomPreset ? config.alertTypes : alertPreset?.types
+     alertTypes = useCustomPreset ? config.alertTypes : alertPreset?.types
 
     if (!alertTypes?.length) {
       if (useCustomPreset) {
@@ -185,9 +185,9 @@ export async function useCommands(): Promise<void> {
       return
     }
 
-    const content = editor.value.document.getText(selection.value)
+    const content = editor.value.document.getText(selection.value),
 
-    const alertText = createAlert({
+     alertText = createAlert({
       content,
       marker: config.alertMarker,
       syntax:
@@ -231,8 +231,8 @@ export async function useCommands(): Promise<void> {
         return null
       },
       value: '4x3',
-    })
-    const trimmedInput = input?.trim()
+    }),
+     trimmedInput = input?.trim()
 
     if (!trimmedInput) {
       return
@@ -240,9 +240,9 @@ export async function useCommands(): Promise<void> {
 
     const [rowCount, columnCount] = trimmedInput
       .split('x')
-      .map(v => Number.parseInt(v, 10))
+      .map(v => Number.parseInt(v, 10)),
 
-    const alertText = createTable({
+     alertText = createTable({
       columnCount,
       rowCount,
     })

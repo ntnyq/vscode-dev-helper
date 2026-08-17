@@ -63,8 +63,8 @@ ${
  * @returns A markdown alert string.
  */
 export function createAlert(options: CreateMarkdownAlertOptions): string {
-  const isWhitespace = options.content?.trim()?.length === 0
-  const lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
+  const isWhitespace = options.content?.trim()?.length === 0,
+   lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
 
   if (options.syntax === 'container') {
     return createContainerAlert(lines, options)
@@ -96,11 +96,11 @@ export function createTable(options: CreateTableOptions): string {
     return ''
   }
 
-  const header = `|${Array.from({ length: columnCount }).fill(WHITESPACE.repeat(5)).join('|')}|`
-  const separator = `|${Array.from({ length: columnCount })
+  const header = `|${Array.from({ length: columnCount }).fill(WHITESPACE.repeat(5)).join('|')}|`,
+   separator = `|${Array.from({ length: columnCount })
     .fill(separatorMap[align as keyof typeof separatorMap])
-    .join('|')}|`
-  const body = Array.from({ length: rowCount }).fill(header).join('\n')
+    .join('|')}|`,
+   body = Array.from({ length: rowCount }).fill(header).join('\n')
   return [header, separator, body].join('\n')
 }
 
