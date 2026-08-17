@@ -6,9 +6,8 @@ import { interopDefault } from '@ntnyq/utils'
 
 export async function sortJson(editor: TextEditor) {
   const { document } = editor,
-   text = document.getText(),
-
-   json = JSONC.parse(text)
+    text = document.getText(),
+    json = JSONC.parse(text)
 
   if (typeof json !== 'object' || json === null) {
     window.showErrorMessage('Selected JSON must be an object or array.')
@@ -16,9 +15,8 @@ export async function sortJson(editor: TextEditor) {
   }
 
   const sortKeys = await interopDefault(import('sort-keys')),
-
-   sortedJson = sortKeys(json, { deep: true }),
-   sortedText = JSON.stringify(sortedJson, null, 2)
+    sortedJson = sortKeys(json, { deep: true }),
+    sortedText = JSON.stringify(sortedJson, null, 2)
 
   await editor.edit(editBuilder => {
     editBuilder.replace(getWholeDocumentRange(document), sortedText)

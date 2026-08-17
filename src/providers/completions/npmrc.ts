@@ -25,17 +25,16 @@ export class NPMRCKeyCompletionProvider implements CompletionItemProvider {
     position: Position,
   ): ProviderResult<CompletionItem[] | CompletionList<CompletionItem>> {
     const line = document.lineAt(position),
-     lineText = `${line.text.slice(0, Math.max(0, position.character))}`,
-
-     comletionList = NPMRC_COMPLETION_KEYS.filter(key =>
-      key.startsWith(lineText),
-    ).map(
-      item =>
-        new CompletionItem(
-          { description: 'Pnpm configuration', label: item },
-          CompletionItemKind.Field,
-        ),
-    )
+      lineText = `${line.text.slice(0, Math.max(0, position.character))}`,
+      comletionList = NPMRC_COMPLETION_KEYS.filter(key =>
+        key.startsWith(lineText),
+      ).map(
+        item =>
+          new CompletionItem(
+            { description: 'Pnpm configuration', label: item },
+            CompletionItemKind.Field,
+          ),
+      )
 
     return new CompletionList(comletionList)
   }
@@ -54,19 +53,18 @@ export class NPMRCValueCompletionProvider implements CompletionItemProvider {
     position: Position,
   ): ProviderResult<CompletionItem[] | CompletionList<CompletionItem>> {
     const line = document.lineAt(position),
-     lineText = `${line.text.slice(0, Math.max(0, position.character))}`,
-     comletionValueList =
-      NPMRC_COMPLETION_ITEMS[
-        lineText.replace('=', '') as NPMRCCompletionKeyUnion
-      ] ?? [],
-
-     comletionList = comletionValueList.map(
-      item =>
-        new CompletionItem(
-          { description: 'Pnpm configuration', label: item },
-          CompletionItemKind.Value,
-        ),
-    )
+      lineText = `${line.text.slice(0, Math.max(0, position.character))}`,
+      comletionValueList =
+        NPMRC_COMPLETION_ITEMS[
+          lineText.replace('=', '') as NPMRCCompletionKeyUnion
+        ] ?? [],
+      comletionList = comletionValueList.map(
+        item =>
+          new CompletionItem(
+            { description: 'Pnpm configuration', label: item },
+            CompletionItemKind.Value,
+          ),
+      )
 
     return new CompletionList(comletionList)
   }

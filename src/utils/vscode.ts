@@ -65,7 +65,7 @@ export async function generateFileInWorkspace(
   }
 
   const rootPath = workspaceFolders.value[0].uri.fsPath,
-   path = Uri.file(`${rootPath}/${filepath}`)
+    path = Uri.file(`${rootPath}/${filepath}`)
 
   try {
     await workspace.fs.writeFile(path, Buffer.from(content))

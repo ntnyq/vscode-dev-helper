@@ -24,8 +24,8 @@ export class NPMRCHoverProvider implements HoverProvider {
     position: Position,
   ): ProviderResult<Hover> {
     const range = document.getWordRangeAtPosition(position),
-     { text } = document.lineAt(position.line),
-     key = text.split('=')[0].trim()
+      { text } = document.lineAt(position.line),
+      key = text.split('=')[0].trim()
 
     if (!key || !NPMRC_CODELENS_KEYS.includes(key)) {
       return
@@ -34,8 +34,8 @@ export class NPMRCHoverProvider implements HoverProvider {
     logger.info(`🟩 Created hover for: ${key}`)
 
     const content =
-      NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion].description,
-     markdown = new MarkdownString(content)
+        NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion].description,
+      markdown = new MarkdownString(content)
 
     markdown.isTrusted = true
     markdown.supportHtml = true

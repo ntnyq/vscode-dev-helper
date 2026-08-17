@@ -64,7 +64,7 @@ ${
  */
 export function createAlert(options: CreateMarkdownAlertOptions): string {
   const isWhitespace = options.content?.trim()?.length === 0,
-   lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
+    lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
 
   if (options.syntax === 'container') {
     return createContainerAlert(lines, options)
@@ -97,10 +97,10 @@ export function createTable(options: CreateTableOptions): string {
   }
 
   const header = `|${Array.from({ length: columnCount }).fill(WHITESPACE.repeat(5)).join('|')}|`,
-   separator = `|${Array.from({ length: columnCount })
-    .fill(separatorMap[align as keyof typeof separatorMap])
-    .join('|')}|`,
-   body = Array.from({ length: rowCount }).fill(header).join('\n')
+    separator = `|${Array.from({ length: columnCount })
+      .fill(separatorMap[align as keyof typeof separatorMap])
+      .join('|')}|`,
+    body = Array.from({ length: rowCount }).fill(header).join('\n')
   return [header, separator, body].join('\n')
 }
 
