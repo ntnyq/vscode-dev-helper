@@ -12,6 +12,7 @@ export const oxfmtJsoncTemplate = $`
     "bracketSpacing": true,
     "embeddedLanguageFormatting": "auto",
     "endOfLine": "lf",
+    "experimentalOperatorPosition": "end",
     "sortImports": {
       "newlinesBetween": false,
     },

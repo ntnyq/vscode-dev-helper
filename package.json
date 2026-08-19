@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.2.1",
   "private": true,
-  "packageManager": "pnpm@11.19.0",
+  "packageManager": "pnpm@11.22.0",
   "description": "Personal dev helper built on top of VSCode",
   "keywords": [
     "dev-helper"
@@ -49,7 +49,7 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.21.0",
+    "@ntnyq/utils": "^0.21.1",
     "color": "^5.0.3",
     "find-npm-packages": "^0.1.0",
     "oxidase": "^0.0.3",
@@ -58,18 +58,18 @@
     "tiny-jsonc": "^1.0.2"
   },
   "devDependencies": {
-    "@types/node": "^25.9.5",
+    "@types/node": "^26.2.0",
     "@types/vscode": "^1.125.0",
     "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "@vscode/vsce": "^3.9.2",
-    "bumpp": "^12.1.1",
+    "bumpp": "^12.2.1",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "npm-run-all2": "^9.0.3",
-    "oxfmt": "^0.61.0",
-    "oxlint": "^1.76.0",
+    "oxfmt": "^0.64.0",
+    "oxlint": "^1.79.0",
     "tsdown": "^0.22.14",
-    "tsx": "^4.23.5",
+    "tsx": "^4.23.12",
     "vscode-ext-gen": "^1.6.0"
   },
   "activationEvents": [

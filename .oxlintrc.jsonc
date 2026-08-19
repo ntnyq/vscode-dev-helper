@@ -9,7 +9,6 @@
     "oxc",
     "typescript",
     "unicorn",
-    "vue",
   ],
   "categories": {
     "correctness": "error",
@@ -30,6 +29,7 @@
     "class-methods-use-this": "off",
     "func-style": "off",
     "no-ternary": "off",
+    "one-var": "off",
     "require-await": "off",
     "sort-imports": "off",
     "import/group-exports": "off",
