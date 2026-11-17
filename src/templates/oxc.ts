@@ -23,9 +23,9 @@ export const oxfmtJsoncTemplate = $`
     "ignorePatterns": [
       "**/node_modules/**",
       "**/dist/**",
+      "**/fixtures/**",
       "pnpm-lock.yaml",
       "**/*.min.*",
-      "**/tests/fixtures/**",
     ],
     "insertFinalNewline": true,
     "jsxSingleQuote": true,
@@ -118,8 +118,6 @@ export const oxlintJsoncTemplate = $`
       "unicorn/no-abusive-eslint-disable": "off",
       "unicorn/prefer-global-this": "off",
       "unicorn/no-array-reverse": "off",
-      "import/no-named-export": "off",
-      "import/group-exports": "off",
       "id-length": [
         "warn",
         { "min": 2, "exceptions": ["i", "j", "k", "t", "x", "y", "T", "_", "$"] },
@@ -142,7 +140,8 @@ export const oxlintJsoncTemplate = $`
           "enforceConst": true,
           "detectObjects": false
         }
-      ]
+      ],
+      "one-var": ["error", "never"],
     },
     "overrides": [
       {

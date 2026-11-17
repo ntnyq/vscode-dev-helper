@@ -8,6 +8,7 @@
     "source.fixAll.eslint": "explicit"
   },
   "js/ts.experimental.useTsgo": true,
+  "js/ts.tsdk.path": "node_modules/@typescript/native-preview",
   "cSpell.words": [
     "bumpp",
     "changelogithub",
@@ -24,7 +25,8 @@
     "tazerc",
     "tsdown",
     "tsgo",
-    "unrs"
+    "unrs",
+    "webp"
   ],
   "emeraldwalk.runonsave": {
     "commands": [

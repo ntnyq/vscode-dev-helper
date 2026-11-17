@@ -19,14 +19,21 @@ export const gitIgnoreTemplate = $`
 `
 
 export const gitAttributesTemplate = $`
-  * text eol=lf
-  *.txt text eol=crlf
+  # Normalize text files to LF
+  * text=auto eol=lf
+
+  # Images
   *.png binary
   *.jpg binary
   *.jpeg binary
   *.gif binary
+  *.webp binary
+  *.avif binary
   *.ico binary
-  *.tff binary
+
+  # Fonts
+  *.ttf binary
+  *.otf binary
   *.woff binary
   *.woff2 binary
 `
