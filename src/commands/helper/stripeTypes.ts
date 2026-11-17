@@ -9,7 +9,7 @@ export async function stripeTypes(editor: TextEditor) {
 
   const { transpile } = await interopDefault(import('oxidase'))
 
-  const jsCode = transpile(tsCode)
+  const jsCode = transpile(tsCode, document.fileName)
 
   await editor.edit(editBuilder => {
     editBuilder.replace(range, jsCode)

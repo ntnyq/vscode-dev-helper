@@ -9,7 +9,7 @@ export default defineConfig({
   copy: [
     {
       from: 'node_modules/oxidase/wasm_node/oxidase_wasm_bindings_bg.wasm',
-      to: 'dist/oxidase_wasm_bindings_bg.wasm',
+      to: 'dist',
     },
   ],
   deps: {

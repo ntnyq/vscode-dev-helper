@@ -3,7 +3,6 @@
  */
 
 import { Buffer } from 'node:buffer'
-import { useWorkspaceFolders } from 'reactive-vscode'
 import {
   env,
   Range,
@@ -11,6 +10,7 @@ import {
   commands as vscodeCommands,
   window,
   workspace,
+  WorkspaceEdit,
 } from 'vscode'
 import type { TextDocument } from 'vscode'
 
@@ -49,27 +49,59 @@ export function getWholeDocumentRange(document: TextDocument): Range {
 }
 
 /**
- * Writes a file into the first workspace folder.
+ * Creates a file without overwriting existing content.
  *
  * @param filepath - Relative file path from workspace root.
  * @param content - File content to write.
+ * @param folderUri - Target folder, or a workspace folder selected by the user.
+ * @returns Whether the file was created.
  */
 export async function generateFileInWorkspace(
   filepath: string,
   content = '',
-): Promise<void> {
-  const workspaceFolders = useWorkspaceFolders()
+  folderUri?: Uri,
+): Promise<boolean> {
+  let targetFolder = folderUri
 
-  if (!workspaceFolders.value?.length) {
-    return
+  if (!targetFolder) {
+    const folders = workspace.workspaceFolders
+
+    if (!folders?.length) {
+      await window.showWarningMessage(
+        'Open a workspace folder to generate files',
+      )
+      return false
+    }
+
+    if (folders.length === 1) {
+      targetFolder = folders[0].uri
+    } else {
+      const selectedFolder = await window.showWorkspaceFolderPick({
+        placeHolder: `Select a folder for ${filepath}`,
+      })
+      targetFolder = selectedFolder?.uri
+    }
   }
 
-  const rootPath = workspaceFolders.value[0].uri.fsPath
-  const path = Uri.file(`${rootPath}/${filepath}`)
-
-  try {
-    await workspace.fs.writeFile(path, Buffer.from(content))
-  } catch (error) {
-    window.showErrorMessage(`File ${filepath} created failed: ${error}`)
+  if (!targetFolder) {
+    return false
   }
+
+  const fileUri = Uri.joinPath(targetFolder, filepath)
+  const edit = new WorkspaceEdit()
+
+  edit.createFile(fileUri, {
+    contents: Buffer.from(content),
+    ignoreIfExists: false,
+    overwrite: false,
+  })
+
+  if (!(await workspace.applyEdit(edit))) {
+    await window.showErrorMessage(
+      `Could not create ${filepath}. The file may already exist or the folder may not be writable.`,
+    )
+    return false
+  }
+
+  return true
 }

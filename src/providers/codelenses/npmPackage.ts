@@ -1,8 +1,8 @@
 import { interopDefault } from '@ntnyq/utils'
-import { computed, useActiveTextEditor, useDocumentText } from 'reactive-vscode'
+import { useDisposable } from 'reactive-vscode'
 import { CodeLens, EventEmitter, Range, workspace } from 'vscode'
 import { config } from '../../config'
-import { commands } from '../../meta'
+import { commands, scopedConfigs } from '../../meta'
 import type {
   CodeLensProvider,
   DocumentSelector,
@@ -16,61 +16,69 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
     scheme: 'file',
   }
 
-  #codeLens: CodeLens[] = []
-  #onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
+  #onDidChangeCodeLenses = useDisposable(new EventEmitter<void>())
 
   public constructor() {
-    workspace.onDidChangeConfiguration(() => {
-      this.#onDidChangeCodeLenses.fire()
-    })
+    useDisposable(
+      workspace.onDidChangeConfiguration(event => {
+        if (event.affectsConfiguration(scopedConfigs.scope)) {
+          this.#onDidChangeCodeLenses.fire()
+        }
+      }),
+    )
   }
 
   public onDidChangeCodeLenses: Event<void> = this.#onDidChangeCodeLenses.event
 
-  public async provideCodeLenses(
-    document: TextDocument,
-  ): Promise<CodeLens[] | undefined> {
-    if (config.enableCodeLens) {
-      this.#codeLens = []
+  public async provideCodeLenses(document: TextDocument): Promise<CodeLens[]> {
+    if (!config.enableCodeLens) {
+      return []
+    }
 
-      const editor = useActiveTextEditor()
-      const text = useDocumentText(() => editor.value?.document)
-      const languageId = computed(() => editor.value?.document.languageId)
+    const text = document.getText()
 
-      if (!text.value) {
-        return
-      }
-      if (!languageId.value) {
-        return
-      }
+    if (!text) {
+      return []
+    }
 
-      const { findNpmPackages } = await interopDefault(
-        import('find-npm-packages'),
-      )
-      const language = ['javascriptreact', 'typescriptreact'].includes(
-        languageId.value,
-      )
-        ? 'jsx'
-        : 'ts'
-      const npmPackages = findNpmPackages(text.value, {
-        cache: true,
-        language,
+    const { findNpmPackages } = await interopDefault(
+      import('find-npm-packages'),
+    )
+    const isTypeScript = ['typescript', 'typescriptreact'].includes(
+      document.languageId,
+    )
+    const supportsJsx = ['javascriptreact', 'typescriptreact'].includes(
+      document.languageId,
+    )
+
+    try {
+      const npmPackages = findNpmPackages(text, {
+        language: isTypeScript ? 'ts' : 'js',
+        plugins: supportsJsx ? ['jsx'] : [],
       })
 
-      npmPackages.forEach(npmPackage => {
-        const startPos = document.positionAt(npmPackage.start!)
-        const endPos = document.positionAt(npmPackage.end!)
+      return npmPackages.flatMap(npmPackage => {
+        if (npmPackage.start === null || npmPackage.end === null) {
+          return []
+        }
 
-        const codelens = new CodeLens(new Range(startPos, endPos), {
-          arguments: [`https://node-modules.dev/#install=${npmPackage.name}`],
-          command: commands.openExternalUrl,
-          title: 'node-modules.dev',
-        })
+        const startPos = document.positionAt(npmPackage.start)
+        const endPos = document.positionAt(npmPackage.end)
 
-        this.#codeLens.push(codelens)
+        return [
+          new CodeLens(new Range(startPos, endPos), {
+            arguments: [`https://node-modules.dev/#install=${npmPackage.name}`],
+            command: commands.openExternalUrl,
+            title: 'node-modules.dev',
+          }),
+        ]
       })
-
-      return this.#codeLens
+    } catch (error) {
+      // Incomplete source is expected while the user is typing.
+      if (error instanceof SyntaxError) {
+        return []
+      }
+      throw error
     }
   }
 }

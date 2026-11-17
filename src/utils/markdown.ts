@@ -29,7 +29,7 @@ function createBlockquoteAlert(
 > [${options.marker || ALERT_DEFAULT_MARKER}${options.uppercaseType ? options.type.toUpperCase() : options.type}]
 ${
   lines.length > 0
-    ? lines.map(line => `> ${line.trim()}`).join('\n')
+    ? lines.map(line => `> ${line}`).join('\n')
     : `> This is an example for ${options.type.toUpperCase()}`
 }`.trimStart()
 }
@@ -49,7 +49,7 @@ function createContainerAlert(
 ::: ${options.uppercaseType ? options.type.toUpperCase() : options.type}
 ${
   lines.length > 0
-    ? lines.map(line => `${line.trim()}`).join('\n')
+    ? lines.join('\n')
     : `This is an example for ${options.type.toUpperCase()}`
 }
 :::
@@ -63,8 +63,7 @@ ${
  * @returns A markdown alert string.
  */
 export function createAlert(options: CreateMarkdownAlertOptions): string {
-  const isWhitespace = options.content?.trim()?.length === 0
-  const lines = isWhitespace ? [] : options.content?.trim()?.split('\n') || []
+  const lines = options.content?.trim() ? options.content.split(/\r?\n/u) : []
 
   if (options.syntax === 'container') {
     return createContainerAlert(lines, options)
@@ -75,6 +74,29 @@ export function createAlert(options: CreateMarkdownAlertOptions): string {
   }
 
   return ''
+}
+
+/**
+ * Wraps text in an inline code span, preserving embedded backticks and spaces.
+ *
+ * @param content - Text to wrap.
+ * @returns A markdown inline code span.
+ */
+export function createInlineCode(content: string): string {
+  const backticks = content.match(/`+/gu) || []
+  let delimiterLength = 1
+
+  for (const run of backticks) {
+    delimiterLength = Math.max(delimiterLength, run.length + 1)
+  }
+  const delimiter = '`'.repeat(delimiterLength)
+  const needsPadding =
+    content.startsWith('`') ||
+    content.endsWith('`') ||
+    (content.startsWith(' ') && content.endsWith(' ') && /\S/u.test(content))
+  const padding = needsPadding ? ' ' : ''
+
+  return `${delimiter}${padding}${content}${padding}${delimiter}`
 }
 
 const separatorMap = {

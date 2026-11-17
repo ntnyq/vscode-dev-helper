@@ -1,11 +1,8 @@
-import { useActiveTextEditor, useDocumentText } from 'reactive-vscode'
+import { useDisposable } from 'reactive-vscode'
 import { CodeLens, EventEmitter, workspace } from 'vscode'
 import { config } from '../../config'
-import {
-  NPMRC_CODELENS_ITEMS,
-  NPMRC_CODELENS_KEYS,
-} from '../../constants/npmrc'
-import { commands } from '../../meta'
+import { NPMRC_CODELENS_ITEMS } from '../../constants/npmrc'
+import { commands, scopedConfigs } from '../../meta'
 import { logger } from '../../utils'
 import type {
   CodeLensProvider,
@@ -22,62 +19,47 @@ export class NPMRCCodeLensProvider implements CodeLensProvider {
     scheme: 'file',
   }
 
-  #codeLens: CodeLens[] = []
-
-  #onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
+  #onDidChangeCodeLenses = useDisposable(new EventEmitter<void>())
 
   public constructor() {
-    workspace.onDidChangeConfiguration(() => {
-      this.#onDidChangeCodeLenses.fire()
-    })
+    useDisposable(
+      workspace.onDidChangeConfiguration(event => {
+        if (event.affectsConfiguration(scopedConfigs.scope)) {
+          this.#onDidChangeCodeLenses.fire()
+        }
+      }),
+    )
   }
 
   public onDidChangeCodeLenses: Event<void> = this.#onDidChangeCodeLenses.event
 
   public provideCodeLenses(document: TextDocument): ProviderResult<CodeLens[]> {
-    if (config.enableCodeLens) {
-      this.#codeLens = []
+    if (!config.enableCodeLens) {
+      return []
+    }
 
-      const editor = useActiveTextEditor()
-      const text = useDocumentText(() => editor.value?.document)
+    const codeLenses: CodeLens[] = []
 
-      if (!text.value) {
-        return
-      }
+    for (let lineIndex = 0; lineIndex < document.lineCount; lineIndex += 1) {
+      const line = document.lineAt(lineIndex)
+      const match = /^\s*(?<key>[^\s=[\]#;]+)(?:\[\])?\s*=/u.exec(line.text)
+      const key = match?.groups?.key
 
-      const regexp = new RegExp(
-        `(?:${NPMRC_CODELENS_KEYS.join('|')})\\s*=.+`,
-        'gu',
-      )
-      let match: RegExpExecArray | null = null
-
-      regexp.lastIndex = 0
-
-      while ((match = regexp.exec(text.value))) {
-        const line = document.lineAt(document.positionAt(match.index).line)
-        const key = line.text.split('=')[0].trim()
-
-        if (!key) {
-          return
-        }
+      if (key && Object.hasOwn(NPMRC_CODELENS_ITEMS, key)) {
+        const codelensItem = NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion]
 
         logger.info(`🟩 Created codeLens for: ${key}`)
 
-        const codelensItem = NPMRC_CODELENS_ITEMS[key as NPMRCCodelensKeyUnion]
-
-        if (!codelensItem) {
-          return
-        }
-
-        const codelens = new CodeLens(line.range, {
-          arguments: [codelensItem.url || ''],
-          command: commands.openExternalUrl,
-          title: 'view docs',
-        })
-
-        this.#codeLens.push(codelens)
+        codeLenses.push(
+          new CodeLens(line.range, {
+            arguments: [codelensItem.url],
+            command: commands.openExternalUrl,
+            title: 'view docs',
+          }),
+        )
       }
-      return this.#codeLens
     }
+
+    return codeLenses
   }
 }

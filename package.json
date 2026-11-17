@@ -50,7 +50,6 @@
   },
   "dependencies": {
     "@ntnyq/utils": "^0.27.0",
-    "color": "^5.0.3",
     "find-npm-packages": "^0.1.0",
     "oxidase": "^0.0.3",
     "reactive-vscode": "^1.0.2",

@@ -28,6 +28,7 @@ import {
 } from '../templates'
 import {
   createAlert,
+  createInlineCode,
   createSummaryDetail,
   createTable,
   executeCommand,
@@ -36,6 +37,7 @@ import {
   upperFirst,
 } from '../utils'
 import { createFileInWorkspace } from './helper/fs'
+import type { Uri } from 'vscode'
 
 const MAX_TABLE_CELL_COUNT = 10_000
 
@@ -89,45 +91,39 @@ export async function useCommands(): Promise<void> {
     return window.showInformationMessage('JSON sorted')
   })
 
-  useCommand(commands.generateNodeVersion, () => {
-    createFileInWorkspace('.node-version', config.nodeVersion)
-  })
+  useCommand(commands.generateNodeVersion, (folderUri?: Uri) =>
+    createFileInWorkspace('.node-version', config.nodeVersion, folderUri),
+  )
 
-  useCommand(commands.generateGitattributes, () => {
-    createFileInWorkspace('.gitattributes', gitAttributesTemplate)
-  })
+  const fileCommands = [
+    [commands.generateGitattributes, '.gitattributes', gitAttributesTemplate],
+    [commands.generateGitignore, '.gitignore', gitIgnoreTemplate],
+    [
+      commands.generateGitBlameIgnoreRevs,
+      '.git-blame-ignore-revs',
+      gitBlameIgnoreRevsTemplate,
+    ],
+    [commands.generateEslintConfig, 'eslint.config.mjs', eslintConfigTemplate],
+    [
+      commands.generatePrettierConfig,
+      'prettier.config.mjs',
+      prettierConfigTemplate,
+    ],
+    [commands.generateOxfmtConfig, '.oxfmtrc.jsonc', oxfmtJsoncTemplate],
+    [commands.generateOxlintConfig, '.oxlintrc.jsonc', oxlintJsoncTemplate],
+    [
+      commands.generatePrettierIgnore,
+      '.prettierignore',
+      prettierIgnoreTemplate,
+    ],
+    [commands.generatePackageJson, 'package.json', packageJsonTemplate],
+  ] as const
 
-  useCommand(commands.generateGitignore, () => {
-    createFileInWorkspace('.gitignore', gitIgnoreTemplate)
-  })
-
-  useCommand(commands.generateGitBlameIgnoreRevs, () => {
-    createFileInWorkspace('.git-blame-ignore-revs', gitBlameIgnoreRevsTemplate)
-  })
-
-  useCommand(commands.generateEslintConfig, () => {
-    createFileInWorkspace('eslint.config.mjs', eslintConfigTemplate)
-  })
-
-  useCommand(commands.generatePrettierConfig, () => {
-    createFileInWorkspace('prettier.config.mjs', prettierConfigTemplate)
-  })
-
-  useCommand(commands.generateOxfmtConfig, () => {
-    createFileInWorkspace('.oxfmtrc.jsonc', oxfmtJsoncTemplate)
-  })
-
-  useCommand(commands.generateOxlintConfig, () => {
-    createFileInWorkspace('.oxlintrc.jsonc', oxlintJsoncTemplate)
-  })
-
-  useCommand(commands.generatePrettierIgnore, () => {
-    createFileInWorkspace('.prettierignore', prettierIgnoreTemplate)
-  })
-
-  useCommand(commands.generatePackageJson, () => {
-    createFileInWorkspace('package.json', packageJsonTemplate)
-  })
+  for (const [command, filePath, content] of fileCommands) {
+    useCommand(command, (folderUri?: Uri) =>
+      createFileInWorkspace(filePath, content, folderUri),
+    )
+  }
 
   useCommand(commands.insertInlineCode, () => {
     if (!editor.value) {
@@ -146,12 +142,14 @@ export async function useCommands(): Promise<void> {
       if (!selection.value) {
         return
       }
-      editBuilder.replace(selection.value, `\\\`${content}\\\``)
+      editBuilder.replace(selection.value, createInlineCode(content))
     })
   })
 
   useCommand(commands.createAlert, async () => {
-    if (!editor.value) {
+    const activeEditor = editor.value
+
+    if (!activeEditor) {
       return
     }
 
@@ -174,8 +172,10 @@ export async function useCommands(): Promise<void> {
       return
     }
 
-    const type = await window.showQuickPick(
-      alertTypes.map(v => upperFirst(v)),
+    const alertSelection = activeEditor.selection
+    const content = activeEditor.document.getText(alertSelection)
+    const selectedType = await window.showQuickPick(
+      alertTypes.map(type => ({ label: upperFirst(type), type })),
       {
         canPickMany: false,
         placeHolder: 'Select alert type',
@@ -183,11 +183,11 @@ export async function useCommands(): Promise<void> {
       },
     )
 
-    if (!type) {
+    if (!selectedType) {
       return
     }
 
-    const content = editor.value.document.getText(selection.value)
+    const { type } = selectedType
 
     const alertText = createAlert({
       content,
@@ -202,7 +202,15 @@ export async function useCommands(): Promise<void> {
           : alertPreset?.uppercaseType) || ALERT_DEFAULT_UPPERCASE_TYPE,
     })
 
-    await editor.value.insertSnippet(new SnippetString(alertText))
+    const isInserted = await activeEditor.insertSnippet(
+      new SnippetString().appendText(alertText),
+      alertSelection,
+      { keepWhitespace: true, undoStopAfter: true, undoStopBefore: true },
+    )
+
+    if (!isInserted) {
+      return
+    }
 
     return window.showInformationMessage(`${type.toUpperCase()} Created`)
   })

@@ -1,6 +1,4 @@
 export * from './case'
 export * from './logger'
-export * from './shared'
 export * from './vscode'
-export * from './isTruthy'
 export * from './markdown'

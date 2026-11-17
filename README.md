@@ -29,6 +29,10 @@
   - create table
   - create summary detail
 
+File generation commands use the folder selected in Explorer. When run from the
+Command Palette, they use the only open workspace folder or ask you to choose one
+if several are open. Existing files are never overwritten.
+
 ## Commands
 
 <!-- commands -->

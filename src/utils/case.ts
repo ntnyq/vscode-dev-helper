@@ -5,5 +5,5 @@
  * @returns The string with an uppercased first character.
  */
 export function upperFirst(value: string): string {
-  return value[0].toUpperCase() + value.slice(1)
+  return value.charAt(0).toUpperCase() + value.slice(1)
 }

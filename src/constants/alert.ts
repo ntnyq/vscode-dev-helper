@@ -25,7 +25,7 @@ export const markdownAlertPresets: MarkdownAlertPreset[] = [
   {
     name: 'vitepress',
     syntax: 'container',
-    types: ['info', 'tip', 'warning', 'danger', 'detail'],
+    types: ['info', 'tip', 'warning', 'danger', 'details'],
     uppercaseType: false,
   },
   /**
