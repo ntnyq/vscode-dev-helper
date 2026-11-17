@@ -32,6 +32,7 @@ export type CommandKey =
   | "vscode-dev-helper.insert-inline-code"
   | "vscode-dev-helper.stripe-types"
   | "vscode-dev-helper.sort-json"
+  | "vscode-dev-helper.empty-folder"
 
 /**
  * Commands map registered by `ntnyq.vscode-dev-helper`
@@ -132,6 +133,11 @@ export const commands = {
    * @value `vscode-dev-helper.sort-json`
    */
   sortJson: "vscode-dev-helper.sort-json",
+  /**
+   * Empty Folder
+   * @value `vscode-dev-helper.empty-folder`
+   */
+  emptyFolder: "vscode-dev-helper.empty-folder",
 } satisfies Record<string, CommandKey>
 
 /**

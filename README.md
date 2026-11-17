@@ -15,6 +15,7 @@
 - npm packages codelenses
 - stripe types from ts?(x) files via [oxidase](https://github.com/branchseer/oxidase)
 - sort json(c) files
+- empty a folder from the Explorer context menu
 - generate files
   - `.gitattributes`
   - `.gitignore`
@@ -32,6 +33,13 @@
 File generation commands use the folder selected in Explorer. When run from the
 Command Palette, they use the only open workspace folder or ask you to choose one
 if several are open. Existing files are never overwritten.
+
+Right-click a writable folder in Explorer and choose **Empty Folder**, directly
+after **Delete**. Confirm the target path to move all its contents (including
+hidden files and subfolders) to the Trash while keeping the folder itself.
+Symbolic-link folders are rejected. This command is only available in the
+Explorer context menu. If moving an item to the Trash fails, the command stops
+and reports the error; items already moved are not restored automatically.
 
 ## Commands
 
@@ -58,6 +66,7 @@ if several are open. Existing files are never overwritten.
 | `vscode-dev-helper.insert-inline-code`             | VSCode Dev Helper: Insert Inline Code              |
 | `vscode-dev-helper.stripe-types`                   | VSCode Dev Helper: Stripe Types                    |
 | `vscode-dev-helper.sort-json`                      | VSCode Dev Helper: Sort JSON(c)                    |
+| `vscode-dev-helper.empty-folder`                   | VSCode Dev Helper: Empty Folder                    |
 
 <!-- commands -->
 

@@ -172,6 +172,11 @@
         "command": "vscode-dev-helper.sort-json",
         "icon": "$(sort-precedence)",
         "title": "Sort JSON(c)"
+      },
+      {
+        "category": "VSCode Dev Helper",
+        "command": "vscode-dev-helper.empty-folder",
+        "title": "Empty Folder"
       }
     ],
     "configuration": {
@@ -245,6 +250,12 @@
       }
     ],
     "menus": {
+      "commandPalette": [
+        {
+          "command": "vscode-dev-helper.empty-folder",
+          "when": "false"
+        }
+      ],
       "editor/context": [
         {
           "submenu": "vscode-dev-helper.editor-context"
@@ -263,6 +274,11 @@
         }
       ],
       "explorer/context": [
+        {
+          "command": "vscode-dev-helper.empty-folder",
+          "group": "7_modification@30",
+          "when": "explorerResourceIsFolder && !explorerResourceReadonly"
+        },
         {
           "submenu": "vscode-dev-helper.explorer-context"
         }

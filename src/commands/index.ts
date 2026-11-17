@@ -36,7 +36,7 @@ import {
   openExternalURL,
   upperFirst,
 } from '../utils'
-import { createFileInWorkspace } from './helper/fs'
+import { createFileInWorkspace, emptyFolder } from './helper/fs'
 import type { Uri } from 'vscode'
 
 const MAX_TABLE_CELL_COUNT = 10_000
@@ -94,6 +94,10 @@ export async function useCommands(): Promise<void> {
   useCommand(commands.generateNodeVersion, (folderUri?: Uri) =>
     createFileInWorkspace('.node-version', config.nodeVersion, folderUri),
   )
+
+  useCommand(commands.emptyFolder, (folderUri?: Uri) => {
+    emptyFolder(folderUri)
+  })
 
   const fileCommands = [
     [commands.generateGitattributes, '.gitattributes', gitAttributesTemplate],
