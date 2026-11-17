@@ -37,6 +37,8 @@ import {
 } from '../utils'
 import { createFileInWorkspace } from './helper/fs'
 
+const MAX_TABLE_CELL_COUNT = 10_000
+
 export async function useCommands(): Promise<void> {
   const editor = useActiveTextEditor()
   const selection = useTextEditorSelection(editor)
@@ -218,15 +220,25 @@ export async function useCommands(): Promise<void> {
       prompt: 'Input table size, e.g. 4x3',
       title: 'Create Table',
       validateInput(size) {
-        if (!size) {
+        const trimmedSize = size.trim()
+
+        if (!trimmedSize) {
           return 'Please input table size'
         }
-        if (!/\d+x\d+/u.test(size)) {
+        if (!/^\d+x\d+$/u.test(trimmedSize)) {
           return 'Please use format like [4x3]'
         }
-        const [rowCount, columnCount] = size.split('x').map(Number)
-        if (rowCount <= 0 || columnCount <= 0) {
-          return 'Please use format like [4x3]'
+        const [rowCount, columnCount] = trimmedSize.split('x').map(Number)
+        if (
+          !Number.isSafeInteger(rowCount) ||
+          !Number.isSafeInteger(columnCount) ||
+          rowCount <= 0 ||
+          columnCount <= 0
+        ) {
+          return 'Please use positive safe integers for table dimensions'
+        }
+        if (rowCount * columnCount > MAX_TABLE_CELL_COUNT) {
+          return `Please use at most ${MAX_TABLE_CELL_COUNT} table cells`
         }
         return null
       },
@@ -238,9 +250,7 @@ export async function useCommands(): Promise<void> {
       return
     }
 
-    const [rowCount, columnCount] = trimmedInput
-      .split('x')
-      .map(v => Number.parseInt(v, 10))
+    const [rowCount, columnCount] = trimmedInput.split('x').map(Number)
 
     const alertText = createTable({
       columnCount,

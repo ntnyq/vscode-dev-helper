@@ -17,15 +17,15 @@ export class NpmPackageCodeLensProvider implements CodeLensProvider {
   }
 
   #codeLens: CodeLens[] = []
-  #_onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
+  #onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
 
   public constructor() {
     workspace.onDidChangeConfiguration(() => {
-      this.#_onDidChangeCodeLenses.fire()
+      this.#onDidChangeCodeLenses.fire()
     })
   }
 
-  public onDidChangeCodeLenses: Event<void> = this.#_onDidChangeCodeLenses.event
+  public onDidChangeCodeLenses: Event<void> = this.#onDidChangeCodeLenses.event
 
   public async provideCodeLenses(
     document: TextDocument,
