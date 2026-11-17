@@ -8,6 +8,7 @@ This is an ESM TypeScript VS Code extension built with reactive-vscode.
 - `src/commands/` contains command registration and helper implementations.
 - `src/providers/` groups CodeLens, completion, and hover providers.
 - `src/templates/` holds generated-file templates; `src/constants/`, `src/utils/`, and `src/types/` contain shared definitions.
+- `tests/` contains Vitest tests grouped by feature, with shared VS Code API mocks and document/editor factories in `tests/helpers/`.
 - `schemas/` contains JSON schemas, `res/` holds extension assets, and `playground/` provides a manual testing workspace.
 - `dist/` contains build output. `src/meta.ts` is generated metadata.
 
@@ -21,7 +22,8 @@ Use the pnpm version declared in `package.json` and Node.js LTS.
 - `pnpm lint`: run Oxlint.
 - `pnpm format`: apply Oxfmt formatting; `pnpm format:check` checks without rewriting.
 - `pnpm typecheck`: run strict TypeScript checks with `tsgo`.
-- `pnpm release:check`: run formatting, lint, and type checks.
+- `pnpm test`: run the Vitest suite once; watch mode is disabled in `vitest.config.ts`.
+- `pnpm release:check`: run formatting, lint, type checks, and tests.
 - `pnpm pack`: package the built extension as a VSIX; run `pnpm build` first.
 
 Press F5 using **Run Extension** to launch an Extension Development Host with `playground/`. Its prelaunch task starts the development build.
@@ -34,7 +36,16 @@ Use camelCase for functions, variables, and multiword source filenames (for exam
 
 ## Testing Guidelines
 
-There is currently no automated test framework, test naming convention, or coverage threshold. Before submitting changes, run `pnpm format:check`, `pnpm lint`, `pnpm build`, and `pnpm typecheck` to match CI. Manually exercise affected commands and providers in the Extension Development Host, and record reproduction steps and results in the PR.
+Use Vitest for automated tests. Keep test files under `tests/` and name them `<module>.test.ts`, preserving the source module's camelCase basename. Group tests by responsibility:
+
+- `tests/commands/`: command helpers, including file operations and editor transformations.
+- `tests/providers/`: completion and CodeLens providers.
+- `tests/utils/`: shared utility behavior, including Markdown generation.
+- `tests/helpers/`: reusable test fixtures and mocks; these are not test suites. Reuse `tests/helpers/vscode.ts` for VS Code API substitutes and document/editor factories.
+
+Cover normal behavior, edge cases, and error or cancellation paths. Mock VS Code APIs to keep unit tests independent of the Extension Development Host and real workspace files. There is no coverage threshold.
+
+Before submitting changes, run `pnpm format:check`, `pnpm lint`, `pnpm build`, `pnpm typecheck`, and `pnpm test` to match CI. For editor behavior changes, also manually exercise affected commands and providers in the Extension Development Host, and record reproduction steps and results in the PR.
 
 ## Commit & Pull Request Guidelines
 

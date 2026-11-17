@@ -43,10 +43,11 @@
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
     "release:build": "run-s generate:meta build",
-    "release:check": "run-s format:check lint typecheck",
+    "release:check": "run-s format:check lint typecheck test",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
   },
   "dependencies": {
     "@ntnyq/utils": "^0.27.0",
@@ -69,6 +70,7 @@
     "tsdown": "^0.23.7",
     "tsx": "^4.23.15",
     "typescript": "^7.1.0-beta",
+    "vitest": "^5.1.0",
     "vscode-ext-gen": "^1.6.0"
   },
   "activationEvents": [
@@ -366,7 +368,7 @@
     "vscode": "^1.146.0"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,tsx}": "oxlint --fix",
+    "*.{js,ts,mjs,tsx}": "oxlint --fix --no-error-on-unmatched-pattern",
     "*": "oxfmt --no-error-on-unmatched-pattern"
   }
 }
