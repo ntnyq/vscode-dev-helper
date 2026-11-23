@@ -231,7 +231,7 @@ importers:
         specifier: ^4.23.15
         version: 4.23.15
       typescript:
-        specifier: ^7.1.0-beta
+        specifier: ^7.1.0-dev.20261115.1
         version: 7.1.0-dev.20261116.1
       vitest:
         specifier: ^5.1.0
